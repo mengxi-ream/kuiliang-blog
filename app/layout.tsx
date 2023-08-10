@@ -1,9 +1,9 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import { Navbar } from "@/app/components/Navbar";
+import { Nunito } from "next/font/google";
+import { Header } from "@/app/components/Header";
 
-const inter = Inter({ subsets: ["latin"] });
+const nunito = Nunito({ weight: "400", subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Kuiliang's Blog",
@@ -17,8 +17,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} dark:bg-slate-800`}>
-        <Navbar />
+      <body className={`${nunito.className} dark:bg-slate-800`}>
+        <Header />
         <main className="px-4 md:px-6 prose prose-xl prose-slate dark:prose-invert mx-auto">
           {children}
         </main>

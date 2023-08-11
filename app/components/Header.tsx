@@ -5,7 +5,7 @@ export function Header() {
   return (
     <header className="bg-yellow-50">
       <nav className="flex justify-between items-center p-6 md:px-8 max-w-5xl mx-auto">
-        <Link href="/" className="text-orange-500 text-xl font-bold">
+        <Link href="/" className="text-orange-500 text-xl font-extrabold">
           Kuiliang Zhang
         </Link>
         <div className="hidden md:flex divide-x">

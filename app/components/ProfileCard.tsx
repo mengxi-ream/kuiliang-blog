@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import { SocialIcon } from "react-social-icons";
 
 export function ProfileCard() {
   const [currentTime, setCurrentTime] = useState(
@@ -18,6 +19,16 @@ export function ProfileCard() {
 
     return () => clearInterval(interval); // Clear the interval when the component unmounts
   }, []);
+
+  const socialLinks = [
+    { url: "https://www.linkedin.com/in/kuiliang-zhang/", network: "linkedin" },
+    { url: "https://github.com/Crayon-ShinChan", network: "github" },
+    {
+      url: "https://www.youtube.com/channel/UCWCV-rLxr-gOvi6OZm9wIvw",
+      network: "youtube",
+    },
+    { url: "https://medium.com/@z1219202167", network: "medium" },
+  ];
 
   return (
     <div className="max-w-sm mx-auto mt-10 bg-white p-6 rounded-xl shadow-md space-y-4">
@@ -59,6 +70,20 @@ export function ProfileCard() {
           </a>
           , {currentTime}
         </div>
+      </div>
+      <div className="flex justify-center gap-x-3">
+        {socialLinks.map((link) => (
+          <SocialIcon
+            key={link.url}
+            url={link.url}
+            network={link.network}
+            target="_blank"
+            fgColor="white"
+            bgColor="currentColor"
+            style={{ height: 40, width: 40 }}
+            className="text-black rounded-full hover:text-orange-500 transition duration-300 ease-in-out"
+          />
+        ))}
       </div>
     </div>
   );

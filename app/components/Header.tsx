@@ -3,7 +3,7 @@ import { SunIcon } from "@heroicons/react/24/solid";
 
 export function Header() {
   return (
-    <header className="bg-yellow-50">
+    <header className="bg-white">
       <nav className="flex justify-between items-center p-6 md:px-8 max-w-5xl mx-auto">
         <Link href="/" className="text-orange-500 text-xl font-extrabold">
           Kuiliang Zhang

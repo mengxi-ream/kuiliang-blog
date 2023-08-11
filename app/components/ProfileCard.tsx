@@ -31,59 +31,66 @@ export function ProfileCard() {
   ];
 
   return (
-    <div className="max-w-sm mx-auto mt-10 bg-white p-6 rounded-xl shadow-md space-y-4">
-      <div className="flex items-center rounded-full mx-auto h-36 w-36 border-2 border-orange-500 border-opacity-80">
-        <Image
-          className="rounded-full h-32 w-32 mx-auto"
-          src="/images/profile-photo.png"
-          alt="Kuiliang Zhang"
-          width={160}
-          height={160}
-          priority={true}
-        />
-      </div>
-      <div className="text-center text-3xl font-extrabold">Kuiliang Zhang</div>
-      <div className="text-center text-base">
-        <div>
-          <span className="font-bold">Chinese Name: </span>章奎亮
-        </div>
-
-        <div>
-          <span className="font-bold">Email: </span>
-          <a
-            href="mailto:kuiliang.zhang@outlook.com"
-            className="hover:text-orange-500 transition duration-300 ease-in-out"
-          >
-            kuiliang.zhang@outlook.com
-          </a>
-        </div>
-
-        <div>
-          <span className="font-bold">Location: </span>
-          <a
-            href="https://www.google.com/maps/place/Vancouver,+BC/@49.2577354,-123.123904,12z/data=!3m1!4b1!4m6!3m5!1s0x548673f143a94fb3:0xbb9196ea9b81f38b!8m2!3d49.2827291!4d-123.1207375!16zL20vMDgwaDI?entry=ttu"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-orange-500 transition duration-300 ease-in-out"
-          >
-            Vancouver
-          </a>
-          , {currentTime}
-        </div>
-      </div>
-      <div className="flex justify-center gap-x-3">
-        {socialLinks.map((link) => (
-          <SocialIcon
-            key={link.url}
-            url={link.url}
-            network={link.network}
-            target="_blank"
-            fgColor="white"
-            bgColor="currentColor"
-            style={{ height: 40, width: 40 }}
-            className="text-black rounded-full hover:text-orange-500 transition duration-300 ease-in-out"
+    <div className="relative max-w-sm mx-auto">
+      <div className="absolute top-4 -left-4 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob" />
+      <div className="absolute top-4 -right-4 w-72 h-72 bg-yellow-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000" />
+      <div className="absolute -bottom-10 left-20 w-72 h-72 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000" />
+      <div className="relative mx-5 mt-10 bg-white p-6 rounded-xl space-y-4">
+        <div className="flex items-center rounded-full mx-auto h-36 w-36 border-2 border-orange-500 border-opacity-50">
+          <Image
+            className="rounded-full h-32 w-32 mx-auto"
+            src="/images/profile-photo.png"
+            alt="Kuiliang Zhang"
+            width={160}
+            height={160}
+            priority={true}
           />
-        ))}
+        </div>
+        <div className="text-center text-3xl font-extrabold">
+          Kuiliang Zhang
+        </div>
+        <div className="text-center text-base">
+          <div>
+            <span className="font-bold">Chinese Name: </span>章奎亮
+          </div>
+
+          <div>
+            <span className="font-bold">Email: </span>
+            <a
+              href="mailto:kuiliang.zhang@outlook.com"
+              className="hover:text-orange-500 transition duration-300 ease-in-out"
+            >
+              kuiliang.zhang@outlook.com
+            </a>
+          </div>
+
+          <div>
+            <span className="font-bold">Location: </span>
+            <a
+              href="https://www.google.com/maps/place/Vancouver,+BC/@49.2577354,-123.123904,12z/data=!3m1!4b1!4m6!3m5!1s0x548673f143a94fb3:0xbb9196ea9b81f38b!8m2!3d49.2827291!4d-123.1207375!16zL20vMDgwaDI?entry=ttu"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-orange-500 transition duration-300 ease-in-out"
+            >
+              Vancouver
+            </a>
+            , {currentTime}
+          </div>
+        </div>
+        <div className="flex justify-center gap-x-3">
+          {socialLinks.map((link) => (
+            <SocialIcon
+              key={link.url}
+              url={link.url}
+              network={link.network}
+              target="_blank"
+              fgColor="white"
+              bgColor="currentColor"
+              style={{ height: 40, width: 40 }}
+              className="text-black rounded-full hover:text-orange-500 transition duration-300 ease-in-out"
+            />
+          ))}
+        </div>
       </div>
     </div>
   );

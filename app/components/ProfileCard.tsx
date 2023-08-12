@@ -32,10 +32,10 @@ export function ProfileCard() {
 
   return (
     <div className="relative max-w-sm">
-      <div className="absolute top-4 -left-4 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob" />
-      <div className="absolute top-6 -right-4 w-72 h-72 bg-yellow-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000" />
-      <div className="absolute -bottom-6 left-16 w-72 h-72 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000" />
-      <div className="relative mx-5 my-10 bg-white p-6 rounded-xl space-y-4">
+      <div className="absolute top-4 -left-4 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob dark:opacity-100 dark:bg-purple-100" />
+      <div className="absolute top-6 -right-4 w-72 h-72 bg-yellow-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000 dark:opacity-100 dark:bg-yellow-100" />
+      <div className="absolute -bottom-6 left-16 w-72 h-72 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000 dark:opacity-100 dark:bg-pink-100" />
+      <div className="relative mx-5 my-10 bg-white p-6 rounded-xl space-y-4 text-black dark:bg-slate-800 dark:text-white">
         <Image
           className="mx-auto my-6 rounded-full h-32 w-32 mx-auto ring-2 ring-orange-500 ring-offset-4 ring-opacity-50"
           src="/images/profile-photo.png"
@@ -62,7 +62,7 @@ export function ProfileCard() {
             </a>
           </div>
 
-          <div>
+          <div suppressHydrationWarning>
             <span className="font-bold">Location: </span>
             <a
               href="https://www.google.com/maps/place/Vancouver,+BC/@49.2577354,-123.123904,12z/data=!3m1!4b1!4m6!3m5!1s0x548673f143a94fb3:0xbb9196ea9b81f38b!8m2!3d49.2827291!4d-123.1207375!16zL20vMDgwaDI?entry=ttu"

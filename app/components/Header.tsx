@@ -14,7 +14,7 @@ export function Header() {
             <Link href="/">Projects</Link>
             <Link href="/">About</Link>
           </div>
-          <div className="flex items-center px-6">
+          <div className="flex items-center pl-6">
             <button>
               <SunIcon className="h-6 w-6" />
             </button>

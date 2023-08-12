@@ -31,21 +31,19 @@ export function ProfileCard() {
   ];
 
   return (
-    <div className="relative max-w-sm mx-auto">
+    <div className="relative max-w-sm">
       <div className="absolute top-4 -left-4 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob" />
-      <div className="absolute top-4 -right-4 w-72 h-72 bg-yellow-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000" />
+      <div className="absolute top-6 -right-4 w-72 h-72 bg-yellow-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000" />
       <div className="absolute -bottom-10 left-20 w-72 h-72 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000" />
-      <div className="relative mx-5 mt-10 bg-white p-6 rounded-xl space-y-4">
-        <div className="flex items-center rounded-full mx-auto h-36 w-36 border-2 border-orange-500 border-opacity-50">
-          <Image
-            className="rounded-full h-32 w-32 mx-auto"
-            src="/images/profile-photo.png"
-            alt="Kuiliang Zhang"
-            width={160}
-            height={160}
-            priority={true}
-          />
-        </div>
+      <div className="relative mx-5 my-10 bg-white p-6 rounded-xl space-y-4">
+        <Image
+          className="mx-auto my-6 rounded-full h-32 w-32 mx-auto ring-2 ring-orange-500 ring-offset-4 ring-opacity-50"
+          src="/images/profile-photo.png"
+          alt="Kuiliang Zhang"
+          width={160}
+          height={160}
+          priority={true}
+        />
         <div className="text-center text-3xl font-extrabold">
           Kuiliang Zhang
         </div>

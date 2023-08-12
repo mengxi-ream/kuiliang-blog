@@ -37,7 +37,7 @@ export function ProfileCard() {
       <div className="absolute -bottom-6 left-16 w-72 h-72 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000 dark:opacity-100 dark:bg-pink-100" />
       <div className="relative mx-5 my-10 bg-white p-6 rounded-xl space-y-4 text-black dark:bg-slate-800 dark:text-white">
         <Image
-          className="mx-auto my-6 rounded-full h-32 w-32 mx-auto ring-2 ring-orange-500 ring-offset-4 ring-opacity-50"
+          className="mx-auto my-6 rounded-full h-32 w-32 mx-auto ring-2 ring-orange-500 ring-offset-4 ring-opacity-50 dark:ring-offset-slate-800"
           src="/images/profile-photo.png"
           alt="Kuiliang Zhang"
           width={160}

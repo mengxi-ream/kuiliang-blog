@@ -78,7 +78,7 @@ const TimelineItem = ({
         )}
       </h3>
       <Link
-        className="flex items-center mb-1 text-base text-gray-900 dark:text-white hover:text-orange-500 transition duration-300 ease-in-out"
+        className="flex items-center mb-1 text-base text-gray-900 dark:text-white global-hover"
         href={link}
         target="_blank"
       >
@@ -116,7 +116,7 @@ export function Timeline() {
       title: "Computer Science Student",
       organization: "University of British Columbia",
       time: "Sep 2022 - Present",
-      link: "https://www.google.com",
+      link: "https://www.nottingham.ac.uk",
       iconSrc: "/icons/ubc-logo.png",
       altText: "UBC Logo",
       isLatest: true,
@@ -135,7 +135,7 @@ export function Timeline() {
       title: "Finance Student",
       organization: "University of Nottingham",
       time: "Sep 2016 - Jun 2021",
-      link: "https://www.bytedance.com",
+      link: "https://www.nottingham.ac.uk",
       iconSrc: "/icons/uon-logo.jpg",
       altText: "UoN Logo",
     },

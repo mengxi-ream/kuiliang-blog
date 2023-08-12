@@ -56,7 +56,7 @@ export function ProfileCard() {
             <span className="font-bold">Email: </span>
             <a
               href="mailto:kuiliang.zhang@outlook.com"
-              className="hover:text-orange-500 transition duration-300 ease-in-out"
+              className="global-hover"
             >
               kuiliang.zhang@outlook.com
             </a>
@@ -68,7 +68,7 @@ export function ProfileCard() {
               href="https://www.google.com/maps/place/Vancouver,+BC/@49.2577354,-123.123904,12z/data=!3m1!4b1!4m6!3m5!1s0x548673f143a94fb3:0xbb9196ea9b81f38b!8m2!3d49.2827291!4d-123.1207375!16zL20vMDgwaDI?entry=ttu"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-orange-500 transition duration-300 ease-in-out"
+              className="global-hover"
             >
               Vancouver
             </a>
@@ -85,7 +85,7 @@ export function ProfileCard() {
               fgColor="white"
               bgColor="currentColor"
               style={{ height: 40, width: 40 }}
-              className="text-black rounded-full hover:text-orange-500 transition duration-300 ease-in-out"
+              className="text-black rounded-full global-hover"
             />
           ))}
         </div>

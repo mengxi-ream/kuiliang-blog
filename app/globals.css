@@ -11,6 +11,11 @@
     }
 }
 
+.global-hover:hover {
+    @apply text-orange-500;
+    transition: all 0.3s ease-in-out;
+}
+
 /*:root {*/
 /*  --foreground-rgb: 0, 0, 0;*/
 /*  --background-start-rgb: 214, 219, 220;*/

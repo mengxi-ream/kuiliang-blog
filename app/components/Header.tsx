@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { SunIcon } from "@heroicons/react/24/solid";
+import ThemeMenu from "@/app/components/ThemeMenu";
 import { toDarkMode, toLightMode, toSystemMode } from "@/lib/theme";
 
 export function Header() {
@@ -17,6 +18,7 @@ export function Header() {
             <Link href="/">About</Link>
           </div>
           <div className="flex items-center pl-6">
+            <ThemeMenu />
             {/*<div className="ml-4">*/}
             {/*  <button*/}
             {/*    id="header__sun"*/}
@@ -68,9 +70,6 @@ export function Header() {
             {/*    </svg>*/}
             {/*  </button>*/}
             {/*</div>*/}
-            {/*<button>*/}
-            {/*  <SunIcon className="h-6 w-6" />*/}
-            {/*</button>*/}
           </div>
         </div>
       </nav>

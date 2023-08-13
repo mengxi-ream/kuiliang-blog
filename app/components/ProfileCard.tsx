@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { SocialIcon } from "react-social-icons";
 
-export function ProfileCard() {
+export default function ProfileCard() {
   const [currentTime, setCurrentTime] = useState(
     new Date().toLocaleTimeString("en-US", { timeZone: "America/Vancouver" })
   );

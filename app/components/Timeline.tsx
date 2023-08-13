@@ -15,6 +15,61 @@ type Props = {
   isLatest?: boolean;
 };
 
+export default function Timeline() {
+  const experiences: Array<Props> = [
+    {
+      expType: "work",
+      title: "Software Developer Intern",
+      organization: "Boeing",
+      time: "Sep 2023 - Present",
+      link: "https://www.boeing.com",
+      iconSrc: "/icons/boeing-logo.svg",
+      altText: "Boeing Logo",
+      isLatest: true,
+    },
+    {
+      expType: "study",
+      title: "Computer Science Student",
+      organization: "University of British Columbia",
+      time: "Sep 2022 - Present",
+      link: "https://www.ubc.ca",
+      iconSrc: "/icons/ubc-logo.png",
+      altText: "UBC Logo",
+      isLatest: true,
+    },
+    {
+      expType: "work",
+      title: "Data Scientist",
+      organization: "ByteDance",
+      time: "Jul 2021 - Jul 2022",
+      link: "https://www.bytedance.com",
+      iconSrc: "/icons/bytedance-logo.svg",
+      altText: "ByteDance Logo",
+    },
+    {
+      expType: "study",
+      title: "Finance Student",
+      organization: "University of Nottingham",
+      time: "Sep 2016 - Jun 2021",
+      link: "https://www.nottingham.ac.uk",
+      iconSrc: "/icons/uon-logo.jpg",
+      altText: "UoN Logo",
+    },
+  ];
+
+  return (
+    <ol className="relative border-l border-gray-200 dark:border-gray-700 list-none mx-8">
+      {experiences.map((exp, index) => (
+        <TimelineItem
+          key={index}
+          {...exp}
+          className={index === experiences.length - 1 ? "" : "mb-10"}
+        />
+      ))}
+    </ol>
+  );
+}
+
 const TimelineItem = ({
   expType,
   title,
@@ -99,58 +154,3 @@ const TimelineItem = ({
     </li>
   );
 };
-
-export function Timeline() {
-  const experiences: Array<Props> = [
-    {
-      expType: "work",
-      title: "Software Developer Intern",
-      organization: "Boeing",
-      time: "Sep 2023 - Present",
-      link: "https://www.boeing.com",
-      iconSrc: "/icons/boeing-logo.svg",
-      altText: "Boeing Logo",
-      isLatest: true,
-    },
-    {
-      expType: "study",
-      title: "Computer Science Student",
-      organization: "University of British Columbia",
-      time: "Sep 2022 - Present",
-      link: "https://www.ubc.ca",
-      iconSrc: "/icons/ubc-logo.png",
-      altText: "UBC Logo",
-      isLatest: true,
-    },
-    {
-      expType: "work",
-      title: "Data Scientist",
-      organization: "ByteDance",
-      time: "Jul 2021 - Jul 2022",
-      link: "https://www.bytedance.com",
-      iconSrc: "/icons/bytedance-logo.svg",
-      altText: "ByteDance Logo",
-    },
-    {
-      expType: "study",
-      title: "Finance Student",
-      organization: "University of Nottingham",
-      time: "Sep 2016 - Jun 2021",
-      link: "https://www.nottingham.ac.uk",
-      iconSrc: "/icons/uon-logo.jpg",
-      altText: "UoN Logo",
-    },
-  ];
-
-  return (
-    <ol className="relative border-l border-gray-200 dark:border-gray-700 list-none mx-8">
-      {experiences.map((exp, index) => (
-        <TimelineItem
-          key={index}
-          {...exp}
-          className={index === experiences.length - 1 ? "" : "mb-10"}
-        />
-      ))}
-    </ol>
-  );
-}

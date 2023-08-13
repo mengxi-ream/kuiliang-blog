@@ -2,7 +2,7 @@
 import Link from "next/link";
 import ThemeMenu from "@/app/components/ThemeMenu";
 
-export function Header() {
+export default function Header() {
   return (
     <header className="bg-white dark:bg-slate-800">
       <nav className="flex justify-between items-center p-6 md:px-8 max-w-5xl mx-auto">

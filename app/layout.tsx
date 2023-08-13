@@ -2,6 +2,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Nunito } from "next/font/google";
 import { Header } from "@/app/components/Header";
+import { Providers } from "./providers";
 
 const nunito = Nunito({ weight: "400", subsets: ["latin"] });
 
@@ -16,11 +17,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={`${nunito.className} min-h-screen dark:bg-slate-800`}>
-        <Header />
-        {/*<main className="px-4 md:px-6 prose prose-xl prose-slate dark:prose-invert mx-auto">*/}
-        <main className="md:px-12 max-w-5xl mx-auto">{children}</main>
+        <Providers>
+          <Header />
+          <main className="md:px-12 max-w-5xl mx-auto">{children}</main>
+        </Providers>
       </body>
     </html>
   );

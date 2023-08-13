@@ -1,24 +1,28 @@
 import { Menu, Transition } from "@headlessui/react";
-import { Fragment, useEffect, useRef, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { SunIcon, MoonIcon, CogIcon } from "@heroicons/react/24/solid";
-import {
-  toDarkMode,
-  toLightMode,
-  toSystemMode,
-  updateTheme,
-} from "@/lib/theme";
+import { useTheme } from "next-themes";
 
 export default function ThemeMenu() {
+  const [mounted, setMounted] = useState(false);
+  const { theme, setTheme } = useTheme();
+
   useEffect(() => {
-    updateTheme();
+    setMounted(true);
   }, []);
+
   return (
     <Menu as="div" className="relative inline-block text-left">
       <div className="flex items-center">
         <Menu.Button className="w-6 h-6 global-hover">
-          <SunIcon id="header__light" />
-          <MoonIcon id="header__dark" />
-          <CogIcon id="header__system" />
+          {mounted ? (
+            <div>
+              <SunIcon id="header__light" />
+              <MoonIcon id="header__dark" />
+            </div>
+          ) : (
+            <div />
+          )}
         </Menu.Button>
       </div>
       <Transition
@@ -40,7 +44,7 @@ export default function ThemeMenu() {
                       ? "bg-orange-500 text-white"
                       : "text-gray-900 dark:text-white"
                   } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
-                  onClick={toLightMode}
+                  onClick={() => setTheme("light")}
                 >
                   {active ? (
                     <SunIcon className="mr-2 h-5 w-5 stroke-1 fill-orange-500 stroke-orange-300" />
@@ -59,7 +63,7 @@ export default function ThemeMenu() {
                       ? "bg-orange-500 text-white dark:text-grey-900"
                       : "text-gray-900 dark:text-white"
                   } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
-                  onClick={toDarkMode}
+                  onClick={() => setTheme("dark")}
                 >
                   {active ? (
                     <MoonIcon className="mr-2 h-5 w-5 stroke-1 fill-orange-500 stroke-orange-300" />
@@ -78,7 +82,7 @@ export default function ThemeMenu() {
                       ? "bg-orange-500 text-white dark:text-grey-900"
                       : "text-gray-900 dark:text-white"
                   } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
-                  onClick={toSystemMode}
+                  onClick={() => setTheme("system")}
                 >
                   {active ? (
                     <CogIcon className="mr-2 h-5 w-5 stroke-1 fill-orange-500 stroke-orange-300" />

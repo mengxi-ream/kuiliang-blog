@@ -17,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${nunito.className} dark:bg-slate-800`}>
+      <body className={`${nunito.className} min-h-screen dark:bg-slate-800`}>
         <Header />
         {/*<main className="px-4 md:px-6 prose prose-xl prose-slate dark:prose-invert mx-auto">*/}
         <main className="px-12 max-w-5xl mx-auto">{children}</main>

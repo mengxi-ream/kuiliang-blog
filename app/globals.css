@@ -16,6 +16,11 @@
     transition: all 0.3s ease-in-out;
 }
 
+*:focus:not(:focus-visible),
+html:not([data-headlessui-focus-visible]) *:focus {
+    outline: none !important;
+}
+
 /*:root {*/
 /*  --foreground-rgb: 0, 0, 0;*/
 /*  --background-start-rgb: 214, 219, 220;*/

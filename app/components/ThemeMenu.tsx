@@ -2,6 +2,7 @@ import { Menu, Transition } from "@headlessui/react";
 import { Fragment, useEffect, useState } from "react";
 import { SunIcon, MoonIcon, CogIcon } from "@heroicons/react/24/solid";
 import { useTheme } from "next-themes";
+import { ReactElement } from "react";
 
 export default function ThemeMenu() {
   const [mounted, setMounted] = useState(false);
@@ -36,66 +37,67 @@ export default function ThemeMenu() {
       >
         <Menu.Items className="absolute right-0 mt-2 w-24 origin-top-right rounded-md bg-white dark:bg-slate-700 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none z-50">
           <div className="px-1 py-1 ">
-            <Menu.Item>
-              {({ active }) => (
-                <button
-                  className={`${
-                    active
-                      ? "bg-orange-500 text-white"
-                      : "text-gray-900 dark:text-white"
-                  } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
-                  onClick={() => setTheme("light")}
-                >
-                  {active ? (
-                    <SunIcon className="mr-2 h-5 w-5 stroke-1 fill-orange-500 stroke-orange-300" />
-                  ) : (
-                    <SunIcon className="mr-2 h-5 w-5 stroke-1 stroke-orange-500 fill-orange-300" />
-                  )}
-                  Light
-                </button>
-              )}
-            </Menu.Item>
-            <Menu.Item>
-              {({ active }) => (
-                <button
-                  className={`${
-                    active
-                      ? "bg-orange-500 text-white dark:text-grey-900"
-                      : "text-gray-900 dark:text-white"
-                  } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
-                  onClick={() => setTheme("dark")}
-                >
-                  {active ? (
-                    <MoonIcon className="mr-2 h-5 w-5 stroke-1 fill-orange-500 stroke-orange-300" />
-                  ) : (
-                    <MoonIcon className="mr-2 h-5 w-5 stroke-1 stroke-orange-500 fill-orange-300" />
-                  )}
-                  Dark
-                </button>
-              )}
-            </Menu.Item>
-            <Menu.Item>
-              {({ active }) => (
-                <button
-                  className={`${
-                    active
-                      ? "bg-orange-500 text-white dark:text-grey-900"
-                      : "text-gray-900 dark:text-white"
-                  } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
-                  onClick={() => setTheme("system")}
-                >
-                  {active ? (
-                    <CogIcon className="mr-2 h-5 w-5 stroke-1 fill-orange-500 stroke-orange-300" />
-                  ) : (
-                    <CogIcon className="mr-2 h-5 w-5 stroke-1 stroke-orange-500 fill-orange-300" />
-                  )}
-                  System
-                </button>
-              )}
-            </Menu.Item>
+            <ThemeMenuItem
+              theme="light"
+              icon={
+                <SunIcon className="mr-2 h-5 w-5 stroke-1 fill-orange-500 stroke-orange-300" />
+              }
+              label="Light"
+              setTheme={setTheme}
+            />
+            <ThemeMenuItem
+              theme="dark"
+              icon={
+                <MoonIcon className="mr-2 h-5 w-5 stroke-1 fill-orange-500 stroke-orange-300" />
+              }
+              label="Dark"
+              setTheme={setTheme}
+            />
+            <ThemeMenuItem
+              theme="system"
+              icon={
+                <CogIcon className="mr-2 h-5 w-5 stroke-1 fill-orange-500 stroke-orange-300" />
+              }
+              label="System"
+              setTheme={setTheme}
+            />
           </div>
         </Menu.Items>
       </Transition>
     </Menu>
   );
+}
+
+function ThemeMenuItem({
+  theme,
+  icon,
+  label,
+  setTheme,
+}: {
+  theme: string;
+  icon: ReactElement;
+  label: string;
+  setTheme: (theme: string) => void;
+}) {
+  return (
+    <Menu.Item>
+      {({ active }) => (
+        <button
+          className={generateClassName(active)}
+          onClick={() => setTheme(theme)}
+        >
+          {icon}
+          {label}
+        </button>
+      )}
+    </Menu.Item>
+  );
+}
+
+function generateClassName(active: boolean) {
+  let baseClass = "group flex w-full items-center rounded-md px-2 py-2 text-sm";
+  if (active) {
+    return `${baseClass} bg-orange-500 text-white dark:text-grey-900`;
+  }
+  return `${baseClass} text-gray-900 dark:text-white`;
 }

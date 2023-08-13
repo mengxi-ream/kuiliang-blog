@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { ReactElement } from "react";
 
 type ExpType = "work" | "study";
 
@@ -25,7 +26,7 @@ const TimelineItem = ({
   isLatest = false,
   className = "", // Add this line
 }: Props & { className: string }) => {
-  const SVGMapping: Record<ExpType, JSX.Element> = {
+  const SVGMapping: Record<ExpType, ReactElement> = {
     work: (
       <svg
         className="w-3 h-3 text-blue-800 dark:text-blue-300"

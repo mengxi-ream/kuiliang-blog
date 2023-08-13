@@ -116,7 +116,7 @@ export function Timeline() {
       title: "Computer Science Student",
       organization: "University of British Columbia",
       time: "Sep 2022 - Present",
-      link: "https://www.nottingham.ac.uk",
+      link: "https://www.ubc.ca",
       iconSrc: "/icons/ubc-logo.png",
       altText: "UBC Logo",
       isLatest: true,

@@ -70,9 +70,9 @@ const TimelineItem = ({
         {SVGMapping[expType]}
       </span>
       <h3 className="mb-1 text-base font-semibold text-gray-900 dark:text-white">
-        {title}
+        {title}{" "}
         {isLatest && (
-          <span className="bg-blue-100 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300 ml-3">
+          <span className="bg-blue-100 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300 ml-0">
             Latest
           </span>
         )}
@@ -142,7 +142,7 @@ export function Timeline() {
   ];
 
   return (
-    <ol className="relative border-l border-gray-200 dark:border-gray-700 list-none">
+    <ol className="relative border-l border-gray-200 dark:border-gray-700 list-none mx-8">
       {experiences.map((exp, index) => (
         <TimelineItem
           key={index}

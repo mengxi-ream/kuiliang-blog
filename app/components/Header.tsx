@@ -8,7 +8,7 @@ export function Header() {
   return (
     <header className="bg-white dark:bg-slate-800">
       <nav className="flex justify-between items-center p-6 md:px-8 max-w-5xl mx-auto">
-        <Link href="/" className="text-orange-500 text-xl font-extrabold">
+        <Link href="/" className="text-orange-500 text-xl font-black">
           Kuiliang Zhang
         </Link>
         <div className="hidden md:flex divide-x text-black dark:text-white">

@@ -21,6 +21,20 @@ html:not([data-headlessui-focus-visible]) *:focus {
     outline: none !important;
 }
 
+#header__light, #header__dark, #header__system {
+    display: none;
+}
+
+html[color-theme="dark"] #header__dark {
+    display: block;
+}
+html[color-theme="light"] #header__light {
+    display: block;
+}
+html[color-theme="system"] #header__system {
+    display: block;
+}
+
 /*:root {*/
 /*  --foreground-rgb: 0, 0, 0;*/
 /*  --background-start-rgb: 214, 219, 220;*/

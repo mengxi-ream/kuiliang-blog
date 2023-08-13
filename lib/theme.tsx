@@ -13,7 +13,7 @@ export const toSystemMode = () => {
   updateTheme();
 };
 
-function updateTheme() {
+export const updateTheme = () => {
   if (!("theme" in localStorage)) {
     localStorage.theme = "system";
   }
@@ -36,4 +36,4 @@ function updateTheme() {
       document.documentElement.setAttribute("color-theme", "light");
       break;
   }
-}
+};

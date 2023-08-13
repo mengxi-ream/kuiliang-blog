@@ -44,6 +44,7 @@ export default function ThemeMenu() {
               }
               label="Light"
               setTheme={setTheme}
+              selected={theme === "light"}
             />
             <ThemeMenuItem
               theme="dark"
@@ -52,6 +53,7 @@ export default function ThemeMenu() {
               }
               label="Dark"
               setTheme={setTheme}
+              selected={theme === "dark"}
             />
             <ThemeMenuItem
               theme="system"
@@ -60,6 +62,7 @@ export default function ThemeMenu() {
               }
               label="System"
               setTheme={setTheme}
+              selected={theme === "system"}
             />
           </div>
         </Menu.Items>
@@ -73,17 +76,19 @@ function ThemeMenuItem({
   icon,
   label,
   setTheme,
+  selected,
 }: {
   theme: string;
   icon: ReactElement;
   label: string;
   setTheme: (theme: string) => void;
+  selected: boolean;
 }) {
   return (
     <Menu.Item>
       {({ active }) => (
         <button
-          className={generateClassName(active)}
+          className={generateClassName(active, selected)}
           onClick={() => setTheme(theme)}
         >
           {icon}
@@ -94,10 +99,13 @@ function ThemeMenuItem({
   );
 }
 
-function generateClassName(active: boolean) {
+function generateClassName(active: boolean, selected: boolean) {
   let baseClass = "group flex w-full items-center rounded-md px-2 py-2 text-sm";
-  if (active) {
-    return `${baseClass} bg-orange-500 text-white dark:text-grey-900`;
-  }
-  return `${baseClass} text-gray-900 dark:text-white`;
+  baseClass = active
+    ? `${baseClass} bg-orange-500 text-white dark:text-grey-900`
+    : `${baseClass} text-gray-900 dark:text-white`;
+  baseClass = selected
+    ? `${baseClass} ring-1 ring-orange-500 ring-opacity-60`
+    : baseClass;
+  return baseClass;
 }

@@ -12,10 +12,10 @@ export function Header() {
           Kuiliang Zhang
         </Link>
         <div className="hidden md:flex divide-x text-black dark:text-white">
-          <div className="flex gap-x-6 px-6 text-lg">
+          <div className="flex gap-x-8 px-6 text-lg">
             <Link href="/">Posts</Link>
             <Link href="/">Projects</Link>
-            <Link href="/">About</Link>
+            <Link href="/">About Me</Link>
           </div>
           <div className="flex items-center pl-6">
             <ThemeMenu />

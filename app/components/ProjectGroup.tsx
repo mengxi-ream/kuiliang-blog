@@ -5,7 +5,7 @@ import { ReactElement } from "react";
 type Props = {
   name: string;
   icon?: ReactElement;
-  description: ReactElement;
+  description: string;
   time: string;
   githubLink?: string;
 };
@@ -14,12 +14,9 @@ export default function ProjectGroup() {
   const projects: Array<Props> = [
     {
       name: "Personal Website",
-      description: (
-        <div>
-          My personal website built with Next.js (The site you are browsing
-          right now 😃)
-        </div>
-      ),
+      description:
+        "My personal website built with Next.js (The site you are browsing right now 😃).",
+
       time: "Aug 2023 - Present",
     },
     {
@@ -34,18 +31,8 @@ export default function ProjectGroup() {
           unoptimized={true}
         />
       ),
-      description: (
-        <div>
-          A party game similar to{" "}
-          <a
-            className="global-hover"
-            href="https://en.wikipedia.org/wiki/Crypt_of_the_NecroDancer"
-          >
-            Crypt of the NecroDancer
-          </a>{" "}
-          gameplay for up to 3 players.
-        </div>
-      ),
+      description:
+        "A party game similar to Crypt of the NecroDance gameplay for up to 3 players.",
       time: "Oct 2022 - Dec 2022",
       githubLink: "https://github.com/Crayon-ShinChan/strongholdon",
     },

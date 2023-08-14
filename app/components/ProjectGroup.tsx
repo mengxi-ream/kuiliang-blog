@@ -8,6 +8,7 @@ type Props = {
   description: string;
   time: string;
   githubLink?: string;
+  youtubeLink?: string;
 };
 
 export default function ProjectGroup() {
@@ -35,6 +36,7 @@ export default function ProjectGroup() {
         "A party game similar to Crypt of the NecroDance gameplay for up to 3 players.",
       time: "Oct 2022 - Dec 2022",
       githubLink: "https://github.com/Crayon-ShinChan/strongholdon",
+      youtubeLink: "https://www.youtube.com/shorts/hSHPS37V1v0",
     },
   ];
 
@@ -54,6 +56,7 @@ function Project({
   description,
   time,
   githubLink = undefined,
+  youtubeLink = undefined,
 }: Props) {
   return (
     <div className="flex items-start mb-4 p-1 rounded-md hover:bg-gray-100 hover:dark:bg-slate-700 transition ease-in-out duration-200">
@@ -69,26 +72,20 @@ function Project({
               {name}
             </div>
             {githubLink && (
-              <Link
-                className="relative shrink-0 w-4 h-4"
+              <ProjectLink
                 href={githubLink}
-                target="_blank"
-              >
-                <Image
-                  id="header__light"
-                  className="rounded-full hover:ring hover:ring-orange-500 transition ease-in-out duration-200"
-                  src="/icons/github-mark.svg"
-                  alt="GitHub Icon"
-                  layout="fill"
-                />
-                <Image
-                  id="header__dark"
-                  className="rounded-full hover:ring hover:ring-orange-500 transition ease-in-out duration-200"
-                  src="/icons/github-mark-white.svg"
-                  alt="GitHub Icon"
-                  layout="fill"
-                />
-              </Link>
+                iconSrcLight="/icons/github-mark.svg"
+                iconSrcDark="/icons/github-mark-white.svg"
+                iconAlt="Github Icon"
+              />
+            )}
+            {youtubeLink && (
+              <ProjectLink
+                href={youtubeLink}
+                iconSrcLight="/icons/yt_icon_mono_light.png"
+                iconSrcDark="/icons/yt_icon_mono_dark.png"
+                iconAlt="Youtube Icon"
+              />
             )}
           </div>
           <div>{time}</div>
@@ -96,5 +93,36 @@ function Project({
         <div className="text-base text-gray-400">{description}</div>
       </div>
     </div>
+  );
+}
+
+function ProjectLink({
+  href,
+  iconSrcLight,
+  iconSrcDark,
+  iconAlt,
+}: {
+  href: string;
+  iconSrcLight: string;
+  iconSrcDark: string;
+  iconAlt: string;
+}) {
+  return (
+    <Link className="relative shrink-0 w-4 h-4" href={href} target="_blank">
+      <Image
+        id="header__light"
+        src={iconSrcLight}
+        alt={iconAlt}
+        layout="fill"
+        objectFit="contain"
+      />
+      <Image
+        id="header__dark"
+        src={iconSrcDark}
+        alt={iconAlt}
+        layout="fill"
+        objectFit="contain"
+      />
+    </Link>
   );
 }

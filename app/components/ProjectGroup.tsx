@@ -47,7 +47,7 @@ export default function ProjectGroup() {
         </div>
       ),
       time: "Oct 2022 - Dec 2022",
-      githubLink: "https://en.wikipedia.org/wiki/Crypt_of_the_NecroDancer",
+      githubLink: "https://github.com/Crayon-ShinChan/strongholdon",
     },
   ];
 

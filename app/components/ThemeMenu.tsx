@@ -19,7 +19,7 @@ export default function ThemeMenu() {
           {mounted ? (
             <div>
               <SunIcon id="header__light" />
-              <MoonIcon id="header__dark" />
+              <MoonIcon id="header__dark" className="p-0.5" />
             </div>
           ) : (
             <div />
@@ -49,7 +49,7 @@ export default function ThemeMenu() {
             <ThemeMenuItem
               theme="dark"
               icon={
-                <MoonIcon className="mr-2 h-5 w-5 stroke-1 fill-orange-500 stroke-orange-300" />
+                <MoonIcon className="mr-2 h-4 w-4 stroke-1 fill-orange-500 stroke-orange-300" />
               }
               label="Dark"
               setTheme={setTheme}

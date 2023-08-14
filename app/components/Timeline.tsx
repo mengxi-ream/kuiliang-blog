@@ -134,7 +134,7 @@ const TimelineItem = ({
         )}
       </h3>
       <Link
-        className="flex items-center mb-1 text-base text-gray-900 dark:text-white global-hover"
+        className="flex items-center mb-1 text-base text-gray-900 global-hover dark:text-white"
         href={link}
         target="_blank"
       >

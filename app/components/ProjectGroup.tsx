@@ -69,7 +69,7 @@ function Project({
   githubLink = undefined,
 }: Props) {
   return (
-    <div className="flex items-start mb-4">
+    <div className="flex items-start mb-4 p-1 rounded-md hover:bg-gray-100 hover:dark:bg-slate-700 transition ease-in-out duration-200">
       {icon && (
         <div className="shrink-0 relative w-10 h-10 bg-white rounded-md mr-2 mt-1">
           {icon}
@@ -89,14 +89,14 @@ function Project({
               >
                 <Image
                   id="header__light"
-                  className="rounded-full hover:ring hover:ring-orange-500 transition ease-in-out duration-300"
+                  className="rounded-full hover:ring hover:ring-orange-500 transition ease-in-out duration-200"
                   src="/icons/github-mark.svg"
                   alt="GitHub Icon"
                   layout="fill"
                 />
                 <Image
                   id="header__dark"
-                  className="rounded-full hover:ring hover:ring-orange-500 transition ease-in-out duration-300"
+                  className="rounded-full hover:ring hover:ring-orange-500 transition ease-in-out duration-200"
                   src="/icons/github-mark-white.svg"
                   alt="GitHub Icon"
                   layout="fill"

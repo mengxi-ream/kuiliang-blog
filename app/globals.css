@@ -33,7 +33,9 @@ html[class='light'] #header__light {
     display: block;
 }
 
-
+.pixelated {
+    image-rendering: pixelated;
+}
 
 /*:root {*/
 /*  --foreground-rgb: 0, 0, 0;*/

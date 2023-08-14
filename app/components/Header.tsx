@@ -9,7 +9,7 @@ export default function Header() {
         <Link href="/" className="text-orange-500 text-xl font-black">
           Kuiliang Zhang
         </Link>
-        <div className="hidden md:flex divide-x text-black dark:text-white">
+        <div className="hidden md:flex divide-x text-black dark:text-white dark:divide-gray-500">
           <div className="flex gap-x-8 px-6 text-lg">
             <Link href="/">Posts</Link>
             <Link href="/">Projects</Link>

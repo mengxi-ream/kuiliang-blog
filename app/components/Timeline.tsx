@@ -142,8 +142,8 @@ const TimelineItem = ({
           <Image
             src={iconSrc}
             alt={altText}
-            layout="fill"
-            objectFit="contain"
+            fill
+            style={{ objectFit: "contain" }}
           />
         </span>
         {organization}

@@ -27,8 +27,8 @@ export default function ProjectGroup() {
           className="pixelated"
           src="/icons/strongholdon.png"
           alt="Strongholdon Icon"
-          layout="fill"
-          objectFit="contain"
+          fill
+          style={{ objectFit: "contain" }}
           unoptimized={true}
         />
       ),
@@ -113,15 +113,15 @@ function ProjectLink({
         id="header__light"
         src={iconSrcLight}
         alt={iconAlt}
-        layout="fill"
-        objectFit="contain"
+        fill
+        style={{ objectFit: "contain" }}
       />
       <Image
         id="header__dark"
         src={iconSrcDark}
         alt={iconAlt}
-        layout="fill"
-        objectFit="contain"
+        fill
+        style={{ objectFit: "contain" }}
       />
     </Link>
   );

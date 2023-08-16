@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ReactElement } from "react";
+import { QrCodeIcon } from "@heroicons/react/24/solid";
 
 type Props = {
   name: string;
@@ -113,6 +114,7 @@ function Project({
             <div className="text-base font-semibold rounded-md px-1 bg-opacity-60 bg-orange-100 dark:bg-orange-800 dark:bg-opacity-60">
               {name}
             </div>
+            <QRCode />
             {githubLink && (
               <ProjectLink
                 href={githubLink}
@@ -166,5 +168,18 @@ function ProjectLink({
         style={{ objectFit: "contain" }}
       />
     </Link>
+  );
+}
+
+function QRCode() {
+  return (
+    <div className="group w-4 h-4">
+      <QrCodeIcon />
+      <img
+        src="/images/profile-photo.png"
+        alt="QR Code"
+        className="absolute left-1/2 transform -translate-x-1/2 mt-2 opacity-0 group-hover:opacity-100 w-24 transition-opacity duration-300"
+      />
+    </div>
   );
 }

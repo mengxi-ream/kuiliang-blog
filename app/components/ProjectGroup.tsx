@@ -15,9 +15,17 @@ export default function ProjectGroup() {
   const projects: Array<Props> = [
     {
       name: "Personal Website",
+      icon: (
+        <Image
+          src="/icons/panda-logo.png"
+          alt="Kuiliang's Blog Icon"
+          fill
+          style={{ objectFit: "contain" }}
+          unoptimized
+        />
+      ),
       description:
         "My personal website built with Next.js (The site you are browsing right now 😃).",
-
       time: "Aug 2023 - Present",
     },
     {
@@ -29,7 +37,7 @@ export default function ProjectGroup() {
           alt="Strongholdon Icon"
           fill
           style={{ objectFit: "contain" }}
-          unoptimized={true}
+          unoptimized
         />
       ),
       description:
@@ -37,6 +45,40 @@ export default function ProjectGroup() {
       time: "Oct 2022 - Dec 2022",
       githubLink: "https://github.com/Crayon-ShinChan/strongholdon",
       youtubeLink: "https://www.youtube.com/shorts/hSHPS37V1v0",
+    },
+    {
+      name: "UNNCMap",
+      icon: (
+        <div className="relative flex items-center justify-center w-8 h-8">
+          <Image
+            src="/icons/UNNCMap.png"
+            alt="UNNCMap Icon"
+            fill
+            style={{ objectFit: "contain" }}
+            unoptimized
+          />
+        </div>
+      ),
+      description:
+        "A real-time interactive map on WeChat to help UNNC freshmen explore campus.",
+      time: "Jul 2019 - Sep 2019",
+    },
+    {
+      name: "uCourse",
+      icon: (
+        <div className="relative flex items-center justify-center w-9 h-9">
+          <Image
+            src="/icons/uCourse.png"
+            alt="uCourse Icon"
+            fill
+            style={{ objectFit: "contain" }}
+            unoptimized
+          />
+        </div>
+      ),
+      description:
+        "An online platform on WeChat for UNNC students to share their course reviews and manage timetables.",
+      time: "Mar 2018 - May 2021",
     },
   ];
 
@@ -61,7 +103,7 @@ function Project({
   return (
     <div className="flex items-start mb-4 p-1 rounded-md hover:bg-gray-100 hover:dark:bg-slate-700 transition ease-in-out duration-200">
       {icon && (
-        <div className="shrink-0 relative w-10 h-10 bg-white rounded-md mr-2 mt-1">
+        <div className="shrink-0 relative flex justify-center items-center w-10 h-10 bg-white rounded-md mr-2 mt-0.5">
           {icon}
         </div>
       )}

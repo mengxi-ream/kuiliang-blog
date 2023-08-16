@@ -18,7 +18,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${nunito.className} min-h-screen dark:bg-slate-800`}>
+      <body className={`${nunito.className} min-h-screen dark:bg-slate-900`}>
         <Providers>
           <Header />
           <main className="md:px-12 max-w-5xl mx-auto">{children}</main>

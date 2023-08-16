@@ -22,6 +22,7 @@ export default function ThemeMenu() {
               <MoonIcon id="header__dark" className="p-0.5" />
             </div>
           ) : (
+            // when unmounted, render an empty div to occupy the space
             <div />
           )}
         </Menu.Button>
@@ -35,12 +36,12 @@ export default function ThemeMenu() {
         leaveFrom="transform opacity-100 scale-100"
         leaveTo="transform opacity-0 scale-95"
       >
-        <Menu.Items className="absolute right-0 mt-2 w-24 origin-top-right rounded-md bg-white dark:bg-slate-700 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none z-50">
+        <Menu.Items className="absolute right-0 mt-2 w-28 origin-top-right rounded-md bg-white dark:bg-slate-700 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none z-50">
           <div className="px-1 py-1 ">
             <ThemeMenuItem
               theme="light"
               icon={
-                <SunIcon className="mr-2 h-5 w-5 stroke-1 fill-orange-500 stroke-orange-300" />
+                <SunIcon className="h-5 w-5 stroke-1 fill-orange-500 stroke-orange-300" />
               }
               label="Light"
               setTheme={setTheme}
@@ -49,7 +50,7 @@ export default function ThemeMenu() {
             <ThemeMenuItem
               theme="dark"
               icon={
-                <MoonIcon className="mr-2 h-4 w-4 stroke-1 fill-orange-500 stroke-orange-300" />
+                <MoonIcon className="h-4 w-4 stroke-1 fill-orange-500 stroke-orange-300" />
               }
               label="Dark"
               setTheme={setTheme}
@@ -58,7 +59,7 @@ export default function ThemeMenu() {
             <ThemeMenuItem
               theme="system"
               icon={
-                <CogIcon className="mr-2 h-5 w-5 stroke-1 fill-orange-500 stroke-orange-300" />
+                <CogIcon className="h-5 w-5 stroke-1 fill-orange-500 stroke-orange-300" />
               }
               label="System"
               setTheme={setTheme}
@@ -91,7 +92,9 @@ function ThemeMenuItem({
           className={generateClassName(active, selected)}
           onClick={() => setTheme(theme)}
         >
-          {icon}
+          <div className="flex items-center justify-center h-5 w-5 mr-2">
+            {icon}
+          </div>
           {label}
         </button>
       )}
@@ -100,9 +103,9 @@ function ThemeMenuItem({
 }
 
 function generateClassName(active: boolean, selected: boolean) {
-  let baseClass = "group flex w-full items-center rounded-md px-2 py-2 text-sm";
+  let baseClass = "group flex w-full items-center rounded-md px-2 py-2";
   baseClass = active
-    ? `${baseClass} bg-orange-500 text-white dark:text-grey-900`
+    ? `${baseClass} bg-orange-500 text-white`
     : `${baseClass} text-gray-900 dark:text-white`;
   baseClass = selected
     ? `${baseClass} ring-1 ring-orange-500 ring-opacity-60`

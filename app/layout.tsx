@@ -1,10 +1,10 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Nunito } from "next/font/google";
+import { Nunito_Sans } from "next/font/google";
 import Header from "@/app/components/Header";
 import { Providers } from "./providers";
 
-const nunito = Nunito({ weight: "400", subsets: ["latin"] });
+const nunitoSans = Nunito_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Kuiliang's Blog",
@@ -18,7 +18,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${nunito.className} min-h-screen dark:bg-slate-900`}>
+      <body
+        className={`${nunitoSans.className} min-h-screen dark:bg-slate-900`}
+      >
         <Providers>
           <Header />
           <main className="md:px-12 max-w-5xl mx-auto">{children}</main>

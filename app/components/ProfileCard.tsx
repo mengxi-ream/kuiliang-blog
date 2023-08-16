@@ -44,16 +44,14 @@ export default function ProfileCard() {
           height={160}
           priority={true}
         />
-        <div className="text-center text-3xl font-extrabold">
-          Kuiliang Zhang
-        </div>
+        <div className="text-center text-3xl font-semibold">Kuiliang Zhang</div>
         <div className="text-center text-base">
           <div>
-            <span className="font-bold">Chinese Name: </span>章奎亮
+            <span className="font-semibold">Chinese Name: </span>章奎亮
           </div>
 
           <div>
-            <span className="font-bold">Email: </span>
+            <span className="font-semibold">Email: </span>
             <a
               href="mailto:kuiliang.zhang@outlook.com"
               className="global-hover"
@@ -63,7 +61,7 @@ export default function ProfileCard() {
           </div>
 
           <div suppressHydrationWarning>
-            <span className="font-bold">Location: </span>
+            <span className="font-semibold">Location: </span>
             <a
               href="https://www.google.com/maps/place/Vancouver,+BC/@49.2577354,-123.123904,12z/data=!3m1!4b1!4m6!3m5!1s0x548673f143a94fb3:0xbb9196ea9b81f38b!8m2!3d49.2827291!4d-123.1207375!16zL20vMDgwaDI?entry=ttu"
               target="_blank"

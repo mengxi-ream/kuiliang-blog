@@ -8,6 +8,7 @@ type Props = {
   icon?: ReactElement;
   description: string;
   time: string;
+  QRCodeSrc?: string;
   githubLink?: string;
   youtubeLink?: string;
 };
@@ -48,23 +49,6 @@ export default function ProjectGroup() {
       youtubeLink: "https://www.youtube.com/shorts/hSHPS37V1v0",
     },
     {
-      name: "UNNCMap",
-      icon: (
-        <div className="relative flex items-center justify-center w-8 h-8">
-          <Image
-            src="/icons/UNNCMap.png"
-            alt="UNNCMap Icon"
-            fill
-            style={{ objectFit: "contain" }}
-            unoptimized
-          />
-        </div>
-      ),
-      description:
-        "A real-time interactive map on WeChat to help UNNC freshmen explore campus.",
-      time: "Jul 2019 - Sep 2019",
-    },
-    {
       name: "uCourse",
       icon: (
         <div className="relative flex items-center justify-center w-9 h-9">
@@ -80,6 +64,25 @@ export default function ProjectGroup() {
       description:
         "An online platform on WeChat for UNNC students to share their course reviews and manage timetables.",
       time: "Mar 2018 - May 2021",
+      QRCodeSrc: "/QRCodes/ucourse-wxcode.webp",
+    },
+    {
+      name: "UNNCMap",
+      icon: (
+        <div className="relative flex items-center justify-center w-8 h-8">
+          <Image
+            src="/icons/UNNCMap.png"
+            alt="UNNCMap Icon"
+            fill
+            style={{ objectFit: "contain" }}
+            unoptimized
+          />
+        </div>
+      ),
+      description:
+        "A real-time interactive map on WeChat to help UNNC freshmen explore campus.",
+      time: "Jul 2019 - Sep 2019",
+      QRCodeSrc: "/QRCodes/unncmap-wxcode.webp",
     },
   ];
 
@@ -98,6 +101,7 @@ function Project({
   icon,
   description,
   time,
+  QRCodeSrc = undefined,
   githubLink = undefined,
   youtubeLink = undefined,
 }: Props) {
@@ -114,7 +118,7 @@ function Project({
             <div className="text-base font-semibold rounded-md px-1 bg-opacity-60 bg-orange-100 dark:bg-orange-800 dark:bg-opacity-60">
               {name}
             </div>
-            <QRCode />
+            {QRCodeSrc && <QRCode QRCodeSrc={QRCodeSrc} />}
             {githubLink && (
               <ProjectLink
                 href={githubLink}
@@ -171,14 +175,16 @@ function ProjectLink({
   );
 }
 
-function QRCode() {
+function QRCode({ QRCodeSrc }: { QRCodeSrc: string }) {
   return (
-    <div className="group w-4 h-4">
-      <QrCodeIcon />
-      <img
-        src="/images/profile-photo.png"
+    <div className="relative hover:cursor-pointer group">
+      <QrCodeIcon className="w-4 h-4" />
+      <Image
+        src={QRCodeSrc}
         alt="QR Code"
-        className="absolute left-1/2 transform -translate-x-1/2 mt-2 opacity-0 group-hover:opacity-100 w-24 transition-opacity duration-300"
+        width={100}
+        height={100}
+        className="absolute w-24 h-24 left-1/2 transform -translate-x-1/2 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
       />
     </div>
   );

@@ -90,12 +90,12 @@ export default function ProjectGroup() {
   ];
 
   return (
-    <div className="mx-8">
+    <section className="mx-8">
       <h2 className="text-3xl font-bold my-4">Projects</h2>
       {projects.map((project) => (
         <Project key={project.name} {...project} />
       ))}
-    </div>
+    </section>
   );
 }
 

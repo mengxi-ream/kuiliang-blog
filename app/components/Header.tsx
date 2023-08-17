@@ -22,7 +22,7 @@ export default function Header() {
       <nav className="flex justify-between items-center p-6 md:px-8 max-w-5xl mx-auto">
         <Link
           href="/"
-          className="flex items-center gap-x-1.5 text-xl font-extrabold global-hover"
+          className="flex items-center gap-x-1.5 text-xl font-extrabold"
         >
           <Image
             className="rounded-md bg-white mr-1"
@@ -35,9 +35,13 @@ export default function Header() {
           Kuiliang Zhang
         </Link>
         <div className="hidden md:flex divide-x text-black dark:text-white dark:divide-gray-500">
-          <div className="flex gap-x-8 px-6 text-lg">
+          <div className="flex gap-x-6 px-6 text-lg">
             {pages.map((page) => (
-              <Link key={page.name} href={page.href}>
+              <Link
+                className="rounded-md hover:bg-gray-100 dark:hover:bg-slate-800 px-2"
+                key={page.name}
+                href={page.href}
+              >
                 {page.name}
               </Link>
             ))}
@@ -60,8 +64,8 @@ export default function Header() {
 function MobileMenu({ pages }: { pages: Props[] }) {
   return (
     <Menu as="div" className="relative inline-block text-left">
-      <div className="flex items-center">
-        <Menu.Button className="w-6 h-6 global-hover">
+      <div className="flex items-center justify-center w-8 h-8 rounded-full hover:bg-gray-100 dark:hover:bg-slate-800">
+        <Menu.Button className="w-6 h-6">
           {({ open }) => (open ? <XMarkIcon /> : <Bars3Icon />)}
         </Menu.Button>
       </div>
@@ -81,9 +85,7 @@ function MobileMenu({ pages }: { pages: Props[] }) {
                 {({ active }) => (
                   <Link
                     className={`${
-                      active
-                        ? "bg-orange-500 text-white"
-                        : "text-gray-900 dark:text-white"
+                      active ? "bg-gray-100 dark:bg-slate-600" : ""
                     } group flex w-full items-center justify-center rounded-md px-2 py-2`}
                     href={page.href}
                   >

@@ -35,4 +35,3 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 ## Todo
 - [ ] Animate Hambuger Menu Icon
-- [ ] Font Change (For More Bold Size)

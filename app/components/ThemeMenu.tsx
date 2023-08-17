@@ -14,8 +14,8 @@ export default function ThemeMenu() {
 
   return (
     <Menu as="div" className="relative inline-block text-left">
-      <div className="flex items-center">
-        <Menu.Button className="w-6 h-6 global-hover">
+      <div className="flex items-center justify-center w-8 h-8 rounded-full hover:bg-gray-100 dark:hover:bg-slate-800">
+        <Menu.Button className="w-6 h-6">
           {mounted ? (
             <div>
               <SunIcon id="header__light" />
@@ -103,12 +103,13 @@ function ThemeMenuItem({
 }
 
 function generateClassName(active: boolean, selected: boolean) {
-  let baseClass = "group flex w-full items-center rounded-md px-2 py-2";
-  baseClass = active
-    ? `${baseClass} bg-orange-500 text-white`
-    : `${baseClass} text-gray-900 dark:text-white`;
-  baseClass = selected
-    ? `${baseClass} ring-1 ring-orange-500 ring-opacity-60`
-    : baseClass;
+  let baseClass =
+    "group flex w-full items-center rounded-md px-2 py-1.5 my-0.5";
+  if (active) {
+    baseClass = `${baseClass} bg-gray-100 dark:bg-slate-600`;
+  }
+  if (selected) {
+    baseClass = `${baseClass} ring-1 ring-orange-500 ring-opacity-60`;
+  }
   return baseClass;
 }

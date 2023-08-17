@@ -1,6 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
-import { ReactElement } from "react";
+import { ReactElement, useEffect } from "react";
 import { QrCodeIcon } from "@heroicons/react/24/solid";
 
 type Props = {
@@ -14,6 +16,7 @@ type Props = {
 };
 
 export default function ProjectGroup() {
+  useEffect(() => require("preline"), []);
   const projects: Array<Props> = [
     {
       name: "Personal Website",
@@ -106,7 +109,7 @@ function Project({
   youtubeLink = undefined,
 }: Props) {
   return (
-    <div className="flex items-start mb-4 p-1 rounded-md hover:bg-gray-100 hover:dark:bg-slate-700 transition ease-in-out duration-200">
+    <div className="flex items-start mb-4 p-1 rounded-md hover:bg-gray-100 hover:dark:bg-slate-800 transition ease-in-out duration-200">
       {icon && (
         <div className="shrink-0 relative flex justify-center items-center w-10 h-10 bg-white rounded-md mr-2 mt-0.5">
           {icon}
@@ -177,15 +180,16 @@ function ProjectLink({
 
 function QRCode({ QRCodeSrc }: { QRCodeSrc: string }) {
   return (
-    <div className="relative hover:cursor-pointer group">
-      <QrCodeIcon className="w-4 h-4" />
-      <Image
-        src={QRCodeSrc}
-        alt="QR Code"
-        width={100}
-        height={100}
-        className="absolute w-24 h-24 left-1/2 transform -translate-x-1/2 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-      />
+    <div className="hs-tooltip inline-block [--trigger:hover]">
+      <a className="hs-tooltip-toggle block text-center" href="javascript:;">
+        <QrCodeIcon className="w-4 h-4" />
+        <div
+          className="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity inline-block absolute invisible z-10 py-3 px-4 bg-white border text-sm text-gray-600 rounded-md shadow-md dark:bg-slate-700 dark:border-gray-700 dark:text-gray-400"
+          role="tooltip"
+        >
+          <Image src={QRCodeSrc} alt="QR Code" width={100} height={100} />
+        </div>
+      </a>
     </div>
   );
 }

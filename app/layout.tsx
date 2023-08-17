@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import { Nunito_Sans } from "next/font/google";
 import Header from "@/app/components/Header";
 import { Providers } from "./providers";
-
 const nunitoSans = Nunito_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {

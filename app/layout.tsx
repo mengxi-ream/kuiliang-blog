@@ -1,4 +1,4 @@
-import "./globals.css";
+import "./globals.scss";
 import type { Metadata } from "next";
 import { Nunito_Sans } from "next/font/google";
 import Header from "@/app/components/Header";

@@ -1,8 +1,14 @@
+@use "sass:meta";
+
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
-@import "styles/highlight.js/styles/github.css";
-@import "styles/highlight.js/styles/github-dark.css";
+//@import "styles/highlight.js/styles/github.css";
+//@import "styles/highlight.js/styles/github-dark.css";
+@import "highlight.js/styles/github.css";
+.dark {
+    @include meta.load-css("highlight.js/styles/github-dark");
+}
 
 /*@tailwind base;*/
 /*@tailwind components;*/

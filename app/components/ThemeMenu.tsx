@@ -40,27 +40,21 @@ export default function ThemeMenu() {
           <div className="px-1 py-1 ">
             <ThemeMenuItem
               theme="light"
-              icon={
-                <SunIcon className="h-5 w-5 stroke-1 fill-orange-500 stroke-orange-300" />
-              }
+              icon={<SunIcon className="h-5 w-5" />}
               label="Light"
               setTheme={setTheme}
               selected={theme === "light"}
             />
             <ThemeMenuItem
               theme="dark"
-              icon={
-                <MoonIcon className="h-4 w-4 stroke-1 fill-orange-500 stroke-orange-300" />
-              }
+              icon={<MoonIcon className="h-4 w-4" />}
               label="Dark"
               setTheme={setTheme}
               selected={theme === "dark"}
             />
             <ThemeMenuItem
               theme="system"
-              icon={
-                <CogIcon className="h-5 w-5 stroke-1 fill-orange-500 stroke-orange-300" />
-              }
+              icon={<CogIcon className="h-5 w-5" />}
               label="System"
               setTheme={setTheme}
               selected={theme === "system"}

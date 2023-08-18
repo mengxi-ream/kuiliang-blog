@@ -88,7 +88,7 @@ export default function ProjectGroup() {
   ];
 
   return (
-    <section className="mx-8">
+    <section>
       <h2 className="text-3xl font-bold my-4">Projects</h2>
       {projects.map((project) => (
         <Project key={project.name} {...project} />

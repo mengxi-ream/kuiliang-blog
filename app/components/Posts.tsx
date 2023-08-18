@@ -9,7 +9,7 @@ export default async function Posts() {
   }
 
   return (
-    <section className="mx-8">
+    <section>
       <h2 className="text-3xl font-bold my-4">Posts</h2>
       <ul className="w-full list-none p-0">
         {posts.map((post) => (

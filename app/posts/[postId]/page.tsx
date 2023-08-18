@@ -2,7 +2,7 @@ import { getPostsMeta, getPostByName } from "@/lib/posts";
 import { notFound } from "next/navigation";
 import getFormattedDate from "@/lib/getFormattedDate";
 import Link from "next/link";
-import "highlight.js/styles/github-dark.css";
+// import "highlight.js/styles/github-dark.css";
 
 export const revalidate = 86400;
 
@@ -62,10 +62,12 @@ export default async function Post({ params: { postId } }: Props) {
   return (
     <div className="mx-auto max-w-2xl">
       <h2 className="text-4xl font-extrabold mt-12 mb-3">{meta.title}</h2>
-      <p className="mb-10 text-gray-500">
+      <p className="mb-12 text-gray-500">
         <span className="font-semibold">Last Updated:</span> {pubDate}
       </p>
-      <article className="prose-lg mx-auto">{content}</article>
+      <article className="prose-lg mx-auto prose-ul:list-disc prose-ol:list-decimal prose-code:rounded-lg">
+        {content}
+      </article>
       <div className="flex flex-row gap-4 mt-10 mb-10">{tags}</div>
     </div>
   );

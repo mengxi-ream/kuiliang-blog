@@ -12,12 +12,12 @@ export function ListItem({ post }: Props) {
     <li className="my-3" key={id}>
       <Link
         href={`/posts/${id}`}
-        className="block p-1 group rounded-md hover:bg-gray-100 dark:hover:bg-slate-800 transition ease-in-out duration-200"
+        className="block p-2 group rounded-md hover:bg-gray-100 dark:hover:bg-slate-800 transition ease-in-out duration-200"
       >
         <h3 className="my-1 text-xl font-bold group-hover:text-orange-500">
           {title}
         </h3>
-        <p className="my-1">
+        <p className="my-3">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut

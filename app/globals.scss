@@ -1,14 +1,12 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
-@import "highlight.js/styles/github.css" screen;
-/*@import "highlight.js/styles/github-dark.css" screen and (prefers-color-scheme: dark);*/
-
+@import "styles/highlight.js/styles/github.css";
+@import "styles/highlight.js/styles/github-dark.css";
 
 /*@tailwind base;*/
 /*@tailwind components;*/
 /*@tailwind utilities;*/
-
 
 @layer utilities {
     .animation-delay-2000 {

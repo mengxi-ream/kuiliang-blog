@@ -9,7 +9,7 @@ export function ListItem({ post }: Props) {
   const { id, title } = post;
 
   return (
-    <li className="my-2" key={id}>
+    <li className="my-3" key={id}>
       <Link
         href={`/posts/${id}`}
         className="block p-1 group rounded-md hover:bg-gray-100 dark:hover:bg-slate-800 transition ease-in-out duration-200"

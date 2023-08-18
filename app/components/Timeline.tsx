@@ -58,7 +58,7 @@ export default function Timeline() {
   ];
 
   return (
-    <ol className="relative border-l border-gray-200 dark:border-gray-700 list-none mx-8">
+    <ol className="relative border-l border-gray-200 dark:border-gray-700 list-none">
       {experiences.map((exp, index) => (
         <TimelineItem
           key={index}

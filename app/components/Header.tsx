@@ -32,7 +32,7 @@ export default function Header() {
             height={32}
             unoptimized
           />
-          Kuiliang Zhang
+          Kuiliang Z
         </Link>
         <div className="hidden md:flex divide-x text-black dark:text-white dark:divide-gray-500">
           <div className="flex gap-x-6 px-6 text-lg">

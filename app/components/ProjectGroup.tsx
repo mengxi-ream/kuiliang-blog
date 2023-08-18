@@ -1,8 +1,6 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
-import { ReactElement, useEffect } from "react";
+import { ReactElement } from "react";
 import { QrCodeIcon } from "@heroicons/react/24/solid";
 
 type Props = {
@@ -16,7 +14,7 @@ type Props = {
 };
 
 export default function ProjectGroup() {
-  useEffect(() => require("preline"), []);
+  // useEffect(() => require("preline"), []);
   const projects: Array<Props> = [
     {
       name: "Personal Website",
@@ -178,18 +176,20 @@ function ProjectLink({
   );
 }
 
+const content = (
+  <div>
+    <p>Content</p>
+    <p>Content</p>
+  </div>
+);
+
 function QRCode({ QRCodeSrc }: { QRCodeSrc: string }) {
   return (
-    <div className="hs-tooltip inline-block [--trigger:hover]">
-      <a className="hs-tooltip-toggle block text-center" href="javascript:;">
-        <QrCodeIcon className="w-4 h-4" />
-        <div
-          className="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity inline-block absolute invisible z-10 py-3 px-4 bg-white border text-sm text-gray-600 rounded-md shadow-md dark:bg-slate-700 dark:border-gray-700 dark:text-gray-400"
-          role="tooltip"
-        >
-          <Image src={QRCodeSrc} alt="QR Code" width={100} height={100} />
-        </div>
-      </a>
+    <div className="relative hover:cursor-pointer group">
+      <QrCodeIcon className="w-4 h-4" />
+      <div className="absolute hidden group-hover:block w-24 h-24 bottom-5 -left-9 z-50 rounded-lg bg-white shadow-md shadow-gray-200 dark:shadow-gray-600">
+        <Image src={QRCodeSrc} alt="QR Code" fill className="p-2" />
+      </div>
     </div>
   );
 }

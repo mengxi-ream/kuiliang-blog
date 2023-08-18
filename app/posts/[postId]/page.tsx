@@ -65,7 +65,7 @@ export default async function Post({ params: { postId } }: Props) {
       <p className="mb-12 text-gray-500">
         <span className="font-semibold">Last Updated:</span> {pubDate}
       </p>
-      <article className="prose-lg mx-auto prose-ul:list-disc prose-ol:list-decimal prose-code:rounded-lg prose-code:bg-gray-100 prose-code:dark:bg-slate-800">
+      <article className="prose-lg mx-auto prose-ul:list-disc prose-ol:list-decimal prose-code:rounded-lg prose-code:bg-gray-100 prose-code:dark:bg-slate-800 prose-pre:py-0 prose-pre:px-0 prose-pre:sm:px-10">
         {content}
       </article>
       <div className="flex flex-wrap gap-4 mt-10 mb-10">{tags}</div>

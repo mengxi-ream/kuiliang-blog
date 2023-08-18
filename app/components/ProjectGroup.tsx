@@ -114,9 +114,9 @@ function Project({
         </div>
       )}
       <div className="grow">
-        <div className="flex flex-wrap justify-between">
+        <div className="flex flex-wrap justify-between text-base">
           <div className="flex pr-2 gap-x-2 items-center">
-            <div className="text-base font-semibold rounded-md px-1 bg-opacity-60 bg-orange-100 dark:bg-orange-800 dark:bg-opacity-60">
+            <div className="font-semibold rounded-md px-1 bg-opacity-60 bg-orange-100 dark:bg-orange-800 dark:bg-opacity-60">
               {name}
             </div>
             {QRCodeSrc && <QRCode QRCodeSrc={QRCodeSrc} />}

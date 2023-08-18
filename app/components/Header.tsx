@@ -20,19 +20,17 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 bg-opacity-80 bg-white backdrop-blur-md dark:bg-slate-900 dark:bg-opacity-80">
       <nav className="flex justify-between items-center p-6 md:px-8 max-w-5xl mx-auto">
-        <Link
-          href="/"
-          className="flex items-center gap-x-1.5 text-xl font-extrabold"
-        >
+        <Link href="/" className="flex items-center text-xl font-extrabold">
           <Image
-            className="rounded-md bg-white mr-1"
+            className="rounded-md bg-white mr-2.5"
             src="/icons/panda-logo.png"
             alt="Website Logo"
             width={32}
             height={32}
             unoptimized
           />
-          Kuiliang Z
+          Kuiliang Z<span className="text-sm relative -top-1">Z</span>
+          <span className="text-xs relative -top-2">Z</span>
         </Link>
         <div className="hidden md:flex divide-x text-black dark:text-white dark:divide-gray-500">
           <div className="flex gap-x-6 px-6 text-lg">

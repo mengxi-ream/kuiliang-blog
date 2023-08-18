@@ -2,8 +2,9 @@ import { compileMDX } from "next-mdx-remote/rsc";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeHighlight from "rehype-highlight";
 import rehypeSlug from "rehype-slug";
-import Video from "@/app/components/Video";
-import CustomImage from "@/app/components/CustomImage";
+import Video from "@/app/posts/[postId]/components/Video";
+import CustomImage from "@/app/posts/[postId]/components/CustomImage";
+import ImageCaption from "@/app/posts/[postId]/components/ImageCaption";
 
 type Filetree = {
   tree: [
@@ -39,6 +40,7 @@ export async function getPostByName(
     components: {
       Video,
       CustomImage,
+      ImageCaption,
     },
     options: {
       parseFrontmatter: true,

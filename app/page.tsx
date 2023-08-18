@@ -8,7 +8,7 @@ export const revalidate = 86400;
 export default function Home() {
   return (
     <div className="mx-auto">
-      <div className="flex flex-wrap justify-center items-center space-x-16 lg:space-x-20">
+      <div className="flex flex-wrap justify-center items-center gap-x-16 lg:gap-x-20">
         <ProfileCard />
         <Timeline />
       </div>

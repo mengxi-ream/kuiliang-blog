@@ -30,7 +30,7 @@ export default function Header() {
             unoptimized
           />
           Kuiliang Z<span className="text-sm relative -top-1">Z</span>
-          <span className="text-xs relative -top-2">Z</span>
+          <span className="text-xs relative -top-1.5">Z</span>
         </Link>
         <div className="hidden md:flex divide-x text-black dark:text-white dark:divide-gray-500">
           <div className="flex gap-x-6 px-6 text-lg">

@@ -28,7 +28,7 @@ export function ListItem({ post }: Props) {
         </p>
         <div className="flex font-semibold items-center">
           Read more
-          <ArrowRightIcon className="hidden ml-1 w-4 h-4 group-hover:text-orange-500 group-hover:block" />
+          <ArrowRightIcon className="ml-1 w-4 h-4 group-hover:text-orange-500" />
         </div>
       </Link>
     </li>

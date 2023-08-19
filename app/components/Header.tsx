@@ -15,6 +15,7 @@ export default function Header() {
   const pages = [
     { name: "Posts", href: "/" },
     { name: "Projects", href: "/" },
+    { name: "Tools", href: "/" },
   ];
 
   return (

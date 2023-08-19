@@ -5,6 +5,10 @@ import rehypeSlug from "rehype-slug";
 import Video from "@/app/posts/[postId]/components/Video";
 import CustomImage from "@/app/posts/[postId]/components/CustomImage";
 import ImageCaption from "@/app/posts/[postId]/components/ImageCaption";
+import rehypeKatex from "rehype-katex";
+import remarkMath from "remark-math";
+import rehypeMathJaxCHtml from "rehype-mathjax/chtml";
+import rehypeMathJaxBrowser from "rehype-mathjax/browser";
 
 type Filetree = {
   tree: [
@@ -47,7 +51,9 @@ export async function getPostByName(
     options: {
       parseFrontmatter: true,
       mdxOptions: {
+        remarkPlugins: [remarkMath],
         rehypePlugins: [
+          rehypeKatex,
           rehypeHighlight,
           rehypeSlug,
           [

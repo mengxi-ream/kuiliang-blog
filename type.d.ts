@@ -1,7 +1,8 @@
 type Meta = {
   id: string;
   title: string;
-  date: string;
+  publishedDate: string;
+  updatedDate: string;
   tags: string[];
 };
 

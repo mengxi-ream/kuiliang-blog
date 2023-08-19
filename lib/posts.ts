@@ -33,7 +33,8 @@ export async function getPostByName(
 
   const { frontmatter, content } = await compileMDX<{
     title: string;
-    date: string;
+    publishedDate: string;
+    updatedDate: string;
     tags: string[];
   }>({
     source: rawMDX,
@@ -65,7 +66,8 @@ export async function getPostByName(
     meta: {
       id,
       title: frontmatter.title,
-      date: frontmatter.date,
+      publishedDate: frontmatter.publishedDate,
+      updatedDate: frontmatter.updatedDate,
       tags: frontmatter.tags,
     },
     content,
@@ -106,5 +108,5 @@ export async function getPostsMeta(): Promise<Meta[] | undefined> {
     }
   }
 
-  return posts.sort((a, b) => (a.date < b.date ? 1 : -1));
+  return posts.sort((a, b) => (a.updatedDate < b.updatedDate ? 1 : -1));
 }

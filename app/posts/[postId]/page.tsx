@@ -62,7 +62,7 @@ export default async function Post({ params: { postId } }: Props) {
   return (
     <div className="mx-auto max-w-2xl">
       <h2 className="text-4xl font-extrabold mt-12 mb-3">{meta.title}</h2>
-      <div className="flex flex-wrap mb-14 text-gray-500">
+      <div className="flex flex-wrap mb-14 text-gray-500 dark:text-gray-400">
         <p>
           <span className="font-semibold">Published: </span> {publishedDate}
         </p>

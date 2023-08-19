@@ -4,7 +4,7 @@ export default function ImageCaption({
   children: React.ReactNode;
 }) {
   return (
-    <p className="relative bottom-6 my-0 text-sm text-center text-gray-500">
+    <p className="relative bottom-6 my-0 text-sm text-center text-gray-500 dark:text-gray-400">
       {children}
     </p>
   );

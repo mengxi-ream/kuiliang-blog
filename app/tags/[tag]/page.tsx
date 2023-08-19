@@ -1,5 +1,5 @@
 import { getPostsMeta } from "@/lib/posts";
-import { ListItem } from "@/app/components/ListItem";
+import { PostItem } from "@/app/components/PostItem";
 import Link from "next/link";
 
 export const revalidate = 86400;
@@ -37,12 +37,14 @@ export default async function TagPostList({ params: { tag } }: Props) {
     return <p className="mt-10 text-center">Sorry, no posts available.</p>;
   }
 
+  // decodeURIComponent is used to decode the tag name like %20 to space
+  tag = decodeURIComponent(tag);
   const filteredPosts = posts.filter((post) => post.tags.includes(tag));
 
   if (!filteredPosts.length) {
     return (
       <div className="text-center">
-        <p className="mt-10">Sorry, no posts available for this tag.</p>
+        <p className="mt-10">{`Sorry, no posts available for the tag ${tag}.`}</p>
         <Link href="/">Back to Home</Link>
       </div>
     );
@@ -50,11 +52,11 @@ export default async function TagPostList({ params: { tag } }: Props) {
 
   return (
     <>
-      <h2 className="text-3xl mt-4 mb-0">Results for: #{tag}</h2>
+      <h2 className="text-3xl mt-12 mb-0 ml-20">Results for: #{tag}</h2>
       <section className="mt-6 mx-auto max-w-2xl">
         <ul className="w-full list-none p-0">
           {filteredPosts.map((post) => (
-            <ListItem key={post.id} post={post} />
+            <PostItem key={post.id} post={post} />
           ))}
         </ul>
       </section>

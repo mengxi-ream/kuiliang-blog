@@ -1,7 +1,7 @@
-import Posts from "@/app/components/Posts";
+import PostList from "@/app/components/PostList";
 import ProfileCard from "@/app/components/ProfileCard";
 import Timeline from "@/app/components/Timeline";
-import ProjectGroup from "@/app/components/ProjectGroup";
+import ProjectList from "@/app/components/ProjectList";
 
 export const revalidate = 86400;
 
@@ -12,8 +12,8 @@ export default function Home() {
         <ProfileCard />
         <Timeline />
       </div>
-      <ProjectGroup />
-      <Posts />
+      <ProjectList />
+      <PostList />
     </div>
   );
 }

@@ -13,7 +13,7 @@ type Props = {
   youtubeLink?: string;
 };
 
-export default function ProjectGroup() {
+export default function ProjectList() {
   // useEffect(() => require("preline"), []);
   const projects: Array<Props> = [
     {
@@ -88,7 +88,7 @@ export default function ProjectGroup() {
   ];
 
   return (
-    <section>
+    <section className="max-w-3xl mx-auto">
       <h2 className="text-3xl font-bold my-4">Projects</h2>
       {projects.map((project) => (
         <Project key={project.name} {...project} />

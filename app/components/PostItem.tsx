@@ -5,7 +5,7 @@ type Props = {
   post: Meta;
 };
 
-export function ListItem({ post }: Props) {
+export function PostItem({ post }: Props) {
   const { id, title, abstract } = post;
 
   return (

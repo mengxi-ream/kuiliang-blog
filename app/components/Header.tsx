@@ -20,7 +20,7 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 bg-opacity-80 bg-white backdrop-blur-md dark:bg-slate-900 dark:bg-opacity-80">
-      <nav className="flex justify-between items-center p-6 md:px-8 max-w-5xl mx-auto">
+      <nav className="flex justify-between items-center py-4 px-6 md:px-8 max-w-5xl mx-auto">
         <Link href="/" className="flex items-center text-xl font-extrabold">
           <Image
             className="rounded-md bg-white mr-2.5"

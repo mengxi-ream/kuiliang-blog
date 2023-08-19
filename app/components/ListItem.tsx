@@ -6,7 +6,7 @@ type Props = {
 };
 
 export function ListItem({ post }: Props) {
-  const { id, title } = post;
+  const { id, title, abstract } = post;
 
   return (
     <li className="my-3" key={id}>
@@ -17,15 +17,7 @@ export function ListItem({ post }: Props) {
         <h3 className="my-1 text-xl font-bold group-hover:text-orange-500">
           {title}
         </h3>
-        <p className="my-3">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
-        </p>
+        <p className="my-3">{abstract}</p>
         <div className="flex font-semibold items-center">
           Read more
           <ArrowRightIcon className="ml-1 w-4 h-4 group-hover:text-orange-500" />

@@ -4,6 +4,7 @@ type Meta = {
   publishedDate: string;
   updatedDate: string;
   tags: string[];
+  abstract: string;
 };
 
 type BlogPost = {

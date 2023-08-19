@@ -36,6 +36,7 @@ export async function getPostByName(
     publishedDate: string;
     updatedDate: string;
     tags: string[];
+    abstract: string;
   }>({
     source: rawMDX,
     components: {
@@ -69,6 +70,7 @@ export async function getPostByName(
       publishedDate: frontmatter.publishedDate,
       updatedDate: frontmatter.updatedDate,
       tags: frontmatter.tags,
+      abstract: frontmatter.abstract,
     },
     content,
   };

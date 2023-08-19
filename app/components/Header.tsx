@@ -14,8 +14,8 @@ type Props = {
 export default function Header() {
   const pages = [
     { name: "Posts", href: "/posts" },
-    { name: "Projects", href: "/" },
-    { name: "Tools", href: "/" },
+    { name: "Projects", href: "/projects" },
+    { name: "Tools", href: "/tools" },
   ];
 
   return (

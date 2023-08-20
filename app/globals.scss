@@ -54,6 +54,11 @@ html[class='light'] #header__light {
     image-rendering: pixelated;
 }
 
+code:not(.hljs) {
+    @apply p-0.5;
+    @apply rounded-sm;
+}
+
 /*:root {*/
 /*  --foreground-rgb: 0, 0, 0;*/
 /*  --background-start-rgb: 214, 219, 220;*/

@@ -54,9 +54,43 @@ html[class='light'] #header__light {
     image-rendering: pixelated;
 }
 
-code:not(.hljs) {
+article code:not(.hljs) {
     @apply p-0.5;
     @apply rounded-sm;
+}
+
+article a {
+    @apply text-orange-500;
+}
+
+article a:hover {
+    @apply text-orange-400;
+}
+
+.dark article a {
+    @apply text-orange-500;
+}
+
+.dark article a:hover {
+    @apply text-orange-600;
+}
+
+article h1 a,
+article h2 a,
+article h3 a,
+article h4 a,
+article h5 a,
+article h6 a {
+    @apply text-current;
+}
+
+.dark article h1 a,
+.dark article h2 a,
+.dark article h3 a,
+.dark article h4 a,
+.dark article h5 a,
+.dark article h6 a {
+    @apply text-current;
 }
 
 /*:root {*/

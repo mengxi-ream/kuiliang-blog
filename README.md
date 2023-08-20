@@ -36,3 +36,4 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 ## Todo
 - [ ] SEO
 - [ ] Get inspiration from Tailwind Personal Website Templates
+- [ ] Chrome Blur Bug

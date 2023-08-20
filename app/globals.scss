@@ -80,7 +80,13 @@ article h2 a,
 article h3 a,
 article h4 a,
 article h5 a,
-article h6 a {
+article h6 a,
+article h1 a:hover,
+article h2 a:hover,
+article h3 a:hover,
+article h4 a:hover,
+article h5 a:hover,
+article h6 a:hover {
     @apply text-current;
 }
 
@@ -89,7 +95,13 @@ article h6 a {
 .dark article h3 a,
 .dark article h4 a,
 .dark article h5 a,
-.dark article h6 a {
+.dark article h6 a,
+.dark article h1 a:hover,
+.dark article h2 a:hover,
+.dark article h3 a:hover,
+.dark article h4 a:hover,
+.dark article h5 a:hover,
+.dark article h6 a:hover {
     @apply text-current;
 }
 

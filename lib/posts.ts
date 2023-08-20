@@ -7,8 +7,7 @@ import CustomImage from "@/app/posts/[postId]/components/CustomImage";
 import ImageCaption from "@/app/posts/[postId]/components/ImageCaption";
 import rehypeKatex from "rehype-katex";
 import remarkMath from "remark-math";
-import rehypeMathJaxCHtml from "rehype-mathjax/chtml";
-import rehypeMathJaxBrowser from "rehype-mathjax/browser";
+import { CustomLink } from "@/app/posts/[postId]/components/CustomLink";
 
 type Filetree = {
   tree: [
@@ -47,6 +46,7 @@ export async function getPostByName(
       Video,
       CustomImage,
       ImageCaption,
+      CustomLink,
     },
     options: {
       parseFrontmatter: true,

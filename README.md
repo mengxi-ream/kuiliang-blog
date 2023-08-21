@@ -37,3 +37,5 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 - [ ] SEO
 - [ ] Get inspiration from Tailwind Personal Website Templates
 - [ ] Chrome Blur Bug
+- [ ] Revalidation
+- [ ] Tags with useState

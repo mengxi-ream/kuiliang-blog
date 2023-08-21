@@ -7,7 +7,8 @@ import CustomImage from "@/app/posts/[postId]/components/CustomImage";
 import ImageCaption from "@/app/posts/[postId]/components/ImageCaption";
 import rehypeKatex from "rehype-katex";
 import remarkMath from "remark-math";
-import { CustomLink } from "@/app/posts/[postId]/components/CustomLink";
+import CustomLink from "@/app/posts/[postId]/components/CustomLink";
+import CustomBlockQuote from "@/app/posts/[postId]/components/CustomBlockQuote";
 
 type Filetree = {
   tree: [
@@ -47,6 +48,7 @@ export async function getPostByName(
       CustomImage,
       ImageCaption,
       CustomLink,
+      CustomBlockQuote,
     },
     options: {
       parseFrontmatter: true,

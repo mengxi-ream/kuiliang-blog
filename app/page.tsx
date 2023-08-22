@@ -13,7 +13,7 @@ export default function Home() {
         <Timeline />
       </div>
       <ProjectList />
-      <PostList />
+      <PostList heading="Recent Posts" />
     </div>
   );
 }

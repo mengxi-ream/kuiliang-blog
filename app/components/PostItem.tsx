@@ -18,9 +18,9 @@ export function PostItem({ post }: Props) {
           {title}
         </h3>
         <p className="my-3">{abstract}</p>
-        <div className="flex font-semibold items-center">
+        <div className="flex items-center text-orange-500 text-sm">
           Read more
-          <ArrowRightIcon className="ml-1 w-4 h-4 group-hover:text-orange-500" />
+          <ArrowRightIcon className="ml-1 w-4 h-4" />
         </div>
       </Link>
     </li>

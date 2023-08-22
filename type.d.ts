@@ -11,3 +11,18 @@ type BlogPost = {
   meta: Meta;
   content: ReactElement<any, string | JSXElementConstructor<any>>;
 };
+
+type Project = {
+  name: string;
+  icon?: ReactElement;
+  imageSrc?: string;
+  stack?: string[];
+  description: string;
+  detail?: string;
+  time: string;
+  recent: boolean;
+  postLink?: string;
+  QRCodeSrc?: string;
+  githubLink?: string;
+  youtubeLink?: string;
+};

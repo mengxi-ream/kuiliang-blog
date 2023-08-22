@@ -1,98 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ReactElement } from "react";
 import { QrCodeIcon } from "@heroicons/react/24/solid";
-
-type Props = {
-  name: string;
-  icon?: ReactElement;
-  description: string;
-  time: string;
-  QRCodeSrc?: string;
-  githubLink?: string;
-  youtubeLink?: string;
-};
+import projects from "@/lib/data/projects";
 
 export default function ProjectList() {
-  // useEffect(() => require("preline"), []);
-  const projects: Array<Props> = [
-    {
-      name: "Personal Website",
-      icon: (
-        <Image
-          src="/icons/panda-logo.png"
-          alt="Kuiliang's Blog Icon"
-          fill
-          style={{ objectFit: "contain" }}
-          unoptimized
-        />
-      ),
-      description:
-        "My personal website built with Next.js (The site you are browsing right now 😃).",
-      time: "Aug 2023 - Present",
-    },
-    {
-      name: "Strongholdon",
-      icon: (
-        <Image
-          className="pixelated"
-          src="/icons/strongholdon.png"
-          alt="Strongholdon Icon"
-          fill
-          style={{ objectFit: "contain" }}
-          unoptimized
-        />
-      ),
-      description:
-        "A party game similar to Crypt of the NecroDance gameplay for up to 3 players.",
-      time: "Oct 2022 - Dec 2022",
-      githubLink: "https://github.com/Crayon-ShinChan/strongholdon",
-      youtubeLink: "https://www.youtube.com/shorts/hSHPS37V1v0",
-    },
-    {
-      name: "uCourse",
-      icon: (
-        <div className="relative flex items-center justify-center w-9 h-9">
-          <Image
-            src="/icons/uCourse.png"
-            alt="uCourse Icon"
-            fill
-            style={{ objectFit: "contain" }}
-            unoptimized
-          />
-        </div>
-      ),
-      description:
-        "An online platform on WeChat for UNNC students to share their course reviews and manage timetables.",
-      time: "Mar 2018 - May 2021",
-      QRCodeSrc: "/QRCodes/ucourse-wxcode.webp",
-    },
-    {
-      name: "UNNCMap",
-      icon: (
-        <div className="relative flex items-center justify-center w-8 h-8">
-          <Image
-            src="/icons/UNNCMap.png"
-            alt="UNNCMap Icon"
-            fill
-            style={{ objectFit: "contain" }}
-            unoptimized
-          />
-        </div>
-      ),
-      description:
-        "A real-time interactive map on WeChat to help UNNC freshmen explore campus.",
-      time: "Jul 2019 - Sep 2019",
-      QRCodeSrc: "/QRCodes/unncmap-wxcode.webp",
-    },
-  ];
-
   return (
     <section className="max-w-3xl mx-auto">
-      <h2 className="text-3xl font-bold my-4">Projects</h2>
-      {projects.map((project) => (
-        <Project key={project.name} {...project} />
-      ))}
+      <h2 className="text-3xl font-bold my-4">Recent Projects</h2>
+      {projects.map(
+        (project) =>
+          project.recent && <Project key={project.name} {...project} />
+      )}
     </section>
   );
 }
@@ -102,10 +20,10 @@ function Project({
   icon,
   description,
   time,
-  QRCodeSrc = undefined,
-  githubLink = undefined,
-  youtubeLink = undefined,
-}: Props) {
+  QRCodeSrc,
+  githubLink,
+  youtubeLink,
+}: Project) {
   return (
     <div className="flex items-start mb-4 p-1 rounded-md hover:bg-gray-100 hover:dark:bg-slate-800 transition ease-in-out duration-200">
       {icon && (
@@ -116,9 +34,7 @@ function Project({
       <div className="grow">
         <div className="flex flex-wrap justify-between text-base">
           <div className="flex pr-2 gap-x-2 items-center">
-            <div className="font-semibold rounded-md px-1 bg-opacity-60 bg-orange-100 dark:bg-orange-800 dark:bg-opacity-60">
-              {name}
-            </div>
+            <div className="font-semibold">{name}</div>
             {QRCodeSrc && <QRCode QRCodeSrc={QRCodeSrc} />}
             {githubLink && (
               <ProjectLink
@@ -175,13 +91,6 @@ function ProjectLink({
     </Link>
   );
 }
-
-const content = (
-  <div>
-    <p>Content</p>
-    <p>Content</p>
-  </div>
-);
 
 function QRCode({ QRCodeSrc }: { QRCodeSrc: string }) {
   return (

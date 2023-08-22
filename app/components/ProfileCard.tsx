@@ -32,9 +32,18 @@ export default function ProfileCard() {
 
   return (
     <div className="relative backdrop-opacity-100">
-      <div className="absolute top-20 -left-4 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob dark:opacity-100 dark:bg-purple-100" />
-      <div className="absolute top-20 -right-0 w-72 h-72 bg-yellow-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000 dark:opacity-100 dark:bg-yellow-100" />
-      <div className="absolute -bottom-4 left-8 w-72 h-72 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000 dark:opacity-100 dark:bg-pink-100" />
+      <div
+        id="header__light"
+        className="absolute top-20 -left-4 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob dark:opacity-100 dark:bg-purple-100"
+      />
+      <div
+        id="header__light"
+        className="absolute top-20 -right-0 w-72 h-72 bg-yellow-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000 dark:opacity-100 dark:bg-yellow-100"
+      />
+      <div
+        id="header__light"
+        className="absolute -bottom-4 left-8 w-72 h-72 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000 dark:opacity-100 dark:bg-pink-100"
+      />
       <div className="relative my-10 bg-white p-6 rounded-xl space-y-4 text-black dark:bg-slate-800 dark:text-white">
         <Image
           className="mx-auto my-6 rounded-full h-32 w-32 ring-2 ring-orange-500 ring-offset-4 ring-opacity-50 dark:ring-offset-slate-800"

@@ -61,7 +61,7 @@ const projects: Array<Project> = [
       "An online platform on WeChat for UNNC students to share their course reviews and manage timetables.",
     time: "Mar 2018 - May 2021",
     stack: ["React", "Node.js"],
-    recent: true,
+    recent: false,
     QRCodeSrc: "/QRCodes/ucourse-wxcode.webp",
   },
   {

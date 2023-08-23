@@ -14,7 +14,7 @@ export default function ProjectItem({
   youtubeLink,
 }: Project) {
   return (
-    <section className="p-4 mx-auto rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800">
+    <section className="p-4 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800">
       <div className="text-sm text-gray-600 dark:text-gray-400">{time}</div>
       <div className="flex my-4 items-center">
         <div className="shrink-0 relative flex justify-center items-center w-10 h-10 mr-4 bg-white rounded-md ring-1 ring-gray-100 shadow-md shadow-gray-300/20 dark:ring-gray-600 dark:shadow-gray-500/40">
@@ -22,7 +22,7 @@ export default function ProjectItem({
         </div>
         <div className="relative -top-0.5">
           <div className="flex pr-2 gap-x-2 items-center">
-            <h2 className="text-xl font-semibold mr-1.5">{name}</h2>
+            <h2 className="text-xl font-bold mr-1.5 ">{name}</h2>
             {QRCodeSrc && <QRCode QRCodeSrc={QRCodeSrc} />}
             {githubLink && (
               <ProjectLink
@@ -54,7 +54,7 @@ export default function ProjectItem({
           </div>
         </div>
       </div>
-      <p className="pb-6 text-gray-700 dark:text-gray-300">{description}</p>
+      <p className="py-3 text-gray-700 dark:text-gray-300">{description}</p>
       <div className="flex items-center text-sm text-orange-500">
         Relevant posts
         <ArrowRightIcon className="ml-1 w-4 h-4" />

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRightIcon } from "@heroicons/react/24/solid";
 import getFormattedDate from "@/lib/getFormattedDate";
 import categories from "@/lib/data/categories";
+import Tag from "@/app/components/Tag";
 
 type Props = {
   post: Meta;
@@ -28,12 +29,7 @@ export function PostItem({ post }: Props) {
           {postCategory.length > 0 && (
             <div className="flex flex-wrap gap-x-2">
               {postCategory.map((tag) => (
-                <span
-                  key={tag}
-                  className="px-1 text-sm rounded-md bg-gray-200 text-gray-800 dark:bg-slate-700 dark:text-gray-300"
-                >
-                  {tag}
-                </span>
+                <Tag key={tag} content={tag} />
               ))}
             </div>
           )}

@@ -1,6 +1,7 @@
 import { ArrowRightIcon, QrCodeIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
 import Image from "next/image";
+import Tag from "@/app/components/Tag";
 
 export default function ProjectItem({
   name,
@@ -42,15 +43,7 @@ export default function ProjectItem({
             )}
           </div>
           <div className="flex flex-wrap gap-x-2">
-            {stack &&
-              stack.map((s) => (
-                <span
-                  key={s}
-                  className="px-1 mt-1 text-sm rounded-md bg-gray-200 text-gray-800 dark:bg-slate-700 dark:text-gray-300"
-                >
-                  {s}
-                </span>
-              ))}
+            {stack && stack.map((s) => <Tag key={s} content={s} />)}
           </div>
         </div>
       </div>

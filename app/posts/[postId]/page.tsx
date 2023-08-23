@@ -2,6 +2,7 @@ import { getPostsMeta, getPostByName } from "@/lib/posts";
 import { notFound } from "next/navigation";
 import getFormattedDate from "@/lib/getFormattedDate";
 import Link from "next/link";
+import Tag from "@/app/components/Tag";
 
 export const revalidate = 86400;
 
@@ -50,12 +51,8 @@ export default async function Post({ params: { postId } }: Props) {
   const updatedDate = getFormattedDate(meta.updatedDate);
 
   const tags = meta.tags.map((tag, i) => (
-    <Link
-      href={`/tags/${tag}`}
-      key={i}
-      className="rounded-full bg-gray-200 px-2 py-1 dark:bg-gray-700 dark:text-white"
-    >
-      {tag}
+    <Link href={`/tags/${tag}`} key={i}>
+      <Tag content={tag} size="md" />
     </Link>
   ));
 

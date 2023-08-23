@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ReactElement } from "react";
+import Tag from "@/app/components/Tag";
 
 type ExpType = "work" | "study";
 
@@ -128,8 +129,8 @@ const TimelineItem = ({
       <h3 className="mb-1 text-base font-semibold text-gray-900 dark:text-white">
         {title}{" "}
         {isLatest && (
-          <span className="bg-blue-100 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300 ml-0">
-            Latest
+          <span className="ml-1">
+            <Tag content="Latest" type="primary" />
           </span>
         )}
       </h3>

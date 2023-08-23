@@ -3,18 +3,23 @@ import { ArrowRightIcon } from "@heroicons/react/24/solid";
 import getFormattedDate from "@/lib/getFormattedDate";
 import categories from "@/lib/data/categories";
 import Tag from "@/app/components/Tag";
+import projects from "@/lib/data/projects";
+import Icon from "@/app/components/Icon";
 
 type Props = {
   post: Meta;
 };
 
 export function PostItem({ post }: Props) {
-  const { id, title, abstract, publishedDate, tags } = post;
+  const { id, title, abstract, publishedDate, tags, project, tool } = post;
 
   // find the categories which are in tags
   const postCategory = tags.filter((tag) =>
     Object.keys(categories).includes(tag)
   );
+
+  const foundProject = projects.find((p) => p.name === project);
+  const iconInfo = foundProject?.iconInfo;
 
   return (
     <li className="my-3" key={id}>
@@ -26,6 +31,17 @@ export function PostItem({ post }: Props) {
           <div className="text-gray-600 dark:text-gray-400 mr-4">
             {getFormattedDate(publishedDate)}
           </div>
+          {iconInfo && (
+            <div className="bg-white rounded-md mr-2 ring-1 ring-gray-100 shadow-md shadow-gray-300 dark:ring-gray-800 dark:shadow-slate-500">
+              <Icon
+                src={iconInfo.src}
+                alt={foundProject?.name || "defaultAltText"}
+                size="w-5"
+                innerSize={iconInfo.innerSize}
+                pixelated={iconInfo.pixelated}
+              />
+            </div>
+          )}
           {postCategory.length > 0 && (
             <div className="flex flex-wrap gap-x-2">
               {postCategory.map((tag) => (

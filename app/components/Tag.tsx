@@ -1,5 +1,5 @@
-type TagType = "default" | "primary";
-type TagSize = "sm" | "md";
+type Type = "default" | "primary";
+type Size = "sm" | "md";
 
 export default function Tag({
   content,
@@ -7,21 +7,19 @@ export default function Tag({
   size = "sm",
 }: {
   content: string;
-  type?: TagType;
-  size?: TagSize;
+  type?: Type;
+  size?: Size;
 }) {
-  const bgTextColor =
+  const typeStyles =
     type === "default"
       ? "bg-gray-200 text-gray-800 dark:bg-slate-700 dark:text-gray-300"
       : "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300";
 
-  const paddingStyles = size === "md" ? "px-2 py-1" : "px-1";
+  const sizeStyles =
+    size === "md" ? "px-2 py-1 rounded-lg text-sm" : "px-1 rounded-md text-md";
 
   return (
-    <span
-      key={content}
-      className={`${paddingStyles} text-${size} rounded-${size} ${bgTextColor}`}
-    >
+    <span key={content} className={`${sizeStyles} ${typeStyles}`}>
       {content}
     </span>
   );

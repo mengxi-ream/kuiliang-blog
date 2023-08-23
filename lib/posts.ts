@@ -41,6 +41,8 @@ export async function getPostByName(
     updatedDate: string;
     tags: string[];
     abstract: string;
+    project?: string;
+    tool?: string;
   }>({
     source: rawMDX,
     components: {
@@ -79,6 +81,8 @@ export async function getPostByName(
       updatedDate: frontmatter.updatedDate,
       tags: frontmatter.tags,
       abstract: frontmatter.abstract,
+      ...(frontmatter.project && { project: frontmatter.project }),
+      ...(frontmatter.tool && { project: frontmatter.tool }),
     },
     content,
   };

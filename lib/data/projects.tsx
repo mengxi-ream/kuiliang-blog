@@ -12,6 +12,10 @@ const projects: Array<Project> = [
         unoptimized
       />
     ),
+    iconInfo: {
+      src: "/icons/panda-logo.png",
+      innerSize: "w-11/12",
+    },
     imageSrc: "/images/projects/personal-website.png",
     stack: ["Next.js", "React", "Tailwind CSS"],
     description:
@@ -31,6 +35,11 @@ const projects: Array<Project> = [
         unoptimized
       />
     ),
+    iconInfo: {
+      src: "/icons/strongholdon.png",
+      innerSize: "w-11/12",
+      pixelated: true,
+    },
     imageSrc: "/images/projects/strongholdon.png",
     stack: ["Java"],
     description:
@@ -53,6 +62,10 @@ const projects: Array<Project> = [
         />
       </div>
     ),
+    iconInfo: {
+      src: "/icons/uCourse.png",
+      innerSize: "w-11/12",
+    },
     imageSrc: "/images/projects/uCourse.png",
     description:
       "An online platform on WeChat for UNNC students to share their course reviews and manage timetables.",
@@ -74,6 +87,9 @@ const projects: Array<Project> = [
         />
       </div>
     ),
+    iconInfo: {
+      src: "/icons/UNNCMap.png",
+    },
     imageSrc: "/images/projects/UNNCMap.png",
     description:
       "A real-time interactive map on WeChat to help UNNC freshmen explore campus.",

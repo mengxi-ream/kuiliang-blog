@@ -2,10 +2,12 @@ import { ArrowRightIcon, QrCodeIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
 import Image from "next/image";
 import Tag from "@/app/components/Tag";
+import Icon from "@/app/components/Icon";
 
 export default function ProjectItem({
   name,
   icon,
+  iconInfo,
   description,
   time,
   stack,
@@ -18,8 +20,15 @@ export default function ProjectItem({
     <section className="p-4 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800">
       <div className="text-sm text-gray-600 dark:text-gray-400">{time}</div>
       <div className="flex my-4 items-center">
-        <div className="shrink-0 relative flex justify-center items-center w-10 h-10 mr-4 bg-white rounded-md ring-1 ring-gray-100 shadow-lg shadow-gray-300/70 dark:ring-gray-800 dark:shadow-slate-600/80">
-          {icon}
+        <div className="shrink-0 relative mr-4 bg-white rounded-md ring-1 ring-gray-100 shadow-lg shadow-gray-300 dark:ring-gray-800 dark:shadow-slate-500">
+          {/*{icon}*/}
+          <Icon
+            src={iconInfo.src}
+            alt={name}
+            size="w-10"
+            innerSize={iconInfo.innerSize}
+            pixelated={iconInfo.pixelated}
+          />
         </div>
         <div className="relative -top-0.5">
           <div className="flex pr-2 gap-x-2 items-center">

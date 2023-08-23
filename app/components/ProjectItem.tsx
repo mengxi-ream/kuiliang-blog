@@ -14,7 +14,7 @@ export default function ProjectItem({
   youtubeLink,
 }: Project) {
   return (
-    <section className="flex-auto w-full md:w-72 p-4 max-w-md mx-auto rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800">
+    <section className="p-4 max-w-md mx-auto rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800">
       <div className="text-sm text-gray-600 dark:text-gray-400">{time}</div>
       <div className="flex my-4 items-center">
         <div className="shrink-0 relative flex justify-center items-center w-10 h-10 mr-4 bg-white rounded-md ring-1 ring-gray-100 shadow-md shadow-gray-300/20 dark:ring-gray-600 dark:shadow-gray-500/40">

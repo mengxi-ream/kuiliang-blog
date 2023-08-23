@@ -8,7 +8,7 @@ export default function ProjectList() {
   return (
     <section className="max-w-3xl mx-auto my-14">
       <h2 className="text-3xl font-bold my-4">Recent Projects</h2>
-      <div className="flex flex-wrap">
+      <div className="flex flex-wrap gap-y-3">
         {projects.map(
           (project) =>
             project.recent && (

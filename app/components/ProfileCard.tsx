@@ -34,11 +34,11 @@ export default function ProfileCard() {
     <div className="relative backdrop-opacity-100">
       <div
         id="header__light"
-        className="absolute top-20 -left-4 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob dark:opacity-100 dark:bg-purple-100"
+        className="absolute top-20 -left-10 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob dark:opacity-100 dark:bg-purple-100"
       />
       <div
         id="header__light"
-        className="absolute top-20 -right-0 w-72 h-72 bg-yellow-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000 dark:opacity-100 dark:bg-yellow-100"
+        className="absolute top-8 -right-0 w-72 h-72 bg-yellow-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000 dark:opacity-100 dark:bg-yellow-100"
       />
       <div
         id="header__light"

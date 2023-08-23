@@ -37,7 +37,7 @@ export default function ProjectCard({
           </div>
           <div className="relative -top-0.5">
             <div className="flex pr-2 gap-x-2 items-center">
-              <h2 className="text-xl font-semibold mr-1.5">{name}</h2>
+              <h2 className="text-xl font-bold mr-1.5">{name}</h2>
               {QRCodeSrc && <QRCode QRCodeSrc={QRCodeSrc} />}
               {githubLink && (
                 <ProjectLink

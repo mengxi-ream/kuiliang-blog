@@ -54,7 +54,7 @@ export default function ProjectItem({
           </div>
         </div>
       </div>
-      <p className="py-3 text-gray-700 dark:text-gray-300">{description}</p>
+      <p className="my-3 text-gray-700 dark:text-gray-300">{description}</p>
       <div className="flex items-center text-sm text-orange-500">
         Relevant posts
         <ArrowRightIcon className="ml-1 w-4 h-4" />

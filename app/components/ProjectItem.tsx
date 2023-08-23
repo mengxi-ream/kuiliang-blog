@@ -17,7 +17,7 @@ export default function ProjectItem({
     <section className="p-4 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800">
       <div className="text-sm text-gray-600 dark:text-gray-400">{time}</div>
       <div className="flex my-4 items-center">
-        <div className="shrink-0 relative flex justify-center items-center w-10 h-10 mr-4 bg-white rounded-md ring-1 ring-gray-100 shadow-md shadow-gray-300/20 dark:ring-gray-600 dark:shadow-gray-500/40">
+        <div className="shrink-0 relative flex justify-center items-center w-10 h-10 mr-4 bg-white rounded-md ring-1 ring-gray-100 shadow-lg shadow-gray-300/70 dark:ring-gray-800 dark:shadow-slate-600/80">
           {icon}
         </div>
         <div className="relative -top-0.5">

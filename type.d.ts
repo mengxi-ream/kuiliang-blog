@@ -15,10 +15,9 @@ type BlogPost = {
 type Project = {
   name: string;
   icon?: ReactElement;
-  imageSrc?: string;
+  imageSrc: string;
   stack?: string[];
   description: string;
-  detail?: string;
   time: string;
   recent: boolean;
   postLink?: string;

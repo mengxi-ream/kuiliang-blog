@@ -30,7 +30,7 @@ export function PostItem({ post }: Props) {
               {postCategory.map((tag) => (
                 <span
                   key={tag}
-                  className="px-1 text-sm rounded-md bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300"
+                  className="px-1 text-sm rounded-md bg-gray-200 text-gray-800 dark:bg-slate-700 dark:text-gray-300"
                 >
                   {tag}
                 </span>

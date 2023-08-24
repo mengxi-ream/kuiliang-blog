@@ -36,7 +36,7 @@ export function PostItem({ post }: Props) {
               <Icon
                 src={iconInfo.src}
                 alt={foundProject?.name || "defaultAltText"}
-                size="w-5"
+                size="5"
                 innerSize={iconInfo.innerSize}
                 pixelated={iconInfo.pixelated}
               />

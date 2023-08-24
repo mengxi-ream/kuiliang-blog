@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ReactElement } from "react";
 import Tag from "@/app/components/Tag";
+import Icon from "@/app/components/Icon";
 
 type ExpType = "work" | "study";
 
@@ -139,13 +140,14 @@ const TimelineItem = ({
         href={link}
         target="_blank"
       >
-        <span className="relative w-5 h-5 mr-1.5 bg-white border-2 border-white rounded-sm">
-          <Image
-            src={iconSrc}
-            alt={altText}
-            fill
-            style={{ objectFit: "contain" }}
-          />
+        <span className="relative flex items-center justify-center mr-1.5 bg-white rounded-sm">
+          {/*<Image*/}
+          {/*  src={iconSrc}*/}
+          {/*  alt={altText}*/}
+          {/*  fill*/}
+          {/*  style={{ objectFit: "contain" }}*/}
+          {/*/>*/}
+          <Icon src={iconSrc} alt={altText} size="5" innerSize="3/4" />
         </span>
         {organization}
       </Link>

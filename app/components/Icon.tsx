@@ -1,34 +1,34 @@
 import Image from "next/image";
 
 type Size =
-  | "w-4"
-  | "w-5"
-  | "w-6"
-  | "w-7"
-  | "w-8"
-  | "w-9"
-  | "w-10"
-  | "w-11"
-  | "w-12"
-  | "w-14"
-  | "w-16"
-  | "w-20"
-  | "w-24"
-  | "w-28"
-  | "w-32"
-  | "w-36"
-  | "w-40"
-  | "w-44"
-  | "w-48"
-  | "w-52"
-  | "w-56"
-  | "w-60";
+  | "4"
+  | "5"
+  | "6"
+  | "7"
+  | "8"
+  | "9"
+  | "10"
+  | "11"
+  | "12"
+  | "14"
+  | "16"
+  | "20"
+  | "24"
+  | "28"
+  | "32"
+  | "36"
+  | "40"
+  | "44"
+  | "48"
+  | "52"
+  | "56"
+  | "60";
 
 export default function Icon({
   src,
   alt,
   size,
-  innerSize = "w-5/6",
+  innerSize = "5/6",
   pixelated = false,
 }: {
   src: string;
@@ -37,17 +37,13 @@ export default function Icon({
   innerSize?: IconInnerSize;
   pixelated?: boolean;
 }) {
-  // const innerSizeStyles = `w-[${innerSize}] h-[${innerSize}]`;
-
   return (
     <div
-      className={`relative flex items-center justify-center ${size} ${
+      className={`relative flex items-center justify-center w-${size} h-${size} ${
         pixelated ? "pixelated" : ""
       }`}
     >
-      <div
-        className={`relative flex items-center justify-center ${innerSize} aspect-h-1 aspect-w-1`}
-      >
+      <div className={`relative w-${innerSize} h-${innerSize}`}>
         <Image
           src={src}
           alt={alt}

@@ -25,7 +25,7 @@ export default function ProjectItem({
           <Icon
             src={iconInfo.src}
             alt={name}
-            size="w-10"
+            size="10"
             innerSize={iconInfo.innerSize}
             pixelated={iconInfo.pixelated}
           />

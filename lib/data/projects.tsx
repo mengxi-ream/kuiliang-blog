@@ -14,7 +14,7 @@ const projects: Array<Project> = [
     ),
     iconInfo: {
       src: "/icons/panda-logo.png",
-      innerSize: "w-11/12",
+      innerSize: "11/12",
     },
     imageSrc: "/images/projects/personal-website.png",
     stack: ["Next.js", "React", "Tailwind CSS"],
@@ -37,7 +37,7 @@ const projects: Array<Project> = [
     ),
     iconInfo: {
       src: "/icons/strongholdon.png",
-      innerSize: "w-11/12",
+      innerSize: "11/12",
       pixelated: true,
     },
     imageSrc: "/images/projects/strongholdon.png",
@@ -64,7 +64,7 @@ const projects: Array<Project> = [
     ),
     iconInfo: {
       src: "/icons/uCourse.png",
-      innerSize: "w-11/12",
+      innerSize: "11/12",
     },
     imageSrc: "/images/projects/uCourse.png",
     description:

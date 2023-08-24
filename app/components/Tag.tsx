@@ -16,7 +16,7 @@ export default function Tag({
       : "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300";
 
   const sizeStyles =
-    size === "md" ? "px-2 py-1 rounded-lg text-sm" : "px-1 rounded-md text-md";
+    size === "md" ? "px-2 py-1 rounded-lg text-md" : "px-1 rounded-md text-sm";
 
   return (
     <span key={content} className={`${sizeStyles} ${typeStyles}`}>

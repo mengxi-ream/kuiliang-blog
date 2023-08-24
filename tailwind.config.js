@@ -6,6 +6,15 @@ module.exports = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./lib/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  safelist: [
+    {
+      pattern:
+        /[wh]-(1|2|3|4|5|6|7|8|9|10|11|12|14|16|20|24|28|32|36|40|44|48|52|56|60|64|72|80|96|px)/,
+    },
+    {
+      pattern: /[wh]-(1\/2|2\/3|3\/4|4\/5|5\/6|11\/12)/,
+    },
+  ],
   darkMode: "class",
   theme: {
     extend: {
@@ -25,6 +34,9 @@ module.exports = {
         md: "0 0 15px -3px rgb(0 0 0 / 0.1), 0 0 6px -4px rgb(0 0 0 / 0.1)",
         lg: "0 0 25px -5px rgb(0 0 0 / 0.1), 0 0 10px -6px rgb(0 0 0 / 0.1)",
         xl: "0 0 50px -12px rgb(0 0 0 / 0.25)",
+      },
+      height: {
+        "11/12": "91.666667%",
       },
     },
   },

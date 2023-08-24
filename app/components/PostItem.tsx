@@ -19,7 +19,7 @@ export function PostItem({ post }: Props) {
   );
 
   const foundProject = projects.find((p) => p.name === project);
-  const iconInfo = foundProject?.iconInfo;
+  const icon = foundProject?.icon;
 
   return (
     <li className="my-3" key={id}>
@@ -31,14 +31,14 @@ export function PostItem({ post }: Props) {
           <div className="text-gray-600 dark:text-gray-400 mr-4">
             {getFormattedDate(publishedDate)}
           </div>
-          {iconInfo && (
+          {icon && (
             <div className="bg-white rounded-md mr-2 ring-1 ring-gray-100 shadow-md shadow-gray-300 dark:ring-gray-800 dark:shadow-slate-500">
               <Icon
-                src={iconInfo.src}
+                src={icon.src}
                 alt={foundProject?.name || "defaultAltText"}
                 size="5"
-                innerSize={iconInfo.innerSize}
-                pixelated={iconInfo.pixelated}
+                innerSize={icon.innerSize}
+                pixelated={icon.pixelated}
               />
             </div>
           )}

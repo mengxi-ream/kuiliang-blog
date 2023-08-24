@@ -3,16 +3,7 @@ import Image from "next/image";
 const projects: Array<Project> = [
   {
     name: "Personal Website",
-    icon: (
-      <Image
-        src="/icons/panda-logo.png"
-        alt="Kuiliang's Blog Icon"
-        fill
-        style={{ objectFit: "contain" }}
-        unoptimized
-      />
-    ),
-    iconInfo: {
+    icon: {
       src: "/icons/panda-logo.png",
       innerSize: "11/12",
     },
@@ -25,17 +16,7 @@ const projects: Array<Project> = [
   },
   {
     name: "Strongholdon",
-    icon: (
-      <Image
-        className="pixelated"
-        src="/icons/strongholdon.png"
-        alt="Strongholdon Icon"
-        fill
-        style={{ objectFit: "contain" }}
-        unoptimized
-      />
-    ),
-    iconInfo: {
+    icon: {
       src: "/icons/strongholdon.png",
       innerSize: "11/12",
       pixelated: true,
@@ -51,18 +32,7 @@ const projects: Array<Project> = [
   },
   {
     name: "uCourse",
-    icon: (
-      <div className="relative flex items-center justify-center w-9 h-9">
-        <Image
-          src="/icons/uCourse.png"
-          alt="uCourse Icon"
-          fill
-          style={{ objectFit: "contain" }}
-          unoptimized
-        />
-      </div>
-    ),
-    iconInfo: {
+    icon: {
       src: "/icons/uCourse.png",
       innerSize: "11/12",
     },
@@ -76,18 +46,7 @@ const projects: Array<Project> = [
   },
   {
     name: "UNNCMap",
-    icon: (
-      <div className="relative flex items-center justify-center w-8 h-8">
-        <Image
-          src="/icons/UNNCMap.png"
-          alt="UNNCMap Icon"
-          fill
-          style={{ objectFit: "contain" }}
-          unoptimized
-        />
-      </div>
-    ),
-    iconInfo: {
+    icon: {
       src: "/icons/UNNCMap.png",
     },
     imageSrc: "/images/projects/UNNCMap.png",

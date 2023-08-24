@@ -18,8 +18,7 @@ type IconInnerSize = "2/3" | "3/4" | "4/5" | "5/6" | "11/12" | "full";
 
 type Project = {
   name: string;
-  icon?: ReactElement;
-  iconInfo: {
+  icon: {
     src: string;
     innerSize?: IconInnerSize;
     pixelated?: boolean;

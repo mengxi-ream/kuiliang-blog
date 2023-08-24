@@ -7,7 +7,6 @@ import Icon from "@/app/components/Icon";
 export default function ProjectItem({
   name,
   icon,
-  iconInfo,
   description,
   time,
   stack,
@@ -23,11 +22,11 @@ export default function ProjectItem({
         <div className="shrink-0 relative mr-4 bg-white rounded-md ring-1 ring-gray-100 shadow-lg shadow-gray-300 dark:ring-gray-800 dark:shadow-slate-500">
           {/*{icon}*/}
           <Icon
-            src={iconInfo.src}
+            src={icon.src}
             alt={name}
             size="10"
-            innerSize={iconInfo.innerSize}
-            pixelated={iconInfo.pixelated}
+            innerSize={icon.innerSize}
+            pixelated={icon.pixelated}
           />
         </div>
         <div className="relative -top-0.5">

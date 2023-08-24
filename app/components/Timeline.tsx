@@ -141,12 +141,6 @@ const TimelineItem = ({
         target="_blank"
       >
         <span className="relative flex items-center justify-center mr-1.5 bg-white rounded-sm">
-          {/*<Image*/}
-          {/*  src={iconSrc}*/}
-          {/*  alt={altText}*/}
-          {/*  fill*/}
-          {/*  style={{ objectFit: "contain" }}*/}
-          {/*/>*/}
           <Icon src={iconSrc} alt={altText} size="5" innerSize="3/4" />
         </span>
         {organization}

@@ -1,7 +1,6 @@
 import PostList from "@/app/components/PostList";
 import { getPostsMeta } from "@/lib/posts";
 import Link from "next/link";
-import PostLoader from "@/app/posts/components/PostLoader";
 
 export default async function Posts() {
   const posts = await getPostsMeta();

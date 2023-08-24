@@ -3,7 +3,11 @@ import { getPostsMeta } from "@/lib/posts";
 import Link from "next/link";
 import Tag from "@/app/components/Tag";
 
-export default async function Posts() {
+export default async function Posts({
+  searchParams,
+}: {
+  searchParams: { [key: string]: string | string[] | undefined };
+}) {
   const posts = await getPostsMeta();
 
   let uniqueTagsArray: string[] = [];

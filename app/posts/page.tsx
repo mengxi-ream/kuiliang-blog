@@ -24,9 +24,6 @@ export default async function Posts() {
         <div className="flex flex-wrap mb-10 gap-x-1.5 gap-y-1">
           {uniqueTagsArray.map((tag) => (
             <Link href={`tags/${tag}`} key={tag}>
-              {/*<span className="mr-2 text-gray-500 text-sm dark:text-gray-400">*/}
-              {/*  {tag}*/}
-              {/*</span>*/}
               <Tag content={tag} size="sm" />
             </Link>
           ))}

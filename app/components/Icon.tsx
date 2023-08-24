@@ -24,18 +24,28 @@ type Size =
   | "56"
   | "60";
 
+type Rounded =
+  | "rounded-none"
+  | "rounded-sm"
+  | "rounded"
+  | "rounded-md"
+  | "rounded-lg"
+  | "rounded-xl";
+
 export default function Icon({
   src,
   alt,
   size,
-  innerSize = "5/6",
+  innerSize = "full",
   pixelated = false,
+  rounded = "rounded-none",
 }: {
   src: string;
   alt: string;
   size: Size;
   innerSize?: IconInnerSize;
   pixelated?: boolean;
+  rounded?: Rounded;
 }) {
   return (
     <div
@@ -45,6 +55,7 @@ export default function Icon({
     >
       <div className={`relative w-${innerSize} h-${innerSize}`}>
         <Image
+          className={`${rounded}`}
           src={src}
           alt={alt}
           fill

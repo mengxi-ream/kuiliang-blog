@@ -82,7 +82,7 @@ export async function getPostByName(
       tags: frontmatter.tags,
       abstract: frontmatter.abstract,
       ...(frontmatter.project && { project: frontmatter.project }),
-      ...(frontmatter.tool && { project: frontmatter.tool }),
+      ...(frontmatter.tool && { tool: frontmatter.tool }),
     },
     content,
   };

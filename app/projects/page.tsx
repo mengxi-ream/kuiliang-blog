@@ -1,5 +1,5 @@
 import ItemWithImage from "@/app/components/ItemWithImage";
-import ProjectItem from "@/app/components/ProjectItem";
+import ProductItem from "@/app/components/ProductItem";
 import projects from "@/lib/data/projects";
 
 export default function Projects() {
@@ -7,7 +7,7 @@ export default function Projects() {
     <section>
       {projects.map((project) => (
         <ItemWithImage key={project.name} imageSrc={project.imageSrc}>
-          <ProjectItem {...project} />
+          <ProductItem {...project} />
         </ItemWithImage>
       ))}
     </section>

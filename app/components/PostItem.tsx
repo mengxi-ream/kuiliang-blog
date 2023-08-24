@@ -4,6 +4,7 @@ import getFormattedDate from "@/lib/getFormattedDate";
 import categories from "@/lib/data/categories";
 import Tag from "@/app/components/Tag";
 import projects from "@/lib/data/projects";
+import tools from "@/lib/data/tools";
 import Icon from "@/app/components/Icon";
 
 type Props = {
@@ -19,7 +20,10 @@ export function PostItem({ post }: Props) {
   );
 
   const foundProject = projects.find((p) => p.name === project);
-  const icon = foundProject?.icon;
+  const projectIcon = foundProject?.icon;
+
+  const foundTool = tools.find((t) => t.name === tool);
+  const toolIcon = foundTool?.icon;
 
   return (
     <li className="my-3" key={id}>
@@ -31,14 +35,26 @@ export function PostItem({ post }: Props) {
           <div className="text-gray-600 dark:text-gray-400 mr-4">
             {getFormattedDate(publishedDate)}
           </div>
-          {icon && (
+          {projectIcon && (
             <div className="bg-white rounded-md mr-2 ring-1 ring-gray-100 shadow-md shadow-gray-300 dark:ring-gray-800 dark:shadow-slate-500">
               <Icon
-                src={icon.src}
+                src={projectIcon.src}
                 alt={foundProject?.name || "defaultAltText"}
                 size="5"
-                innerSize={icon.innerSize}
-                pixelated={icon.pixelated}
+                innerSize={projectIcon.innerSize}
+                pixelated={projectIcon.pixelated}
+                rounded="rounded-md"
+              />
+            </div>
+          )}
+          {toolIcon && (
+            <div className="bg-white rounded-md mr-2 ring-1 ring-gray-100 shadow-md shadow-gray-300 dark:ring-gray-800 dark:shadow-slate-500">
+              <Icon
+                src={toolIcon.src}
+                alt={foundTool?.name || "defaultAltText"}
+                size="5"
+                innerSize={toolIcon.innerSize}
+                rounded="rounded-md"
               />
             </div>
           )}

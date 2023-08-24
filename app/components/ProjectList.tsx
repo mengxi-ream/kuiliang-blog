@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import ProjectItem from "@/app/components/ProjectItem";
+import ProductItem from "@/app/components/ProductItem";
 import { QrCodeIcon } from "@heroicons/react/24/solid";
 import projects from "@/lib/data/projects";
 
@@ -16,7 +16,7 @@ export default function ProjectList() {
                 key={project.name}
                 className="flex-auto w-full sm:w-96 mx-auto max-w-md"
               >
-                <ProjectItem {...project} />
+                <ProductItem {...project} />
               </div>
             )
         )}

@@ -4,29 +4,29 @@ import Image from "next/image";
 import Tag from "@/app/components/Tag";
 import Icon from "@/app/components/Icon";
 
-export default function ProjectItem({
+export default function ProductItem({
   name,
   icon,
   description,
   time,
-  stack,
-  postLink,
+  tags,
+  mainLink,
   QRCodeSrc,
   githubLink,
   youtubeLink,
-}: Project) {
+}: Product) {
   return (
-    <section className="p-4 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800">
+    <section className="relative p-4 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800">
       <div className="text-sm text-gray-600 dark:text-gray-400">{time}</div>
       <div className="flex my-4 items-center">
         <div className="shrink-0 relative mr-4 bg-white rounded-md ring-1 ring-gray-100 shadow-lg shadow-gray-300 dark:ring-gray-800 dark:shadow-slate-500">
-          {/*{icon}*/}
           <Icon
             src={icon.src}
             alt={name}
             size="10"
             innerSize={icon.innerSize}
             pixelated={icon.pixelated}
+            rounded="rounded-md"
           />
         </div>
         <div className="relative -top-0.5">
@@ -51,15 +51,22 @@ export default function ProjectItem({
             )}
           </div>
           <div className="flex flex-wrap gap-x-2">
-            {stack && stack.map((s) => <Tag key={s} content={s} />)}
+            {tags && tags.map((s) => <Tag key={s} content={s} />)}
           </div>
         </div>
       </div>
-      <p className="my-3 text-gray-700 dark:text-gray-300">{description}</p>
-      <div className="flex items-center text-sm text-orange-500">
-        Relevant posts
-        <ArrowRightIcon className="ml-1 w-4 h-4" />
-      </div>
+      <p className="mt-3 text-gray-700 dark:text-gray-300">{description}</p>
+      {mainLink && (
+        <div className="mt-3 flex items-center text-sm text-orange-500">
+          Details
+          <ArrowRightIcon className="ml-1 w-4 h-4" />
+        </div>
+      )}
+      {mainLink && (
+        <Link href={mainLink} className="post-link__read-more">
+          Read more&hellip;
+        </Link>
+      )}
     </section>
   );
 }
@@ -76,7 +83,11 @@ function ProjectLink({
   iconAlt: string;
 }) {
   return (
-    <Link className="relative shrink-0 w-4 h-4" href={href} target="_blank">
+    <Link
+      className="relative shrink-0 w-4 h-4 z-10"
+      href={href}
+      target="_blank"
+    >
       <Image
         id="header__light"
         src={iconSrcLight}

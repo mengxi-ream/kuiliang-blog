@@ -105,3 +105,17 @@ article h6 a:hover {
 .dark article h6 a:hover {
     @apply text-current;
 }
+
+.post-link__read-more {
+    top:    0;
+    right:  0;
+    bottom: 0;
+    left:   0;
+    overflow: hidden;
+    text-indent: 100%;
+    white-space: nowrap;
+    /* Needs a heightened specificity to trump `.post-link a`.
+     * Stack it under all other links in the post text. */
+    position: absolute;
+    z-index: 0;
+}

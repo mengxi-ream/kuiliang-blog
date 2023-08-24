@@ -16,7 +16,7 @@ type BlogPost = {
 
 type IconInnerSize = "2/3" | "3/4" | "4/5" | "5/6" | "11/12" | "full";
 
-type Project = {
+type Product = {
   name: string;
   icon: {
     src: string;
@@ -24,11 +24,11 @@ type Project = {
     pixelated?: boolean;
   };
   imageSrc: string;
-  stack?: string[];
+  tags?: string[];
   description: string;
   time: string;
-  recent: boolean;
-  postLink?: string;
+  recent?: boolean;
+  mainLink?: string;
   QRCodeSrc?: string;
   githubLink?: string;
   youtubeLink?: string;

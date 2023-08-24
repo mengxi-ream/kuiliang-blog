@@ -77,7 +77,9 @@ export default async function Post({ params: { postId } }: Props) {
       <article className="prose-lg mx-auto prose-ul:list-disc prose-ol:list-decimal prose-code:rounded-lg prose-code:bg-gray-100 prose-code:dark:bg-slate-800 prose-pre:py-0 prose-pre:px-0">
         {content}
       </article>
-      <div className="flex flex-wrap gap-4 mt-10 mb-10">{tags}</div>
+      <div className="flex flex-wrap gap-x-2 md:gap-x-4 gap-y-4 mt-10 mb-10">
+        {tags}
+      </div>
     </div>
   );
 }

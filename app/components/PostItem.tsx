@@ -36,7 +36,7 @@ export function PostItem({ post }: Props) {
             {getFormattedDate(publishedDate)}
           </div>
           {projectIcon && (
-            <div className="bg-white rounded-md mr-2 ring-1 ring-gray-100 shadow-md shadow-gray-300 dark:ring-gray-800 dark:shadow-slate-500">
+            <div className="bg-white rounded-md mr-2 ring-1 ring-gray-100 shadow-md shadow-gray-300 dark:ring-gray-800 dark:shadow-slate-600">
               <Icon
                 src={projectIcon.src}
                 alt={foundProject?.name || "defaultAltText"}
@@ -48,7 +48,7 @@ export function PostItem({ post }: Props) {
             </div>
           )}
           {toolIcon && (
-            <div className="bg-white rounded-md mr-2 ring-1 ring-gray-100 shadow-md shadow-gray-300 dark:ring-gray-800 dark:shadow-slate-500">
+            <div className="bg-white rounded-md mr-2 ring-1 ring-gray-100 shadow-md shadow-gray-300 dark:ring-gray-800 dark:shadow-slate-600">
               <Icon
                 src={toolIcon.src}
                 alt={foundTool?.name || "defaultAltText"}

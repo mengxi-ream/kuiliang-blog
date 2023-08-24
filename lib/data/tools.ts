@@ -9,6 +9,7 @@ const tools: Array<Product> = [
     description:
       "A tool to calculate the result of RSA encryption and decryption.",
     time: "Aug 2023",
+    mainLink: "/tools/rsa-calculator",
   },
 ];
 

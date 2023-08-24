@@ -10,7 +10,7 @@ export default function ItemWithImage({
   children: React.ReactNode;
 }) {
   return (
-    <div className="my-10 flex flex-wrap gap-x-2">
+    <div className="my-10 flex flex-wrap gap-x-2 items-center">
       <div
         className={
           imageSrc

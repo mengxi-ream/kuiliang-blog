@@ -21,9 +21,11 @@ export function PostItem({ post }: Props) {
 
   const foundProject = projects.find((p) => p.name === project);
   const projectIcon = foundProject?.icon;
+  const projectLink = foundProject?.mainLink;
 
   const foundTool = tools.find((t) => t.name === tool);
   const toolIcon = foundTool?.icon;
+  const toolLink = foundTool?.mainLink;
 
   return (
     <li className="my-3" key={id}>
@@ -33,27 +35,34 @@ export function PostItem({ post }: Props) {
             {getFormattedDate(publishedDate)}
           </div>
           {projectIcon && (
-            <div className="bg-white rounded-md mr-2 ring-1 ring-gray-100 shadow-md shadow-gray-300 dark:ring-gray-800 dark:shadow-slate-600">
-              <Icon
-                src={projectIcon.src}
-                alt={foundProject?.name || "defaultAltText"}
-                size="5"
-                innerSize={projectIcon.innerSize}
-                pixelated={projectIcon.pixelated}
-                rounded="rounded-md"
-              />
-            </div>
+            <Link
+              href={projectLink ? projectLink : "/projects"}
+              className="z-10"
+            >
+              <div className="bg-white rounded-md mr-2 ring-1 ring-gray-100 shadow-md shadow-gray-300 dark:ring-gray-800 dark:shadow-slate-600">
+                <Icon
+                  src={projectIcon.src}
+                  alt={foundProject?.name || "defaultAltText"}
+                  size="5"
+                  innerSize={projectIcon.innerSize}
+                  pixelated={projectIcon.pixelated}
+                  rounded="rounded-md"
+                />
+              </div>
+            </Link>
           )}
           {toolIcon && (
-            <div className="bg-white rounded-md mr-2 ring-1 ring-gray-100 shadow-md shadow-gray-300 dark:ring-gray-800 dark:shadow-slate-600">
-              <Icon
-                src={toolIcon.src}
-                alt={foundTool?.name || "defaultAltText"}
-                size="5"
-                innerSize={toolIcon.innerSize}
-                rounded="rounded-md"
-              />
-            </div>
+            <Link href={toolLink ? toolLink : "/tools"} className="z-10">
+              <div className="bg-white rounded-md mr-2 ring-1 ring-gray-100 shadow-md shadow-gray-300 dark:ring-gray-800 dark:shadow-slate-600">
+                <Icon
+                  src={toolIcon.src}
+                  alt={foundTool?.name || "defaultAltText"}
+                  size="5"
+                  innerSize={toolIcon.innerSize}
+                  rounded="rounded-md"
+                />
+              </div>
+            </Link>
           )}
           {postCategory.length > 0 && (
             <div className="flex flex-wrap gap-x-2">

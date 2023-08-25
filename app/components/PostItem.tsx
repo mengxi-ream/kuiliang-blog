@@ -27,10 +27,7 @@ export function PostItem({ post }: Props) {
 
   return (
     <li className="my-3" key={id}>
-      <Link
-        href={`/posts/${id}`}
-        className="block p-4 group rounded-md hover:bg-gray-100 dark:hover:bg-slate-800 transition ease-in-out duration-200"
-      >
+      <div className="relative p-4 group rounded-md hover:bg-gray-100 dark:hover:bg-slate-800 transition ease-in-out duration-200">
         <div className="flex items-center text-sm">
           <div className="text-gray-600 dark:text-gray-400 mr-4">
             {getFormattedDate(publishedDate)}
@@ -61,7 +58,9 @@ export function PostItem({ post }: Props) {
           {postCategory.length > 0 && (
             <div className="flex flex-wrap gap-x-2">
               {postCategory.map((tag) => (
-                <Tag key={tag} content={tag} />
+                <Link href={`/tags/${tag}`} key={tag} className="z-10">
+                  <Tag content={tag} />
+                </Link>
               ))}
             </div>
           )}
@@ -72,7 +71,11 @@ export function PostItem({ post }: Props) {
           Read more
           <ArrowRightIcon className="ml-1 w-4 h-4" />
         </div>
-      </Link>
+        {/* Notice the parent should be "relative" */}
+        <Link href={`/posts/${id}`} className="post-link__read-more">
+          Read more&hellip;
+        </Link>
+      </div>
     </li>
   );
 }

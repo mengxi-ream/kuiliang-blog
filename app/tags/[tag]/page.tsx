@@ -52,7 +52,9 @@ export default async function TagPostList({ params: { tag } }: Props) {
 
   return (
     <>
-      <h2 className="text-3xl mt-12 mb-0 ml-20">Results for: #{tag}</h2>
+      <h2 className="max-w-3xl mx-auto text-3xl font-bold mt-12 mb-0">
+        Results for: #{tag}
+      </h2>
       <section className="mt-6 mx-auto max-w-2xl">
         <ul className="w-full list-none p-0">
           {filteredPosts.map((post) => (

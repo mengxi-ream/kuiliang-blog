@@ -1,24 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-<url><loc>http://localhost:1028/tools</loc><lastmod>2023-08-25T04:29:06.905Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>http://localhost:1028/projects</loc><lastmod>2023-08-25T04:29:06.905Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>http://localhost:1028/tools/rsa-calculator</loc><lastmod>2023-08-25T04:29:06.905Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>http://localhost:1028</loc><lastmod>2023-08-25T04:29:06.905Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>http://localhost:1028/posts</loc><lastmod>2023-08-25T04:29:06.905Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>http://localhost:1028/posts/tailwindcss-code-dark-mode</loc><lastmod>2023-08-25T04:29:06.905Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>http://localhost:1028/posts/rsa</loc><lastmod>2023-08-25T04:29:06.905Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>http://localhost:1028/posts/normal-equation-proof</loc><lastmod>2023-08-25T04:29:06.905Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>http://localhost:1028/posts/nextjs-darkmode</loc><lastmod>2023-08-25T04:29:06.905Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>http://localhost:1028/posts/viz-distorting-value</loc><lastmod>2023-08-25T04:29:06.905Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>http://localhost:1028/posts/dalc-or-cs</loc><lastmod>2023-08-25T04:29:06.905Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>http://localhost:1028/tags/Computer Science</loc><lastmod>2023-08-25T04:29:06.905Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>http://localhost:1028/tags/Web Development</loc><lastmod>2023-08-25T04:29:06.905Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>http://localhost:1028/tags/Frontend</loc><lastmod>2023-08-25T04:29:06.905Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>http://localhost:1028/tags/Next.js</loc><lastmod>2023-08-25T04:29:06.905Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>http://localhost:1028/tags/Tailwind CSS</loc><lastmod>2023-08-25T04:29:06.905Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>http://localhost:1028/tags/Math</loc><lastmod>2023-08-25T04:29:06.905Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>http://localhost:1028/tags/Number Theory</loc><lastmod>2023-08-25T04:29:06.905Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>http://localhost:1028/tags/Data Science</loc><lastmod>2023-08-25T04:29:06.905Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>http://localhost:1028/tags/Machine Learning</loc><lastmod>2023-08-25T04:29:06.905Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>http://localhost:1028/tags/Visualization</loc><lastmod>2023-08-25T04:29:06.905Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:1028/tools</loc><lastmod>2023-08-25T07:26:50.644Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:1028/projects</loc><lastmod>2023-08-25T07:26:50.644Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:1028/tools/rsa-calculator</loc><lastmod>2023-08-25T07:26:50.644Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:1028</loc><lastmod>2023-08-25T07:26:50.644Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:1028/posts/tailwindcss-code-dark-mode</loc><lastmod>2023-08-25T07:26:50.644Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:1028/posts/rsa</loc><lastmod>2023-08-25T07:26:50.644Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:1028/posts/normal-equation-proof</loc><lastmod>2023-08-25T07:26:50.644Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:1028/posts/nextjs-darkmode</loc><lastmod>2023-08-25T07:26:50.644Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:1028/posts/viz-distorting-value</loc><lastmod>2023-08-25T07:26:50.644Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:1028/posts/dalc-or-cs</loc><lastmod>2023-08-25T07:26:50.644Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:1028/tags/Computer Science</loc><lastmod>2023-08-25T07:26:50.644Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:1028/tags/Web Development</loc><lastmod>2023-08-25T07:26:50.644Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:1028/tags/Frontend</loc><lastmod>2023-08-25T07:26:50.644Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:1028/tags/Next.js</loc><lastmod>2023-08-25T07:26:50.644Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:1028/tags/Tailwind CSS</loc><lastmod>2023-08-25T07:26:50.644Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:1028/tags/Math</loc><lastmod>2023-08-25T07:26:50.644Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:1028/tags/Number Theory</loc><lastmod>2023-08-25T07:26:50.644Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:1028/tags/Data Science</loc><lastmod>2023-08-25T07:26:50.644Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:1028/tags/Machine Learning</loc><lastmod>2023-08-25T07:26:50.644Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:1028/tags/Visualization</loc><lastmod>2023-08-25T07:26:50.644Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
 </urlset>

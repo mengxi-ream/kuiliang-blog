@@ -1,6 +1,13 @@
 import { v4 as uuidv4 } from "uuid";
 
-const upperLetters: [string, string, string][] = [
+type SchemaEntry = [string, string, string];
+type RSASchemaType = {
+  upperLetters: SchemaEntry[];
+  lowerLetters: SchemaEntry[];
+  allLetters: SchemaEntry[];
+};
+
+const upperLetters: SchemaEntry[] = [
   ["A", "00", uuidv4()],
   ["B", "01", uuidv4()],
   ["C", "02", uuidv4()],
@@ -28,7 +35,7 @@ const upperLetters: [string, string, string][] = [
   ["Y", "24", uuidv4()],
   ["Z", "25", uuidv4()],
 ];
-const lowerLetters: [string, string, string][] = [
+const lowerLetters: SchemaEntry[] = [
   ["a", "00", uuidv4()],
   ["b", "01", uuidv4()],
   ["c", "02", uuidv4()],
@@ -57,10 +64,15 @@ const lowerLetters: [string, string, string][] = [
   ["z", "25", uuidv4()],
 ];
 
-const RSASchemas = {
+const RSASchemas: RSASchemaType = {
   upperLetters,
   lowerLetters,
-  allLetters: [...upperLetters, ...lowerLetters],
+  allLetters: [
+    ...upperLetters,
+    ...lowerLetters.map(
+      (x): SchemaEntry => [x[0], String(Number(x[1]) + 26), x[2]]
+    ),
+  ],
 };
 
 export default RSASchemas;

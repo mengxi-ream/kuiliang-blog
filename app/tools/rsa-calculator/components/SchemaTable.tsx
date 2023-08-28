@@ -1,7 +1,12 @@
 "use client";
 
 import { useState, useEffect, useRef, ChangeEvent } from "react";
-import { MinusCircleIcon, PlusCircleIcon } from "@heroicons/react/20/solid";
+import {
+  MinusCircleIcon,
+  PlusCircleIcon,
+  CheckCircleIcon,
+  XCircleIcon,
+} from "@heroicons/react/20/solid";
 import { v4 as uuidv4 } from "uuid";
 import Button from "@/app/components/Button";
 import RSASchemas from "@/lib/data/RSASchemas";
@@ -45,7 +50,7 @@ export default function SchemaTable({
 
   return (
     <section>
-      <h3 className="text-2xl font-semibold">Schema Table</h3>
+      <h3 className="text-2xl font-semibold mb-3">Schema Table</h3>
       <div className="flex flex-wrap my-2 gap-x-3 gap-y-2">
         <Button onClick={() => onSchemaChange(RSASchemas.upperLetters)}>
           Uppercase Letters
@@ -87,14 +92,6 @@ export default function SchemaTable({
                       key={uuid}
                       ref={rowIndex === 0 && blockIndex === 0 ? blockRef : null}
                     >
-                      {/*{index === 0 && (*/}
-                      {/*  <button*/}
-                      {/*    className="opacity-0 hover:opacity-100 absolute w-5 -left-2.5 top-1/2 transform -translate-y-1/2 z-10"*/}
-                      {/*    onClick={() => handleAdd(-1)}*/}
-                      {/*  >*/}
-                      {/*    <PlusCircleIcon className="rounded-full bg-white dark:bg-slate-900 text-red-500" />*/}
-                      {/*  </button>*/}
-                      {/*)}*/}
                       <Block
                         index={index}
                         char={char}
@@ -114,6 +111,7 @@ export default function SchemaTable({
               })}
           </div>
         ))}
+      <ValidationBox schema={schema} />
     </section>
   );
 }
@@ -197,8 +195,57 @@ function Block({
         type="text"
         value={inputNum}
         onChange={handleNumChange}
-        className={inputClassName(inputNum, "^[0-9]+$")}
+        className={inputClassName(inputNum, "^[0-9]{1,4}$")}
       />
+    </div>
+  );
+}
+
+function ValidationBox({ schema }: { schema: [string, string, string][] }) {
+  const [validations, setValidations] = useState<boolean[]>([
+    true,
+    true,
+    true,
+    true,
+  ]);
+
+  const ValText = [
+    "No duplicate chars",
+    "No duplicate numbers",
+    "Valid chars (single character)",
+    "Valid numbers (1-4 digits)",
+  ];
+
+  const Revalidate = () => {
+    const dupChar = new Set(schema.map(([c]) => c)).size !== schema.length;
+    const dupNum =
+      new Set(schema.map(([, n]) => Number(n))).size !== schema.length;
+    const invalidChar = schema.some(([c]) => !new RegExp("^.$").test(c));
+    const invalidNum = schema.some(
+      ([, n]) => !new RegExp("^[0-9]{1,4}$").test(n)
+    );
+    setValidations([!dupChar, !dupNum, !invalidChar, !invalidNum]);
+  };
+
+  useEffect(() => {
+    Revalidate();
+  }, [schema]);
+
+  return (
+    <div>
+      {ValText.map((text, index) => (
+        <div
+          key={index}
+          className={`flex items-center text-sm ${
+            validations[index] ? "text-green-500" : "text-red-500"
+          }`}
+        >
+          <div className="relative w-4 mr-1">
+            {validations[index] ? <CheckCircleIcon /> : <XCircleIcon />}
+          </div>
+          {text}
+        </div>
+      ))}
     </div>
   );
 }

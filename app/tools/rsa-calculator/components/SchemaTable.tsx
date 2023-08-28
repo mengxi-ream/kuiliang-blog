@@ -3,6 +3,8 @@
 import { useState, useEffect, useRef, ChangeEvent } from "react";
 import { MinusCircleIcon, PlusCircleIcon } from "@heroicons/react/20/solid";
 import { v4 as uuidv4 } from "uuid";
+import Button from "@/app/components/Button";
+import RSASchemas from "@/lib/data/RSASchemas";
 
 export default function SchemaTable({
   schema,
@@ -42,12 +44,37 @@ export default function SchemaTable({
   };
 
   return (
-    <div>
-      {Array(Math.ceil(schema.length / blocksPerRow))
+    <section>
+      <h3 className="text-2xl font-semibold">Schema Table</h3>
+      <div className="flex flex-wrap my-2 gap-x-3 gap-y-2">
+        <Button onClick={() => onSchemaChange(RSASchemas.upperLetters)}>
+          Uppercase Letters
+        </Button>
+        <Button onClick={() => onSchemaChange(RSASchemas.lowerLetters)}>
+          Lowercase Letters
+        </Button>
+        <Button onClick={() => onSchemaChange(RSASchemas.allLetters)}>
+          All Letters
+        </Button>
+        <Button onClick={() => onSchemaChange([["", "", uuidv4()]])}>
+          Empty
+        </Button>
+      </div>
+      {Array(Math.ceil(Math.max(schema.length, 1) / blocksPerRow))
         .fill(null)
         .map((_, rowIndex) => (
-          <div key={rowIndex} className="flex my-3">
+          <div key={rowIndex} className="flex my-3 relative">
             <Labels />
+            {rowIndex === 0 && (
+              <button
+                className={`${
+                  schema.length === 0 ? "" : "opacity-0"
+                } hover:opacity-100 absolute w-5 left-14 top-1/2 transform -translate-y-1/2 z-10`}
+                onClick={() => handleAdd(-1)}
+              >
+                <PlusCircleIcon className="rounded-full bg-white dark:bg-slate-900 text-green-500" />
+              </button>
+            )}
             {Array(blocksPerRow)
               .fill(null)
               .map((_, blockIndex) => {
@@ -60,14 +87,14 @@ export default function SchemaTable({
                       key={uuid}
                       ref={rowIndex === 0 && blockIndex === 0 ? blockRef : null}
                     >
-                      {index === 0 && (
-                        <button
-                          className="opacity-0 hover:opacity-100 absolute w-5 -left-2.5 top-1/2 transform -translate-y-1/2 z-10"
-                          onClick={() => handleAdd(-1)}
-                        >
-                          <PlusCircleIcon className="rounded-full bg-white dark:bg-slate-900 text-red-500" />
-                        </button>
-                      )}
+                      {/*{index === 0 && (*/}
+                      {/*  <button*/}
+                      {/*    className="opacity-0 hover:opacity-100 absolute w-5 -left-2.5 top-1/2 transform -translate-y-1/2 z-10"*/}
+                      {/*    onClick={() => handleAdd(-1)}*/}
+                      {/*  >*/}
+                      {/*    <PlusCircleIcon className="rounded-full bg-white dark:bg-slate-900 text-red-500" />*/}
+                      {/*  </button>*/}
+                      {/*)}*/}
                       <Block
                         index={index}
                         char={char}
@@ -79,7 +106,7 @@ export default function SchemaTable({
                         className="opacity-0 hover:opacity-100 absolute w-5 -right-2.5 top-1/2 transform -translate-y-1/2 z-10"
                         onClick={() => handleAdd(index)}
                       >
-                        <PlusCircleIcon className="rounded-full bg-white dark:bg-slate-900 text-red-500" />
+                        <PlusCircleIcon className="rounded-full bg-white dark:bg-slate-900 text-green-500" />
                       </button>
                     </div>
                   )
@@ -87,7 +114,7 @@ export default function SchemaTable({
               })}
           </div>
         ))}
-    </div>
+    </section>
   );
 }
 
@@ -139,6 +166,9 @@ function Block({
   const handleDelete = () => {
     const newSchemaEntries = [...schemaEntries];
     newSchemaEntries.splice(index, 1);
+    if (newSchemaEntries.length === 0) {
+      newSchemaEntries.push(["", "", uuidv4()]);
+    }
     onSchemaChange(newSchemaEntries);
   };
 

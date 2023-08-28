@@ -100,7 +100,9 @@ export default function SchemaTable({
                         onSchemaChange={onSchemaChange}
                       />
                       <button
-                        className="opacity-0 hover:opacity-100 absolute w-5 -right-2.5 top-1/2 transform -translate-y-1/2 z-10"
+                        className={`${
+                          schema.length - 1 === index ? "" : "opacity-0"
+                        } hover:opacity-100 absolute w-5 -right-2.5 top-1/2 transform -translate-y-1/2 z-10`}
                         onClick={() => handleAdd(index)}
                       >
                         <PlusCircleIcon className="rounded-full bg-white dark:bg-slate-900 text-green-500" />
@@ -210,8 +212,8 @@ function ValidationBox({ schema }: { schema: [string, string, string][] }) {
   ]);
 
   const ValText = [
-    "No duplicate chars",
-    "No duplicate numbers",
+    "No duplicated chars",
+    "No duplicated numbers",
     "Valid chars (single character)",
     "Valid numbers (1-4 digits)",
   ];

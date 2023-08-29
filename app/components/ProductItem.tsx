@@ -52,7 +52,7 @@ export default function ProductItem({
               />
             )}
           </div>
-          <div className="flex flex-wrap gap-x-2">
+          <div className="flex flex-wrap gap-x-2 gap-y-1">
             {tags && tags.map((s) => <Tag key={s} content={s} />)}
           </div>
         </div>

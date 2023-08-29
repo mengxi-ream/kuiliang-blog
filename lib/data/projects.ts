@@ -13,6 +13,20 @@ const projects: Array<Product> = [
     recent: true,
   },
   {
+    name: "uCourse",
+    icon: {
+      src: "/icons/uCourse.png",
+      innerSize: "11/12",
+    },
+    imageSrc: "/images/projects/uCourse.png",
+    description:
+      "An online platform on WeChat for UNNC students to share their course reviews and manage timetables.",
+    time: "Mar 2018 - May 2021",
+    tags: ["React", "Node.js"],
+    recent: false,
+    QRCodeSrc: "/QRCodes/ucourse-wxcode.webp",
+  },
+  {
     name: "Strongholdon",
     icon: {
       src: "/icons/strongholdon.png",
@@ -28,20 +42,6 @@ const projects: Array<Product> = [
     mainLink: "https://github.com/Crayon-ShinChan/strongholdon",
     githubLink: "https://github.com/Crayon-ShinChan/strongholdon",
     youtubeLink: "https://www.youtube.com/shorts/hSHPS37V1v0",
-  },
-  {
-    name: "uCourse",
-    icon: {
-      src: "/icons/uCourse.png",
-      innerSize: "11/12",
-    },
-    imageSrc: "/images/projects/uCourse.png",
-    description:
-      "An online platform on WeChat for UNNC students to share their course reviews and manage timetables.",
-    time: "Mar 2018 - May 2021",
-    tags: ["React", "Node.js"],
-    recent: false,
-    QRCodeSrc: "/QRCodes/ucourse-wxcode.webp",
   },
   {
     name: "UNNCMap",

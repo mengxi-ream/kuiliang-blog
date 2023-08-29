@@ -18,7 +18,7 @@ type IconInnerSize = "2/3" | "3/4" | "4/5" | "5/6" | "11/12" | "full";
 
 type Product = {
   name: string;
-  icon: {
+  icon?: {
     src: string;
     innerSize?: IconInnerSize;
     pixelated?: boolean;

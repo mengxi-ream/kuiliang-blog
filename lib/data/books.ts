@@ -13,7 +13,7 @@ const books: Array<Product> = [
     imageSrc: "/images/books/the-book-of-why.jpg",
     tags: ["Judea Pearl", "Dana Mackenzie", "Causality"],
     description:
-      "The New Science of Cause and Effect. It is a popular science book about the use of causal inference.",
+      "The book explores the science of cause and effect, delving into the field of causal inference. The authors challenge conventional statistical methods, arguing for a more robust understanding of causality to solve real-world problems.",
     time: "Mar 2022",
     mainLink: "https://en.wikipedia.org/wiki/The_Book_of_Why",
   },
@@ -32,7 +32,7 @@ const books: Array<Product> = [
     imageSrc: "/images/books/the-functional-art.jpg",
     tags: ["Alberto Cairo", "Data Visualization"],
     description:
-      "An Introduction to Information Graphics and Visualization. It is a book about data visualization.",
+      "This is a comprehensive guide to understanding and creating information graphics and visualization. The book bridges the gap between theory and practice, offering both conceptual insights and practical advice on how to convey data effectively.",
     time: "Feb 2019",
     mainLink: "http://www.thefunctionalart.com",
   },

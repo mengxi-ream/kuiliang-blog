@@ -4,7 +4,7 @@ const tools: Array<Product> = [
     icon: {
       src: "/icons/rsa.png",
     },
-    imageSrc: "/images/tools/rsa-calculator.png",
+    imageSrc: "/images/tools/rsa-calculator.jpeg",
     tags: ["Math", "Number Theory"],
     description:
       "A tool to calculate the result of RSA encryption and decryption.",

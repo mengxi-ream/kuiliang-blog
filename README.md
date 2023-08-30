@@ -34,7 +34,23 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
 ## Todo
+
+Current todo list for this project:
+
+- [ ] RSA
+- [ ] Category Tags (Ask tag chosen speed)
+- [ ] Book Tags
+- [ ] Project and Book Relevant Articles Icon and Pages
+- [ ] Search
 - [ ] SEO
-- [ ] Get inspiration from Tailwind Personal Website Templates
 - [ ] Revalidation
-- [ ] Tags with useState
+- [ ] Pagenation
+- [ ] Unify: Color Scheme, Hover Animation, Different Type Icons, etc.
+
+Future todo list for this project:
+
+- [ ] Table of Contents
+- [ ] Like Button / Visit Counter
+- [ ] Table of Contents
+- [ ] Line Level Comment Section
+- [ ] Get inspiration from Tailwind Personal Website Templates

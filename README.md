@@ -45,6 +45,7 @@ Current todo list for this project:
 - [ ] SEO
 - [ ] Revalidation
 - [ ] Pagenation
+- [ ] Large Hover Background in Phone and smaller padding
 - [ ] Unify: Color Scheme, Hover Animation, Different Type Icons, etc.
 
 Future todo list for this project:

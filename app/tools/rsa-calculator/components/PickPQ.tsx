@@ -3,6 +3,7 @@ import "katex/dist/katex.min.css";
 import Latex from "react-latex-next";
 import { CheckCircleIcon, XCircleIcon } from "@heroicons/react/20/solid";
 import { isPrime } from "mathjs";
+import Input from "@/app/components/Input";
 
 export default function PickPQ({
   schema,
@@ -21,13 +22,6 @@ export default function PickPQ({
   setP: (newP: number) => void;
   setQ: (newQ: number) => void;
 }) {
-  const inputClassName = (value: string, regex: string) =>
-    `block w-20 sm:w-24 text-center m-1 rounded-md py-1.5 border-0 shadow-sm ring-1 ring-inset ring-gray-300 ${
-      !new RegExp(regex).test(value)
-        ? "focus:ring-red-500"
-        : "focus:ring-blue-400 dark:focus:ring-blue-600"
-    } focus:ring-2 focus:ring-inset dark:bg-slate-900`;
-
   return (
     <section>
       <h3 className="text-2xl font-semibold mb-3 mt-10">
@@ -37,40 +31,41 @@ export default function PickPQ({
         <div>
           Number of Characters in one block: <Latex>$m$</Latex>
         </div>
-        <input
+        <Input
           type="text"
           onChange={(e) => setM(Number(e.target.value))}
-          className={inputClassName(String(m), "^[0-9]+$")}
+          regex="^[0-9]+$"
         />
       </div>
       <div className="flex items-center gap-x-2  flex-wrap">
         <div>
           Large prime: <Latex>$p$</Latex>
         </div>
-        <input
+        <Input
           type="text"
           onChange={(e) => setP(Number(e.target.value))}
-          className={inputClassName(String(p), "^[0-9]+$")}
+          regex="^[0-9]+$"
         />
       </div>
       <div className="flex items-center gap-x-2  flex-wrap">
         <div>
           Large prime: <Latex>$q$</Latex>
         </div>
-        <input
+        <Input
           type="text"
           onChange={(e) => setQ(Number(e.target.value))}
-          className={inputClassName(String(q), "^[0-9]+$")}
+          regex="^[0-9]+$"
         />
       </div>
       <div className="flex items-center gap-x-2  flex-wrap">
         <div>
           <Latex>$pq = n$</Latex>
         </div>
-        <input
+        <Input
           type="text"
-          value={p && q ? p * q : ""}
-          className={inputClassName(String(q), "^[0-9]+$")}
+          value={p && q ? String(p * q) : ""}
+          readOnly
+          regex="^[0-9]+$"
         />
       </div>
       <ValidationBox schema={schema} p={p} q={q} m={m} />

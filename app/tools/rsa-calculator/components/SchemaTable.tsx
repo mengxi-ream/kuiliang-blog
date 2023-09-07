@@ -10,6 +10,7 @@ import {
 import { v4 as uuidv4 } from "uuid";
 import Button from "@/app/components/Button";
 import RSASchemas from "@/lib/data/RSASchemas";
+import Input from "@/app/components/Input";
 
 export default function SchemaTable({
   schema,
@@ -172,13 +173,6 @@ function Block({
     onSchemaChange(newSchemaEntries);
   };
 
-  const inputClassName = (value: string, regex: string) =>
-    `block w-12 sm:w-16 text-center m-1 rounded-md py-1.5 border-0 shadow-sm ring-1 ring-inset ring-gray-300 ${
-      !new RegExp(regex).test(value)
-        ? "focus:ring-red-500"
-        : "focus:ring-blue-400 dark:focus:ring-blue-600"
-    } focus:ring-2 focus:ring-inset dark:bg-slate-900`;
-
   return (
     <div className="inline-block relative group">
       <button
@@ -187,17 +181,19 @@ function Block({
       >
         <MinusCircleIcon className="rounded-full bg-white dark:bg-slate-900 text-red-500" />
       </button>
-      <input
+      <Input
+        className="w-12 sm:w-16"
         type="text"
         value={inputChar}
         onChange={handleCharChange}
-        className={inputClassName(inputChar, "^.$")}
+        regex="^.$"
       />
-      <input
+      <Input
+        className="w-12 sm:w-16"
         type="text"
         value={inputNum}
         onChange={handleNumChange}
-        className={inputClassName(inputNum, "^[0-9]{1,4}$")}
+        regex="^[0-9]{1,4}$"
       />
     </div>
   );

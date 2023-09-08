@@ -5,6 +5,7 @@ import { useState } from "react";
 import RSASchemas from "@/lib/data/RSASchemas";
 import SchemaTable from "./components/SchemaTable";
 import PickPQ from "./components/PickPQ";
+import PickDE from "./components/PickDE";
 
 export default function RSA() {
   const [schema, setSchema] = useState<[string, string, string][]>(
@@ -13,6 +14,8 @@ export default function RSA() {
   const [m, setM] = useState<number | null>(null);
   const [p, setP] = useState<number | null>(null);
   const [q, setQ] = useState<number | null>(null);
+  const [d, setD] = useState<number | null>(null);
+  const [e, setE] = useState<number | null>(null);
 
   const handleSchemaChange = (newSchema: [string, string, string][]) => {
     setSchema(newSchema);
@@ -32,6 +35,7 @@ export default function RSA() {
         setP={setP}
         setQ={setQ}
       />
+      <PickDE p={p} q={q} d={d} e={e} setD={setD} setE={setE} />
     </div>
   );
 }

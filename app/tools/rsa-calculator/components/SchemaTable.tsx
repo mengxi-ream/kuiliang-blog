@@ -11,6 +11,7 @@ import { v4 as uuidv4 } from "uuid";
 import Button from "@/app/components/Button";
 import RSASchemas from "@/lib/data/RSASchemas";
 import Input from "@/app/components/Input";
+import ValidateText from "./ValidateText";
 
 export default function SchemaTable({
   schema,
@@ -114,7 +115,22 @@ export default function SchemaTable({
               })}
           </div>
         ))}
-      <ValidationBox schema={schema} />
+      <ValidateText
+        text="No duplicated chars"
+        valid={new Set(schema.map(([c]) => c)).size === schema.length}
+      />
+      <ValidateText
+        text="No duplicated numbers"
+        valid={new Set(schema.map(([, n]) => Number(n))).size === schema.length}
+      />
+      <ValidateText
+        text="Valid chars (single character)"
+        valid={schema.every(([c]) => new RegExp("^.$").test(c))}
+      />
+      <ValidateText
+        text="Valid numbers (1-4 digits)"
+        valid={schema.every(([, n]) => new RegExp("^[0-9]{1,4}$").test(n))}
+      />
     </section>
   );
 }
@@ -195,55 +211,6 @@ function Block({
         onChange={handleNumChange}
         regex="^[0-9]{1,4}$"
       />
-    </div>
-  );
-}
-
-function ValidationBox({ schema }: { schema: [string, string, string][] }) {
-  const [validations, setValidations] = useState<boolean[]>([
-    true,
-    true,
-    true,
-    true,
-  ]);
-
-  const ValText = [
-    "No duplicated chars",
-    "No duplicated numbers",
-    "Valid chars (single character)",
-    "Valid numbers (1-4 digits)",
-  ];
-
-  const Revalidate = () => {
-    const dupChar = new Set(schema.map(([c]) => c)).size !== schema.length;
-    const dupNum =
-      new Set(schema.map(([, n]) => Number(n))).size !== schema.length;
-    const invalidChar = schema.some(([c]) => !new RegExp("^.$").test(c));
-    const invalidNum = schema.some(
-      ([, n]) => !new RegExp("^[0-9]{1,4}$").test(n)
-    );
-    setValidations([!dupChar, !dupNum, !invalidChar, !invalidNum]);
-  };
-
-  useEffect(() => {
-    Revalidate();
-  }, [schema]);
-
-  return (
-    <div>
-      {ValText.map((text, index) => (
-        <div
-          key={index}
-          className={`flex items-center text-sm ${
-            validations[index] ? "text-green-500" : "text-red-500"
-          }`}
-        >
-          <div className="relative w-4 mr-1">
-            {validations[index] ? <CheckCircleIcon /> : <XCircleIcon />}
-          </div>
-          {text}
-        </div>
-      ))}
     </div>
   );
 }

@@ -18,6 +18,23 @@ module.exports = {
   darkMode: "class",
   theme: {
     extend: {
+      colors: {
+        primary: {
+          DEFAULT: "#2A3D66",
+          100: "#ebeff7",
+          200: "#c3cee6",
+          300: "#9badd6",
+          400: "#738dc5",
+          500: "#4a6cb5",
+          600: "#3a548c",
+          700: "#293c64",
+          800: "#19243c",
+          900: "#090c14",
+        },
+        secondary: { light: "#f4ece3", dark: "#372816" },
+        accent: { light: "#ac6a46", dark: "#DEBEAD" },
+        background: { light: "#FBFAF9", dark: "#161828" },
+      },
       animation: {
         blob: "blob 7s infinite",
       },

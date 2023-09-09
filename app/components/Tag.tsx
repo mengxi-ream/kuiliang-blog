@@ -1,3 +1,5 @@
+import { twMerge } from "tailwind-merge";
+
 type Type = "default" | "primary";
 type Size = "sm" | "md";
 
@@ -14,14 +16,14 @@ export default function Tag({
 }) {
   const typeStyles =
     type === "default"
-      ? "bg-gray-200 text-gray-800 dark:bg-slate-700 dark:text-gray-300"
-      : "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300";
+      ? "bg-secondary-light text-gray-700 dark:bg-secondary-dark dark:text-gray-300"
+      : "bg-primary text-gray-100 dark:bg-primary dark:text-gray-300";
 
   const sizeStyles =
     size === "md" ? "px-2 py-1 rounded-lg text-md" : "px-1 rounded-md text-sm";
 
   return (
-    <span key={content} className={`${sizeStyles} ${typeStyles} ${className}`}>
+    <span key={content} className={twMerge(typeStyles, sizeStyles, className)}>
       {content}
     </span>
   );

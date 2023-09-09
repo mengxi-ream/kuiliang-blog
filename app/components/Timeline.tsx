@@ -86,7 +86,7 @@ const TimelineItem = ({
   const SVGMapping: Record<ExpType, ReactElement> = {
     work: (
       <svg
-        className="w-3 h-3 text-blue-800 dark:text-blue-300"
+        className="w-3 h-3 text-[#2A3D66] dark:text-blue-300"
         aria-hidden="true"
         fill="currentColor"
         viewBox="0 0 1024 1024"
@@ -102,7 +102,7 @@ const TimelineItem = ({
     ),
     study: (
       <svg
-        className="w-4 h-4 text-blue-800 dark:text-blue-300"
+        className="w-4 h-4 text-primary dark:text-blue-300"
         aria-hidden="true"
         fill="currentColor"
         viewBox="0 0 1024 1024"
@@ -124,10 +124,10 @@ const TimelineItem = ({
 
   return (
     <li className={`${className} ml-8`}>
-      <span className="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -left-3 ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900">
+      <span className="absolute flex items-center justify-center w-6 h-6 bg-primary-100 rounded-full -left-3 ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900">
         {SVGMapping[expType]}
       </span>
-      <h3 className="mb-1 text-base font-semibold text-gray-900 dark:text-white">
+      <h3 className="mb-1 text-base font-semibold">
         {title}{" "}
         {isLatest && (
           <span className="ml-1">
@@ -136,7 +136,7 @@ const TimelineItem = ({
         )}
       </h3>
       <Link
-        className="flex items-center mb-1 text-base text-gray-900 global-hover dark:text-white"
+        className="flex items-center mb-1 text-base text-gray-700 global-hover dark:text-gray-300"
         href={link}
         target="_blank"
       >
@@ -145,7 +145,7 @@ const TimelineItem = ({
         </span>
         {organization}
       </Link>
-      <time className="block mb-2 text-sm font-normal leading-none text-gray-400">
+      <time className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
         {time}
       </time>
     </li>

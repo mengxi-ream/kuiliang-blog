@@ -5,6 +5,7 @@ import Image from "next/image";
 import { Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
 import { Fragment } from "react";
+import { usePathname } from "next/navigation";
 
 type Props = {
   name: string;
@@ -19,8 +20,10 @@ export default function Header() {
     { name: "Books", href: "/books" },
   ];
 
+  const pathname = usePathname();
+
   return (
-    <header className="sticky top-0 z-40 bg-white/80 backdrop-blur-lg dark:bg-slate-900/80">
+    <header className="sticky top-0 z-40 bg-background-light/80 backdrop-blur-lg dark:bg-background-dark/80">
       <nav className="flex justify-between items-center py-4 px-6 md:px-8 max-w-5xl mx-auto">
         <Link href="/" className="flex items-center text-xl font-extrabold">
           <Image
@@ -38,7 +41,11 @@ export default function Header() {
           <div className="flex gap-x-6 px-6 text-lg">
             {pages.map((page) => (
               <Link
-                className="rounded-md hover:bg-gray-100 dark:hover:bg-slate-800 px-2"
+                className={`rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 px-2 ${
+                  pathname === page.href
+                    ? "bg-primary-100 dark:bg-primary-800"
+                    : ""
+                }`}
                 key={page.name}
                 href={page.href}
               >

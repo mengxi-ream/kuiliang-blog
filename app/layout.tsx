@@ -18,7 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${nunitoSans.className} min-h-screen dark:bg-slate-900`}
+        className={`${nunitoSans.className} min-h-screen bg-background-light dark:bg-background-dark`}
       >
         <Providers>
           <Header />

@@ -86,7 +86,7 @@ const TimelineItem = ({
   const SVGMapping: Record<ExpType, ReactElement> = {
     work: (
       <svg
-        className="w-3 h-3 text-[#2A3D66] dark:text-blue-300"
+        className="w-3 h-3 text-primary dark:text-primary-300"
         aria-hidden="true"
         fill="currentColor"
         viewBox="0 0 1024 1024"
@@ -102,7 +102,7 @@ const TimelineItem = ({
     ),
     study: (
       <svg
-        className="w-4 h-4 text-primary dark:text-blue-300"
+        className="w-4 h-4 text-primary dark:text-primary-300"
         aria-hidden="true"
         fill="currentColor"
         viewBox="0 0 1024 1024"
@@ -124,14 +124,14 @@ const TimelineItem = ({
 
   return (
     <li className={`${className} ml-8`}>
-      <span className="absolute flex items-center justify-center w-6 h-6 bg-primary-100 rounded-full -left-3 ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900">
+      <span className="absolute flex items-center justify-center w-6 h-6 bg-primary-100 rounded-full -left-3 ring-8 ring-white dark:ring-gray-900 dark:bg-primary-600">
         {SVGMapping[expType]}
       </span>
       <h3 className="mb-1 text-base font-semibold">
         {title}{" "}
         {isLatest && (
           <span className="ml-1">
-            <Tag content="Latest" type="primary" />
+            <Tag content="Latest" type="accent" />
           </span>
         )}
       </h3>

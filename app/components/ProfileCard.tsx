@@ -32,29 +32,31 @@ export default function ProfileCard() {
 
   return (
     <div className="relative backdrop-opacity-100">
-      <div
-        id="header__light"
-        className="absolute top-20 -left-10 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob dark:opacity-100 dark:bg-purple-100"
-      />
-      <div
-        id="header__light"
-        className="absolute top-8 -right-0 w-72 h-72 bg-yellow-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000 dark:opacity-100 dark:bg-yellow-100"
-      />
-      <div
-        id="header__light"
-        className="absolute -bottom-4 left-8 w-72 h-72 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000 dark:opacity-100 dark:bg-pink-100"
-      />
-      <div className="relative bg-white p-6 rounded-xl space-y-4 text-black dark:bg-slate-800 dark:text-white">
+      {/*<div*/}
+      {/*  id="header__light"*/}
+      {/*  className="absolute top-20 -left-10 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob dark:opacity-100 dark:bg-purple-100"*/}
+      {/*/>*/}
+      {/*<div*/}
+      {/*  id="header__light"*/}
+      {/*  className="absolute top-8 -right-0 w-72 h-72 bg-yellow-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000 dark:opacity-100 dark:bg-yellow-100"*/}
+      {/*/>*/}
+      {/*<div*/}
+      {/*  id="header__light"*/}
+      {/*  className="absolute -bottom-4 left-8 w-72 h-72 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000 dark:opacity-100 dark:bg-pink-100"*/}
+      {/*/>*/}
+      <div className="relative bg-background-light-100 p-6 rounded-xl space-y-4 text-black dark:bg-background-dark-850">
         <Image
-          className="mx-auto my-6 rounded-full h-32 w-32 ring-2 ring-orange-500 ring-offset-4 ring-opacity-50 dark:ring-offset-slate-800"
+          className="mx-auto my-6 rounded-full h-32 w-32 ring-4 ring-primary ring-offset-background-light-100 ring-offset-4 dark:ring-offset-background-dark-850"
           src="/images/profile-photo.png"
           alt="Kuiliang Zhang"
           width={160}
           height={160}
           priority={true}
         />
-        <div className="text-center text-3xl font-semibold">Kuiliang Zhang</div>
-        <div className="text-center text-base">
+        <div className="text-center text-3xl font-extrabold text-primary">
+          Kuiliang Zhang
+        </div>
+        <div className="text-center text-base text-gray-700 dark:text-gray-300">
           <div>
             <span className="font-semibold">Chinese Name: </span>章奎亮
           </div>

@@ -41,7 +41,7 @@ export default function Header() {
           <div className="flex gap-x-6 px-6 text-lg">
             {pages.map((page) => (
               <Link
-                className={`rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 px-2 ${
+                className={`rounded-md hover:bg-background-light-75 dark:hover:bg-background-dark-875 px-2 ${
                   pathname === page.href
                     ? "bg-primary-100 dark:bg-primary-800"
                     : ""
@@ -71,7 +71,7 @@ export default function Header() {
 function MobileMenu({ pages }: { pages: Props[] }) {
   return (
     <Menu as="div" className="relative inline-block text-left">
-      <div className="flex items-center justify-center w-8 h-8 rounded-md hover:bg-gray-100 dark:hover:bg-slate-800">
+      <div className="flex items-center justify-center w-8 h-8 rounded-md hover:bg-gray-100 dark:hover:bg-background-dark-875">
         <Menu.Button className="w-6 h-6">
           {({ open }) => (open ? <XMarkIcon /> : <Bars3Icon />)}
         </Menu.Button>

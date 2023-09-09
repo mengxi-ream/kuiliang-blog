@@ -1,6 +1,6 @@
 import { twMerge } from "tailwind-merge";
 
-type Type = "default" | "primary";
+type Type = "default" | "primary" | "accent";
 type Size = "sm" | "md";
 
 export default function Tag({
@@ -14,10 +14,19 @@ export default function Tag({
   size?: Size;
   className?: string;
 }) {
-  const typeStyles =
-    type === "default"
-      ? "bg-secondary-light text-gray-700 dark:bg-secondary-dark dark:text-gray-300"
-      : "bg-primary text-gray-100 dark:bg-primary dark:text-gray-300";
+  // const typeStyles =
+  //   type === "default"
+  //     ? "bg-secondary-light text-gray-700 dark:bg-secondary-dark dark:text-gray-300"
+  //     : "bg-primary text-gray-100 dark:bg-primary dark:text-gray-300";
+
+  const typeStyleMap = {
+    default:
+      "bg-secondary-light text-gray-700 dark:bg-secondary-dark dark:text-gray-300",
+    primary: "bg-primary dark:bg-primary dark:text-white",
+    accent: "bg-accent-light text-white dark:bg-accent-dark dark:text-black",
+  };
+
+  const typeStyles = typeStyleMap[type];
 
   const sizeStyles =
     size === "md" ? "px-2 py-1 rounded-lg text-md" : "px-1 rounded-md text-sm";

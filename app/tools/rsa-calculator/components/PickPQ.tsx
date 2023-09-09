@@ -42,7 +42,7 @@ export default function PickPQ({
           regex="^[0-9]+$"
         />
       </div>
-      <div className="flex items-center gap-x-2  flex-wrap">
+      <div className="flex items-center gap-x-2 flex-wrap">
         <div>
           Large prime: <Latex>$p$</Latex>
         </div>

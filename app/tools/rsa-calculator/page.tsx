@@ -6,6 +6,7 @@ import RSASchemas from "@/lib/data/RSASchemas";
 import SchemaTable from "./components/SchemaTable";
 import PickPQ from "./components/PickPQ";
 import PickDE from "./components/PickDE";
+import Encode from "@/app/tools/rsa-calculator/components/Encode";
 
 export default function RSA() {
   const [schema, setSchema] = useState<[string, string, string][]>(
@@ -23,7 +24,7 @@ export default function RSA() {
   };
 
   return (
-    <div className="max-w-3xl mx-auto mt-10">
+    <div className="max-w-3xl mx-auto my-10">
       <h2 className="text-3xl font-bold mb-10">RSA Calculator</h2>
       <SchemaTable schema={schema} onSchemaChange={handleSchemaChange} />
       <PickPQ
@@ -36,6 +37,7 @@ export default function RSA() {
         setQ={setQ}
       />
       <PickDE p={p} q={q} d={d} e={e} setD={setD} setE={setE} />
+      <Encode schema={schema} m={m} p={p} q={q} d={d} e={e} />
     </div>
   );
 }

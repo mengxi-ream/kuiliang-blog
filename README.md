@@ -38,6 +38,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 Current todo list for this project:
 
 - [ ] RSA
+- [ ] Color https://realtimecolors.com/?colors=f9fafb-14161a-2a3d66-2d2112-debead
 - [ ] Category Tags (Ask tag chosen speed)
 - [ ] Book Tags
 - [ ] Project and Book Relevant Articles Icon and Pages

@@ -3,6 +3,7 @@ import { Fragment, useEffect, useState } from "react";
 import { SunIcon, MoonIcon, CogIcon } from "@heroicons/react/24/solid";
 import { useTheme } from "next-themes";
 import { ReactElement } from "react";
+import { twJoin } from "tailwind-merge";
 
 export default function ThemeMenu() {
   const [mounted, setMounted] = useState(false);
@@ -36,7 +37,7 @@ export default function ThemeMenu() {
         leaveFrom="transform opacity-100 scale-100"
         leaveTo="transform opacity-0 scale-95"
       >
-        <Menu.Items className="absolute right-0 mt-2 w-28 origin-top-right rounded-md bg-white dark:bg-slate-700 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none z-50">
+        <Menu.Items className="absolute right-0 mt-2 w-28 origin-top-right rounded-md bg-background-light dark:bg-background-dark shadow-lg ring-1 ring-gray-900/5 dark:ring-gray-800/80 ring-opacity-5 focus:outline-none z-50 text-gray-900 dark:text-gray-100">
           <div className="px-1 py-1 ">
             <ThemeMenuItem
               theme="light"
@@ -100,10 +101,13 @@ function generateClassName(active: boolean, selected: boolean) {
   let baseClass =
     "group flex w-full items-center rounded-md px-2 py-1.5 my-0.5";
   if (active) {
-    baseClass = `${baseClass} bg-gray-100 dark:bg-slate-600`;
+    baseClass = twJoin(
+      baseClass,
+      "bg-background-light-75 dark:bg-background-dark-875"
+    );
   }
   if (selected) {
-    baseClass = `${baseClass} ring-1 ring-orange-500 ring-opacity-60`;
+    baseClass = twJoin(baseClass, "!bg-primary text-gray-100");
   }
   return baseClass;
 }

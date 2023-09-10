@@ -41,7 +41,7 @@ export default function Header() {
           <div className="flex gap-x-6 px-6 text-lg">
             {pages.map((page) => (
               <Link
-                className={`rounded-md text-gray-900 dark:text-gray-100 hover:text-gray-600 dark:hover:text-gray-400 px-2 ${
+                className={`rounded-md text-gray-900 dark:text-gray-100 hover:text-gray-700 dark:hover:text-gray-300 px-2 ${
                   pathname === page.href
                     ? "bg-primary-100 dark:bg-primary-800"
                     : ""
@@ -86,7 +86,7 @@ function MobileMenu({ pages }: { pages: Props[] }) {
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <Popover.Overlay className="fixed inset-0 z-50 bg-zinc-800/40 backdrop-blur-sm dark:bg-black/80" />
+          <Popover.Overlay className="fixed inset-0 z-50 bg-gray-800/40 backdrop-blur-sm dark:bg-black/80" />
         </Transition.Child>
         <Transition.Child
           as={Fragment}
@@ -99,7 +99,7 @@ function MobileMenu({ pages }: { pages: Props[] }) {
         >
           <Popover.Panel
             focus
-            className="fixed inset-x-4 top-8 z-50 origin-top rounded-3xl bg-background-light p-8 ring-1 ring-gray-900/5 dark:bg-background-dark dark:ring-gray-800"
+            className="fixed inset-x-4 top-8 z-50 origin-top rounded-3xl bg-background-light p-8 ring-1 ring-gray-900/5 dark:ring-gray-800/80 dark:bg-background-dark"
           >
             <div className="flex flex-row-reverse items-center justify-between">
               <Popover.Button aria-label="Close menu" className="-m-1 p-1">

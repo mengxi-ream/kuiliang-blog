@@ -19,7 +19,7 @@ export default async function PostList({ heading, tags }: Props) {
 
   return (
     <section className="max-w-3xl mx-auto mb-14 mt-12">
-      {heading && <h2 className="text-4xl font-bold my-4">{heading}</h2>}
+      {heading && <h2 className="text-3xl font-bold my-4">{heading}</h2>}
       <ul className="w-full list-none p-0">
         {filteredPosts.map((post) => (
           <PostItem key={post.id} post={post} />

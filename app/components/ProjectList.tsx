@@ -7,7 +7,7 @@ import projects from "@/lib/data/projects";
 export default function ProjectList() {
   return (
     <section className="max-w-3xl mx-auto my-14">
-      <h2 className="text-4xl font-bold mb-4 mt-20">Recent Projects</h2>
+      <h2 className="text-3xl font-bold mb-4 mt-20">Recent Projects</h2>
       <div className="flex flex-wrap gap-y-3">
         {projects.map(
           (project) =>

@@ -56,3 +56,4 @@ Future todo list for this project:
 - [ ] Table of Contents
 - [ ] Line Level Comment Section
 - [ ] Get inspiration from Tailwind Personal Website Templates
+- [ ] Not Found Page

@@ -2,7 +2,7 @@
 import Link from "next/link";
 import ThemeMenu from "@/app/components/ThemeMenu";
 import Image from "next/image";
-import { Menu, Transition } from "@headlessui/react";
+import { Menu, Transition, Popover } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
 import { Fragment } from "react";
 import { usePathname } from "next/navigation";
@@ -41,7 +41,7 @@ export default function Header() {
           <div className="flex gap-x-6 px-6 text-lg">
             {pages.map((page) => (
               <Link
-                className={`rounded-md hover:bg-background-light-75 dark:hover:bg-background-dark-875 px-2 ${
+                className={`rounded-md text-gray-900 dark:text-gray-100 hover:text-gray-600 dark:hover:text-gray-400 px-2 ${
                   pathname === page.href
                     ? "bg-primary-100 dark:bg-primary-800"
                     : ""
@@ -70,40 +70,73 @@ export default function Header() {
 
 function MobileMenu({ pages }: { pages: Props[] }) {
   return (
-    <Menu as="div" className="relative inline-block text-left">
-      <div className="flex items-center justify-center w-8 h-8 rounded-md hover:bg-gray-100 dark:hover:bg-background-dark-875">
-        <Menu.Button className="w-6 h-6">
-          {({ open }) => (open ? <XMarkIcon /> : <Bars3Icon />)}
-        </Menu.Button>
+    <Popover className="relative inline-block text-left">
+      <div className="flex items-center justify-center w-8 h-8 rounded-md hover:bg-background-light-75 dark:hover:bg-background-dark-875">
+        <Popover.Button className="w-6 h-6">
+          <Bars3Icon />
+        </Popover.Button>
       </div>
-      <Transition
-        as={Fragment}
-        enter="transition ease-out duration-100"
-        enterFrom="transform opacity-0 scale-95"
-        enterTo="transform opacity-100 scale-100"
-        leave="transition ease-in duration-75"
-        leaveFrom="transform opacity-100 scale-100"
-        leaveTo="transform opacity-0 scale-95"
-      >
-        <Menu.Items className="absolute right-0 mt-2 w-24 origin-top-right rounded-md bg-white dark:bg-slate-700 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none z-50">
-          <div className="px-1 py-1 ">
-            {pages.map((page) => (
-              <Menu.Item key={page.name}>
-                {({ active }) => (
-                  <Link
-                    className={`${
-                      active ? "bg-gray-100 dark:bg-slate-600" : ""
-                    } group flex w-full items-center justify-center rounded-md px-2 py-2`}
-                    href={page.href}
-                  >
+      <Transition.Root>
+        <Transition.Child
+          as={Fragment}
+          enter="duration-150 ease-out"
+          enterFrom="opacity-0"
+          enterTo="opacity-100"
+          leave="duration-150 ease-in"
+          leaveFrom="opacity-100"
+          leaveTo="opacity-0"
+        >
+          <Popover.Overlay className="fixed inset-0 z-50 bg-zinc-800/40 backdrop-blur-sm dark:bg-black/80" />
+        </Transition.Child>
+        <Transition.Child
+          as={Fragment}
+          enter="duration-150 ease-out"
+          enterFrom="opacity-0 scale-95"
+          enterTo="opacity-100 scale-100"
+          leave="duration-150 ease-in"
+          leaveFrom="opacity-100 scale-100"
+          leaveTo="opacity-0 scale-95"
+        >
+          <Popover.Panel
+            focus
+            className="fixed inset-x-4 top-8 z-50 origin-top rounded-3xl bg-background-light p-8 ring-1 ring-gray-900/5 dark:bg-background-dark dark:ring-gray-800"
+          >
+            <div className="flex flex-row-reverse items-center justify-between">
+              <Popover.Button aria-label="Close menu" className="-m-1 p-1">
+                <XMarkIcon className="h-6 w-6" />
+              </Popover.Button>
+              <h2 className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                Navigation
+              </h2>
+            </div>
+            <nav className="mt-6">
+              <ul className="-my-2 divide-y divide-gray-100 text-base text-gray-800 dark:divide-gray-100/5 dark:text-gray-100">
+                {pages.map((page) => (
+                  <MobileNavItem href={page.href} key={page.name}>
                     {page.name}
-                  </Link>
-                )}
-              </Menu.Item>
-            ))}
-          </div>
-        </Menu.Items>
-      </Transition>
-    </Menu>
+                  </MobileNavItem>
+                ))}
+              </ul>
+            </nav>
+          </Popover.Panel>
+        </Transition.Child>
+      </Transition.Root>
+    </Popover>
+  );
+}
+
+function MobileNavItem({
+  href,
+  children,
+}: {
+  href: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <li>
+      <Popover.Button as={Link} href={href} className="block py-2">
+        {children}
+      </Popover.Button>
+    </li>
   );
 }

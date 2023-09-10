@@ -44,7 +44,7 @@ export default function ProfileCard() {
       {/*  id="header__light"*/}
       {/*  className="absolute -bottom-4 left-8 w-72 h-72 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000 dark:opacity-100 dark:bg-pink-100"*/}
       {/*/>*/}
-      <div className="relative bg-background-light-100 p-6 rounded-xl space-y-4 text-black dark:bg-background-dark-850">
+      <div className="relative bg-background-light-100 p-6 rounded-3xl space-y-4 text-black dark:bg-background-dark-850">
         <Image
           className="mx-auto my-6 rounded-full h-32 w-32 ring-4 ring-primary ring-offset-background-light-100 ring-offset-4 dark:ring-offset-background-dark-850"
           src="/images/profile-photo.png"

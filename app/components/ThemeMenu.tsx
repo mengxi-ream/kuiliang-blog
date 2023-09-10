@@ -14,7 +14,7 @@ export default function ThemeMenu() {
 
   return (
     <Menu as="div" className="relative inline-block text-left">
-      <div className="flex items-center justify-center w-8 h-8 rounded-md hover:bg-gray-100 dark:hover:bg-slate-800">
+      <div className="flex items-center justify-center w-8 h-8 rounded-md hover:bg-background-light-75 dark:hover:bg-background-dark-875">
         <Menu.Button className="w-6 h-6">
           {mounted ? (
             <div>

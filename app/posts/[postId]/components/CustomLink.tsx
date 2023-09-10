@@ -13,7 +13,7 @@ export default function CustomLink({
     <Link
       href={href}
       target={target}
-      className="text-orange-500 hover:text-orange-400 dark:hover:text-orange-600"
+      className="text-accent-light dark:text-accent-dark hover:text-accent-500 dark:hover:text-accent-400"
     >
       {children}
     </Link>

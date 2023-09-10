@@ -16,7 +16,7 @@ export default function ProductItem({
   youtubeLink,
 }: Product) {
   return (
-    <section className="relative p-4 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800">
+    <section className="relative p-4 rounded-lg hover:bg-background-light-75 dark:hover:bg-background-dark-875">
       <div className="text-sm text-gray-600 dark:text-gray-400">{time}</div>
       <div className="flex my-4 items-center">
         {icon && (
@@ -59,7 +59,7 @@ export default function ProductItem({
       </div>
       <p className="mt-3 text-gray-700 dark:text-gray-300">{description}</p>
       {mainLink && (
-        <div className="mt-3 flex items-center text-sm text-orange-500">
+        <div className="mt-3 flex items-center text-sm text-accent-light dark:text-accent-dark">
           Details
           <ArrowRightIcon className="ml-1 w-4 h-4" />
         </div>

@@ -29,7 +29,7 @@ export function PostItem({ post }: Props) {
 
   return (
     <li className="my-3" key={id}>
-      <div className="relative p-4 group rounded-md hover:bg-gray-100 dark:hover:bg-slate-800 transition ease-in-out duration-200">
+      <div className="relative p-4 group rounded-md hover:bg-background-light-75 dark:hover:bg-background-dark-875 transition ease-in-out duration-200">
         <div className="flex items-center text-sm">
           <div className="text-gray-600 dark:text-gray-400 mr-4">
             {getFormattedDate(publishedDate)}
@@ -76,7 +76,7 @@ export function PostItem({ post }: Props) {
         </div>
         <h3 className="my-4 text-xl font-bold">{title}</h3>
         <p className="my-3">{abstract}</p>
-        <div className="flex items-center text-orange-500 text-sm">
+        <div className="flex items-center text-accent-light dark:text-accent-dark text-sm">
           Read more
           <ArrowRightIcon className="ml-1 w-4 h-4" />
         </div>

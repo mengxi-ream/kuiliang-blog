@@ -20,8 +20,7 @@ export default function Tag({
   //     : "bg-primary text-gray-100 dark:bg-primary dark:text-gray-300";
 
   const typeStyleMap = {
-    default:
-      "bg-secondary-light text-gray-700 dark:bg-secondary-dark dark:text-gray-300",
+    default: "bg-gray-200 text-gray-700 dark:bg-gray-700 dark:text-gray-300",
     primary: "bg-primary dark:bg-primary dark:text-white",
     accent: "bg-accent-light text-white dark:bg-accent-dark dark:text-black",
   };

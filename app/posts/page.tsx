@@ -29,14 +29,14 @@ export default async function Posts({
         <h2 className="text-2xl font-bold mb-4">Tags</h2>
         <div className="flex flex-wrap mb-10 gap-x-1.5 gap-y-1">
           {uniqueTagsArray.map((tag) => (
-            // <Link href={processURL(tags, tag)} key={tag}>
-            <Tag
-              key={tag}
-              content={tag}
-              size="sm"
-              // className={processLinkStyle(tags, tag)}
-            />
-            // </Link>
+            <Link href={processURL(tags, tag)} key={tag}>
+              <Tag
+                key={tag}
+                content={tag}
+                size="sm"
+                className={processLinkStyle(tags, tag)}
+              />
+            </Link>
           ))}
         </div>
       </section>

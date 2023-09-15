@@ -3,22 +3,12 @@ import { getPostsMeta } from "@/lib/posts";
 import Link from "next/link";
 import Tag from "@/app/components/Tag";
 
-async function getPosts() {
-  const posts = await getPostsMeta();
-
-  if (!posts) {
-    return undefined;
-  }
-
-  return posts;
-}
-
 export default async function Posts({
   searchParams,
 }: {
   searchParams: { [key: string]: string | string[] | undefined };
 }) {
-  const posts = await getPosts();
+  const posts = await getPostsMeta();
 
   let uniqueTagsArray: string[] = [];
 
@@ -39,13 +29,14 @@ export default async function Posts({
         <h2 className="text-2xl font-bold mb-4">Tags</h2>
         <div className="flex flex-wrap mb-10 gap-x-1.5 gap-y-1">
           {uniqueTagsArray.map((tag) => (
-            <Link href={processURL(tags, tag)} key={tag}>
-              <Tag
-                content={tag}
-                size="sm"
-                className={processLinkStyle(tags, tag)}
-              />
-            </Link>
+            // <Link href={processURL(tags, tag)} key={tag}>
+            <Tag
+              key={tag}
+              content={tag}
+              size="sm"
+              className={processLinkStyle(tags, tag)}
+            />
+            // </Link>
           ))}
         </div>
       </section>

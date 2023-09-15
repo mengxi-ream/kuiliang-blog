@@ -34,7 +34,7 @@ export default async function Posts({
               key={tag}
               content={tag}
               size="sm"
-              className={processLinkStyle(tags, tag)}
+              // className={processLinkStyle(tags, tag)}
             />
             // </Link>
           ))}

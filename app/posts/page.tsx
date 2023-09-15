@@ -2,12 +2,9 @@ import PostList from "@/app/components/PostList";
 import { getPostsMeta } from "@/lib/posts";
 import Link from "next/link";
 import Tag from "@/app/components/Tag";
+import { undefined } from "zod";
 
-export default async function Posts({
-  searchParams,
-}: {
-  searchParams: { [key: string]: string | string[] | undefined };
-}) {
+export default async function Posts() {
   const posts = await getPostsMeta();
 
   let uniqueTagsArray: string[] = [];
@@ -18,7 +15,7 @@ export default async function Posts({
     uniqueTagsArray = Array.from(uniqueTags).sort(); // Converts the Set back to an array, if you need it as an array
   }
 
-  const tags = processTags(searchParams.tag);
+  const tags: string[] = [];
 
   return (
     <div className="md:flex gap-x-4">
@@ -27,14 +24,4 @@ export default async function Posts({
       </div>
     </div>
   );
-}
-
-function processTags(
-  tags: string | string[] | undefined
-): string[] | undefined {
-  if (typeof tags === "string") {
-    return [tags];
-  }
-
-  return tags;
 }

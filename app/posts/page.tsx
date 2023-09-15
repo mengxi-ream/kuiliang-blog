@@ -20,7 +20,7 @@ export default async function Posts() {
   return (
     <div className="md:flex gap-x-4">
       <div className="w-full md:flex-auto">
-        <PostList tags={tags} />
+        <PostList />
       </div>
     </div>
   );

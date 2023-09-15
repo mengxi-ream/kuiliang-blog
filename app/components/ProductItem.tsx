@@ -16,7 +16,7 @@ export default function ProductItem({
   youtubeLink,
 }: Product) {
   return (
-    <section className="relative p-4 rounded-lg hover:bg-background-light-75 dark:hover:bg-background-dark-875">
+    <section className="relative p-4 rounded-2xl hover:bg-background-light-75 dark:hover:bg-background-dark-875">
       <div className="text-sm text-gray-600 dark:text-gray-400">{time}</div>
       <div className="flex my-4 items-center">
         {icon && (

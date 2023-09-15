@@ -53,7 +53,7 @@ export default function ProfileCard() {
           height={160}
           priority={true}
         />
-        <div className="text-center text-3xl font-extrabold text-primary">
+        <div className="text-center text-3xl font-extrabold text-black dark:text-white">
           Kuiliang Zhang
         </div>
         <div className="text-center text-base text-gray-700 dark:text-gray-300">

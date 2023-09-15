@@ -29,7 +29,7 @@ export function PostItem({ post }: Props) {
 
   return (
     <li className="my-3" key={id}>
-      <div className="relative p-4 group rounded-md hover:bg-background-light-75 dark:hover:bg-background-dark-875 transition ease-in-out duration-200">
+      <div className="relative p-4 group rounded-2xl hover:bg-background-light-75 dark:hover:bg-background-dark-875 transition ease-in-out duration-200">
         <div className="flex items-center text-sm">
           <div className="text-gray-600 dark:text-gray-400 mr-4">
             {getFormattedDate(publishedDate)}

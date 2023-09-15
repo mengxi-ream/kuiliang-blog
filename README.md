@@ -38,22 +38,21 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 Current todo list for this project:
 
 - [ ] RSA
-- [ ] Color https://realtimecolors.com/?colors=f9fafb-14161a-2a3d66-2d2112-debead
-- [ ] Category Tags (Ask tag chosen speed)
-- [ ] Book Tags
-- [ ] Project and Book Relevant Articles Icon and Pages
-- [ ] Search
+- [x] Color https://realtimecolors.com/?colors=f9fafb-14161a-2a3d66-2d2112-debead
 - [ ] SEO
-- [ ] Revalidation
-- [ ] Pagenation
-- [ ] Large Hover Background in Phone and smaller padding
-- [ ] Unify: Color Scheme, Hover Animation, Different Type Icons, etc.
+- [ ] Domain names
 
 Future todo list for this project:
 
+- [ ] Category Tags (Ask tag chosen speed)
 - [ ] Table of Contents
 - [ ] Like Button / Visit Counter
 - [ ] Table of Contents
 - [ ] Line Level Comment Section
 - [ ] Get inspiration from Tailwind Personal Website Templates
 - [ ] Not Found Page
+- [ ] Search
+- [ ] Revalidation
+- [ ] Pagenation
+- [ ] Large Hover Background in Phone and smaller padding
+- [ ] Unify: Hover Animation, Different Type Icons, etc.

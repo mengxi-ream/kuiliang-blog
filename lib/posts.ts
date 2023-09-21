@@ -94,7 +94,6 @@ export async function getPostsMeta(): Promise<Meta[] | undefined> {
   const res = await fetch(
     "https://api.github.com/repos/Crayon-ShinChan/blog-posts/git/trees/main?recursive=1",
     {
-      cache: "no-store",
       headers: {
         Accept: "application/vnd.github+json",
         Authorization: `Bearer ${process.env.GITHUB_BLOG_TOKEN}`,

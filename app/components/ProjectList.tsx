@@ -14,7 +14,7 @@ export default function ProjectList() {
             project.recent && (
               <div
                 key={project.name}
-                className="flex-auto w-full sm:w-96 mx-auto max-w-md"
+                className="flex-auto w-full sm:w-96 max-w-md"
               >
                 <ProductItem {...project} />
               </div>

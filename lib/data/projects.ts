@@ -1,5 +1,19 @@
 const projects: Array<Product> = [
   {
+    name: "Positive Diary",
+    icon: {
+      src: "/icons/positive-diary.png",
+      innerSize: "11/12",
+    },
+    imageSrc: "/images/projects/positive-diary.png",
+    tags: ["Next.js", "MongoDB", "Edge Function"],
+    description:
+      "This diary app rewrites users' entries with an optimistic lens.Simply share experiences, and the app refines them, highlighting positivity even in life's lows.",
+    time: "Sep 2023 - Present",
+    recent: true,
+    mainLink: "https://positive-diary.vercel.app",
+  },
+  {
     name: "Personal Website",
     icon: {
       src: "/icons/panda-logo.png",

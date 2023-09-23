@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import ProductItem from "@/components/ProductItem";
 import { QrCodeIcon } from "@heroicons/react/24/solid";
-import projects from "@/data/projects";
+import projects from "@/config/projects";
 
 export default function ProjectList() {
   return (

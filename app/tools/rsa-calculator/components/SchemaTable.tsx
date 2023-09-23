@@ -9,7 +9,7 @@ import {
 } from "@heroicons/react/20/solid";
 import { v4 as uuidv4 } from "uuid";
 import Button from "@/components/ui/Button";
-import RSASchemas from "@/data/RSASchemas";
+import RSASchemas from "@/config/RSASchemas";
 import Input from "@/components/ui/Input";
 import ValidateText from "./ValidateText";
 

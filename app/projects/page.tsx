@@ -1,6 +1,6 @@
 import ItemWithImage from "@/components/ItemWithImage";
 import ProductItem from "@/components/ProductItem";
-import projects from "@/data/projects";
+import projects from "@/config/projects";
 import sortProductsByDate from "@/lib/sortProductsByDate";
 
 export default function Projects() {

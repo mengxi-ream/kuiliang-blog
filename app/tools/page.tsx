@@ -1,4 +1,4 @@
-import tools from "@/data/tools";
+import tools from "@/config/tools";
 import ItemWithImage from "@/components/ItemWithImage";
 import ProductItem from "@/components/ProductItem";
 import sortProductsByDate from "@/lib/sortProductsByDate";

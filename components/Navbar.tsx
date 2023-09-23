@@ -24,7 +24,7 @@ export default function Navbar() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-50 bg-background-light/80 backdrop-blur-lg dark:bg-background-dark/80">
+    <header className="sticky top-0 z-50 bg-background-light/80 after:backdrop-blur-lg after:dark:bg-background-dark/80 after:content-[''] after:absolute after:left-0 after:top-0 after:right-0 after:bottom-0 after:z-[-1]">
       <nav className="flex justify-between items-center py-4 px-6 md:px-8 max-w-5xl mx-auto">
         <Link href="/" className="flex items-center text-xl font-extrabold">
           <Image
@@ -86,7 +86,7 @@ function MobileMenu({ pages }: { pages: Props[] }) {
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <Popover.Overlay className="fixed inset-0 z-50 bg-gray-800/40 backdrop-blur-sm dark:bg-black/80 h-screen top-0 bottom-0" />
+          <Popover.Overlay className="fixed inset-0 z-50 bg-gray-800/40 backdrop-blur-sm dark:bg-black/80 h-screen" />
         </Transition.Child>
         <Transition.Child
           as={Fragment}

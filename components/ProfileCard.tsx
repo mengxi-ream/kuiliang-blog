@@ -1,14 +1,39 @@
 "use client";
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { SocialIcon } from "react-social-icons";
+import { Icons } from "./Icons";
+import { socialMedia } from "@/config/socialMedia";
+import Link from "next/link";
+import HanziWriter from "hanzi-writer";
 
 export default function ProfileCard() {
   const [currentTime, setCurrentTime] = useState(
     new Date().toLocaleTimeString("en-US", { timeZone: "America/Vancouver" })
   );
 
+  const hanZiSize = 36;
+
   useEffect(() => {
+    var char1 = HanziWriter.create("char1", "章", {
+      width: hanZiSize,
+      height: hanZiSize,
+      padding: 5,
+      showOutline: true,
+    });
+    var char2 = HanziWriter.create("char2", "奎", {
+      width: hanZiSize,
+      height: hanZiSize,
+      padding: 5,
+      showOutline: true,
+    });
+    var char3 = HanziWriter.create("char3", "亮", {
+      width: hanZiSize,
+      height: hanZiSize,
+      padding: 5,
+      showOutline: true,
+    });
+    chainAnimationsForever(char1, char2, char3);
+
     const interval = setInterval(() => {
       setCurrentTime(
         new Date().toLocaleTimeString("en-US", {
@@ -20,30 +45,8 @@ export default function ProfileCard() {
     return () => clearInterval(interval); // Clear the interval when the component unmounts
   }, []);
 
-  const socialLinks = [
-    { url: "https://www.linkedin.com/in/kuiliang-zhang/", network: "linkedin" },
-    { url: "https://github.com/Crayon-ShinChan", network: "github" },
-    {
-      url: "https://www.youtube.com/channel/UCWCV-rLxr-gOvi6OZm9wIvw",
-      network: "youtube",
-    },
-    { url: "https://medium.com/@z1219202167", network: "medium" },
-  ];
-
   return (
     <div className="relative backdrop-opacity-100">
-      {/*<div*/}
-      {/*  id="header__light"*/}
-      {/*  className="absolute top-20 -left-10 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob dark:opacity-100 dark:bg-purple-100"*/}
-      {/*/>*/}
-      {/*<div*/}
-      {/*  id="header__light"*/}
-      {/*  className="absolute top-8 -right-0 w-72 h-72 bg-yellow-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000 dark:opacity-100 dark:bg-yellow-100"*/}
-      {/*/>*/}
-      {/*<div*/}
-      {/*  id="header__light"*/}
-      {/*  className="absolute -bottom-4 left-8 w-72 h-72 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000 dark:opacity-100 dark:bg-pink-100"*/}
-      {/*/>*/}
       <div className="relative bg-background-light-100 p-6 rounded-3xl space-y-4 text-black dark:bg-background-dark-850">
         <Image
           className="mx-auto my-6 rounded-full h-32 w-32 ring-4 ring-primary ring-offset-background-light-100 ring-offset-4 dark:ring-offset-background-dark-850"
@@ -56,11 +59,14 @@ export default function ProfileCard() {
         <div className="text-center text-3xl font-extrabold text-black dark:text-white">
           Kuiliang Zhang
         </div>
+        <div
+          className={`flex justify-center !mt-0 !-mb-2 after:h-[${hanZiSize}px]`}
+        >
+          <div id="char1"></div>
+          <div id="char2"></div>
+          <div id="char3"></div>
+        </div>
         <div className="text-center text-base text-gray-700 dark:text-gray-300">
-          <div>
-            <span className="font-semibold">Chinese Name: </span>章奎亮
-          </div>
-
           <div>
             <span className="font-semibold">Email: </span>
             <a
@@ -84,21 +90,49 @@ export default function ProfileCard() {
             , {currentTime}
           </div>
         </div>
-        <div className="flex justify-center gap-x-3">
-          {socialLinks.map((link) => (
-            <SocialIcon
-              key={link.url}
-              url={link.url}
-              network={link.network}
-              target="_blank"
-              fgColor="white"
-              bgColor="currentColor"
-              style={{ height: 40, width: 40 }}
-              className="text-black rounded-full global-hover"
-            />
-          ))}
+        <div className="flex justify-center gap-x-5">
+          {socialMedia.map((media) => {
+            const Icon = Icons[media.icon];
+            return (
+              <Link href={media.href} key={media.href}>
+                <Icon className="h-5 w-5" />
+              </Link>
+            );
+          })}
         </div>
       </div>
     </div>
   );
+}
+
+function chainAnimationsForever(
+  char1: HanziWriter,
+  char2: HanziWriter,
+  char3: HanziWriter
+) {
+  var delayBetweenAnimations = 1000; // milliseconds
+  char1.hideCharacter();
+  char2.hideCharacter();
+  char3.hideCharacter();
+
+  char1.animateCharacter({
+    onComplete: function () {
+      setTimeout(function () {
+        char2.animateCharacter({
+          onComplete: function () {
+            setTimeout(function () {
+              char3.animateCharacter({
+                onComplete: function () {
+                  setTimeout(
+                    () => chainAnimationsForever(char1, char2, char3),
+                    delayBetweenAnimations
+                  );
+                },
+              });
+            }, delayBetweenAnimations);
+          },
+        });
+      }, delayBetweenAnimations);
+    },
+  });
 }

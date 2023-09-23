@@ -1,10 +1,10 @@
 import Link from "next/link";
 import { ArrowRightIcon } from "@heroicons/react/24/solid";
 import getFormattedDate from "@/lib/getFormattedDate";
-import categories from "@/data/categories";
+import categories from "@/config/categories";
 import Tag from "@/components/ui/Tag";
-import projects from "@/data/projects";
-import tools from "@/data/tools";
+import projects from "@/config/projects";
+import tools from "@/config/tools";
 import Icon from "@/components/ui/Icon";
 
 type Props = {

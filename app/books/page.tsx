@@ -1,4 +1,4 @@
-import books from "@/data/books";
+import books from "@/config/books";
 import ItemWithImage from "@/components/ItemWithImage";
 import ProductItem from "@/components/ProductItem";
 import sortProductsByDate from "@/lib/sortProductsByDate";

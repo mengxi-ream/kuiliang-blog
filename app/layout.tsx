@@ -1,7 +1,7 @@
 import "./globals.scss";
 import type { Metadata } from "next";
 import { Nunito_Sans } from "next/font/google";
-import Header from "@/app/components/Header";
+import Navbar from "@/components/Navbar";
 import { Providers } from "./providers";
 const nunitoSans = Nunito_Sans({ subsets: ["latin"] });
 
@@ -21,7 +21,7 @@ export default function RootLayout({
         className={`${nunitoSans.className} min-h-screen bg-background-light dark:bg-background-dark`}
       >
         <Providers>
-          <Header />
+          <Navbar />
           <main className="px-6 md:px-16 max-w-5xl mx-auto">{children}</main>
         </Providers>
       </body>

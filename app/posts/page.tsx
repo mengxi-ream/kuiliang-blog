@@ -1,7 +1,7 @@
-import PostList from "@/app/components/PostList";
+import PostList from "@/components/PostList";
 import { getPostsMeta } from "@/lib/posts";
 import Link from "next/link";
-import Tag from "@/app/components/Tag";
+import Tag from "@/components/ui/Tag";
 
 export default async function Posts({
   searchParams,

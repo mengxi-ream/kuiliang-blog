@@ -1,5 +1,5 @@
 import { ChangeEvent, useState } from "react";
-import Input from "@/app/components/Input";
+import Input from "@/components/ui/Input";
 
 export default function Encode({
   schema,

@@ -1,8 +1,8 @@
 import { ArrowRightIcon, QrCodeIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
 import Image from "next/image";
-import Tag from "@/app/components/Tag";
-import Icon from "@/app/components/Icon";
+import Tag from "@/components/ui/Tag";
+import Icon from "@/components/ui/Icon";
 
 export default function ProductItem({
   name,

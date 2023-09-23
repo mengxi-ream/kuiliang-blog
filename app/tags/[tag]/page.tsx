@@ -1,5 +1,5 @@
 import { getPostsMeta } from "@/lib/posts";
-import { PostItem } from "@/app/components/PostItem";
+import { PostItem } from "@/components/PostItem";
 import Link from "next/link";
 
 export const revalidate = 86400;

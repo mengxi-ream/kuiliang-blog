@@ -1,11 +1,11 @@
 import Link from "next/link";
 import { ArrowRightIcon } from "@heroicons/react/24/solid";
 import getFormattedDate from "@/lib/getFormattedDate";
-import categories from "@/lib/data/categories";
-import Tag from "@/app/components/Tag";
-import projects from "@/lib/data/projects";
-import tools from "@/lib/data/tools";
-import Icon from "@/app/components/Icon";
+import categories from "@/data/categories";
+import Tag from "@/components/ui/Tag";
+import projects from "@/data/projects";
+import tools from "@/data/tools";
+import Icon from "@/components/ui/Icon";
 
 type Props = {
   post: Meta;

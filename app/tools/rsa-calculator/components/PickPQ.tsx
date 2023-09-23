@@ -3,7 +3,7 @@ import "katex/dist/katex.min.css";
 import Latex from "react-latex-next";
 import { CheckCircleIcon, XCircleIcon } from "@heroicons/react/20/solid";
 import { isPrime } from "mathjs";
-import Input from "@/app/components/Input";
+import Input from "@/components/ui/Input";
 import ValidateText from "./ValidateText";
 
 export default function PickPQ({

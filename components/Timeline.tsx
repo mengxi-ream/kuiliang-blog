@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ReactElement } from "react";
-import Tag from "@/app/components/Tag";
-import Icon from "@/app/components/Icon";
+import Tag from "@/components/ui/Tag";
+import Icon from "@/components/ui/Icon";
 
 type ExpType = "work" | "study";
 

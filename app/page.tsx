@@ -1,7 +1,7 @@
-import PostList from "@/app/components/PostList";
-import ProfileCard from "@/app/components/ProfileCard";
-import Timeline from "@/app/components/Timeline";
-import ProjectList from "@/app/components/ProjectList";
+import PostList from "@/components/PostList";
+import ProfileCard from "@/components/ProfileCard";
+import Timeline from "@/components/Timeline";
+import ProjectList from "@/components/ProjectList";
 
 export const revalidate = 86400;
 

@@ -8,9 +8,9 @@ import {
   XCircleIcon,
 } from "@heroicons/react/20/solid";
 import { v4 as uuidv4 } from "uuid";
-import Button from "@/app/components/Button";
-import RSASchemas from "@/lib/data/RSASchemas";
-import Input from "@/app/components/Input";
+import Button from "@/components/ui/Button";
+import RSASchemas from "@/data/RSASchemas";
+import Input from "@/components/ui/Input";
 import ValidateText from "./ValidateText";
 
 export default function SchemaTable({

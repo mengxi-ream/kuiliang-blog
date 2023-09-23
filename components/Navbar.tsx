@@ -1,29 +1,30 @@
 "use client";
 import Link from "next/link";
-import ThemeMenu from "@/app/components/ThemeMenu";
+import ThemeMenu from "@/components/ThemeMenu";
 import Image from "next/image";
 import { Menu, Transition, Popover } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
 import { Fragment } from "react";
 import { usePathname } from "next/navigation";
+import { mergeClassNames } from "@/lib/utils";
 
 type Props = {
   name: string;
   href: string;
 };
 
-export default function Header() {
-  const pages = [
-    { name: "Posts", href: "/posts" },
-    { name: "Projects", href: "/projects" },
-    { name: "Tools", href: "/tools" },
-    { name: "Books", href: "/books" },
-  ];
+const pages = [
+  { name: "Posts", href: "/posts" },
+  { name: "Projects", href: "/projects" },
+  // { name: "Tools", href: "/tools" },
+  { name: "Books", href: "/books" },
+];
 
+export default function Navbar() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-40 bg-background-light/80 backdrop-blur-lg dark:bg-background-dark/80">
+    <header className="sticky top-0 z-50 bg-background-light/80 backdrop-blur-lg dark:bg-background-dark/80">
       <nav className="flex justify-between items-center py-4 px-6 md:px-8 max-w-5xl mx-auto">
         <Link href="/" className="flex items-center text-xl font-extrabold">
           <Image
@@ -41,11 +42,10 @@ export default function Header() {
           <div className="flex gap-x-6 px-6 text-lg">
             {pages.map((page) => (
               <Link
-                className={`rounded-md text-gray-900 dark:text-gray-100 hover:text-gray-700 dark:hover:text-gray-300 px-2 ${
-                  pathname === page.href
-                    ? "bg-primary-100 dark:bg-primary-800"
-                    : ""
-                }`}
+                className={mergeClassNames(
+                  "rounded-md text-gray-900 dark:text-gray-100 hover:text-gray-700 dark:hover:text-gray-300 px-2",
+                  pathname === page.href && "bg-primary-100 dark:bg-primary-800"
+                )}
                 key={page.name}
                 href={page.href}
               >
@@ -70,7 +70,7 @@ export default function Header() {
 
 function MobileMenu({ pages }: { pages: Props[] }) {
   return (
-    <Popover className="relative inline-block text-left">
+    <Popover className="pointer-events-auto md:hidden">
       <div className="flex items-center justify-center w-8 h-8 rounded-md hover:bg-background-light-75 dark:hover:bg-background-dark-875">
         <Popover.Button className="w-6 h-6">
           <Bars3Icon />
@@ -86,7 +86,7 @@ function MobileMenu({ pages }: { pages: Props[] }) {
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <Popover.Overlay className="fixed inset-0 z-50 bg-gray-800/40 backdrop-blur-sm dark:bg-black/80" />
+          <Popover.Overlay className="fixed inset-0 z-50 bg-gray-800/40 backdrop-blur-sm dark:bg-black/80 h-screen top-0 bottom-0" />
         </Transition.Child>
         <Transition.Child
           as={Fragment}

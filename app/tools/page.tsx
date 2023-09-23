@@ -1,6 +1,6 @@
-import tools from "@/lib/data/tools";
-import ItemWithImage from "@/app/components/ItemWithImage";
-import ProductItem from "@/app/components/ProductItem";
+import tools from "@/data/tools";
+import ItemWithImage from "@/components/ItemWithImage";
+import ProductItem from "@/components/ProductItem";
 import sortProductsByDate from "@/lib/sortProductsByDate";
 
 export default function Tools() {

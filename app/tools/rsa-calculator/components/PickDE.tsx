@@ -1,5 +1,5 @@
 import Latex from "react-latex-next";
-import Input from "@/app/components/Input";
+import Input from "@/components/ui/Input";
 import ValidateText from "./ValidateText";
 import isRelativePrime from "@/lib/isRelativePrime";
 

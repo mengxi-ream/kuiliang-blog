@@ -3,7 +3,7 @@ import { Fragment, useEffect, useState } from "react";
 import { SunIcon, MoonIcon, CogIcon } from "@heroicons/react/24/solid";
 import { useTheme } from "next-themes";
 import { ReactElement } from "react";
-import { twJoin } from "tailwind-merge";
+import { mergeClassNames } from "@/lib/utils";
 
 export default function ThemeMenu() {
   const [mounted, setMounted] = useState(false);
@@ -84,7 +84,11 @@ function ThemeMenuItem({
     <Menu.Item>
       {({ active }) => (
         <button
-          className={generateClassName(active, selected)}
+          className={mergeClassNames(
+            "group flex w-full items-center rounded-md px-2 py-1.5 my-0.5",
+            active && "bg-background-light-75 dark:bg-background-dark-875",
+            selected && "!bg-primary text-gray-100"
+          )}
           onClick={() => setTheme(theme)}
         >
           <div className="flex items-center justify-center h-5 w-5 mr-2">
@@ -95,19 +99,4 @@ function ThemeMenuItem({
       )}
     </Menu.Item>
   );
-}
-
-function generateClassName(active: boolean, selected: boolean) {
-  let baseClass =
-    "group flex w-full items-center rounded-md px-2 py-1.5 my-0.5";
-  if (active) {
-    baseClass = twJoin(
-      baseClass,
-      "bg-background-light-75 dark:bg-background-dark-875"
-    );
-  }
-  if (selected) {
-    baseClass = twJoin(baseClass, "!bg-primary text-gray-100");
-  }
-  return baseClass;
 }

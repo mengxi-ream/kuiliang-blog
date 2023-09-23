@@ -1,5 +1,5 @@
 import { getPostsMeta } from "@/lib/posts";
-import { PostItem } from "@/app/components/PostItem";
+import { PostItem } from "@/components/PostItem";
 
 type Props = {
   heading?: string;

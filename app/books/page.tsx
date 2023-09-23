@@ -1,6 +1,6 @@
-import books from "@/lib/data/books";
-import ItemWithImage from "@/app/components/ItemWithImage";
-import ProductItem from "@/app/components/ProductItem";
+import books from "@/data/books";
+import ItemWithImage from "@/components/ItemWithImage";
+import ProductItem from "@/components/ProductItem";
 import sortProductsByDate from "@/lib/sortProductsByDate";
 
 export default function Books() {

@@ -2,7 +2,7 @@ import { getPostsMeta, getPostByName } from "@/lib/posts";
 import { notFound } from "next/navigation";
 import getFormattedDate from "@/lib/getFormattedDate";
 import Link from "next/link";
-import Tag from "@/app/components/Tag";
+import Tag from "@/components/ui/Tag";
 
 export const revalidate = 86400;
 

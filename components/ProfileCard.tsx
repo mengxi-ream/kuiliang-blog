@@ -14,25 +14,25 @@ export default function ProfileCard() {
   const hanZiSize = 36;
 
   useEffect(() => {
-    // var char1 = HanziWriter.create("char1", "章", {
-    //   width: hanZiSize,
-    //   height: hanZiSize,
-    //   padding: 5,
-    //   showOutline: true,
-    // });
-    // var char2 = HanziWriter.create("char2", "奎", {
-    //   width: hanZiSize,
-    //   height: hanZiSize,
-    //   padding: 5,
-    //   showOutline: true,
-    // });
-    // var char3 = HanziWriter.create("char3", "亮", {
-    //   width: hanZiSize,
-    //   height: hanZiSize,
-    //   padding: 5,
-    //   showOutline: true,
-    // });
-    // chainAnimationsForever(char1, char2, char3);
+    var char1 = HanziWriter.create("char1", "章", {
+      width: hanZiSize,
+      height: hanZiSize,
+      padding: 5,
+      showOutline: true,
+    });
+    var char2 = HanziWriter.create("char2", "奎", {
+      width: hanZiSize,
+      height: hanZiSize,
+      padding: 5,
+      showOutline: true,
+    });
+    var char3 = HanziWriter.create("char3", "亮", {
+      width: hanZiSize,
+      height: hanZiSize,
+      padding: 5,
+      showOutline: true,
+    });
+    chainAnimationsForever(char1, char2, char3);
 
     const interval = setInterval(() => {
       setCurrentTime(
@@ -59,13 +59,13 @@ export default function ProfileCard() {
         <div className="text-center text-3xl font-extrabold text-black dark:text-white">
           Kuiliang Zhang
         </div>
-        {/* <div
+        <div
           className={`flex justify-center !mt-0 !-mb-2 after:h-[${hanZiSize}px]`}
         >
           <div id="char1"></div>
           <div id="char2"></div>
           <div id="char3"></div>
-        </div> */}
+        </div>
         <div className="text-center text-base text-gray-700 dark:text-gray-300">
           <div>
             <span className="font-semibold">Email: </span>

@@ -5,7 +5,6 @@
   "scripts": {
     "dev": "next dev -p 1028",
     "build": "next build",
-    "prebuild": "ts-node scripts/genCodeStyle.mts",
     "start": "next start -p 1028",
     "lint": "next lint",
     "postbuild": "next-sitemap"

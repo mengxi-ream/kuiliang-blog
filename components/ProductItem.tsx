@@ -65,7 +65,7 @@ export default function ProductItem({
         </div>
       )}
       {mainLink && (
-        <Link href={mainLink} className="post-link__read-more">
+        <Link href={mainLink} target="_blank" className="post-link__read-more">
           Read more&hellip;
         </Link>
       )}

@@ -5,11 +5,13 @@ import { Icons } from "./Icons";
 import { socialMedia } from "@/config/socialMedia";
 import Link from "next/link";
 import HanziWriter from "hanzi-writer";
+import { useTheme } from "next-themes";
 
 export default function ProfileCard() {
   const [currentTime, setCurrentTime] = useState(
     new Date().toLocaleTimeString("en-US", { timeZone: "America/Vancouver" })
   );
+  const { theme, setTheme } = useTheme();
 
   const hanZiSize = 36;
 
@@ -19,18 +21,21 @@ export default function ProfileCard() {
       height: hanZiSize,
       padding: 5,
       showOutline: true,
+      strokeColor: "#2A3D66",
     });
     var char2 = HanziWriter.create("char2", "奎", {
       width: hanZiSize,
       height: hanZiSize,
       padding: 5,
       showOutline: true,
+      strokeColor: "#2A3D66",
     });
     var char3 = HanziWriter.create("char3", "亮", {
       width: hanZiSize,
       height: hanZiSize,
       padding: 5,
       showOutline: true,
+      strokeColor: "#2A3D66",
     });
     chainAnimationsForever(char1, char2, char3);
 
@@ -59,9 +64,7 @@ export default function ProfileCard() {
         <div className="text-center text-3xl font-extrabold text-black dark:text-white">
           Kuiliang Zhang
         </div>
-        <div
-          className={`flex justify-center !mt-0 !-mb-2 after:h-[${hanZiSize}px]`}
-        >
+        <div className={`flex justify-center !mt-0 !-mb-2 after:h-[36px]`}>
           <div id="char1"></div>
           <div id="char2"></div>
           <div id="char3"></div>
@@ -95,7 +98,7 @@ export default function ProfileCard() {
             const Icon = Icons[media.icon];
             return (
               <Link href={media.href} key={media.href}>
-                <Icon className="h-5 w-5" />
+                <Icon className="h-5 w-5 dark:text-gray-400 hover:dark:text-white text-gray-600 hover:text-black" />
               </Link>
             );
           })}

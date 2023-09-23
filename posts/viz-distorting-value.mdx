@@ -1,0 +1,51 @@
+---
+title: 'Typical Viz Mistakes That Distorting Values'
+publishedDate: '2020-03-22'
+updatedDate: '2023-08-18'
+tags: ['Data Science', 'Visualization']
+abstract: 'In data visualization, some people distort data on purpose of misleading their audience but most people do this just because of their inexperience. This article will introduce three typical mistakes resulting in distortion.'
+---
+
+In data visualization, some people distort data on purpose of misleading their audience but most people do this just because of their inexperience. This article will introduce three typical mistakes resulting in distortion.
+
+## Type 1: use area or volume
+
+Our brains have got used to compare values by the length. Therefore, visualizing data in area or volume will raise the problematic issue.
+
+For example, we now have two bars and circles with area 1 and 2 separately (Figure 1). After combining bars or circles, our brain can hardly tell that the area of the orange circle is twice the area of the blue circle whereas it’s easy for bars. Basically, the reason is our brain compare circular areas by their diameters, i.e. the length (Cairo, 2013).
+
+<CustomImage src="images/viz-distorting-value/fig1.webp" alt="fig1" />
+<ImageCaption>Fig 1. Use bars and circles to represent values</ImageCaption>
+
+## Type 2: rainbow color
+
+Color changes in rainbows are not perceptually uniform (Szafir, 2018). For example, the length of yellow is shorter than the length of green (Figure 2). This feature even misleads people with normal color vision, much less those with color-blindness.
+
+<CustomImage src="images/viz-distorting-value/fig2.webp" alt="fig2" />
+<ImageCaption>Fig. 2 Rainbow color</ImageCaption>
+
+The alternatives of rainbow color are sequential or diverging color (Figure 3 and Figure 4). Matplotlib gives a guideline to use them.
+
+<CustomImage src="images/viz-distorting-value/fig3.webp" alt="fig3" />
+<ImageCaption>Fig 3. Sequential color</ImageCaption>
+
+<CustomImage src="images/viz-distorting-value/fig4.webp" alt="fig4" />
+<ImageCaption>Fig 4. Diverging color</ImageCaption>
+
+## Type 3: disappeared zero lines
+
+The y-axis of some graphics doesn’t start from zero, i.e. no 0-baseline. If the author doesn’t emphasize it, I personally think it’s a good bet that they try to mislead the audience deliberately.
+
+For instance, figure 5 exaggerates the difference between the percentages of vote with obvious intention. Actually, there is no disparity between the two values (Figure 6).
+
+<CustomImage src="images/viz-distorting-value/fig5.webp" alt="fig5" />
+<ImageCaption>Fig 5. Presidential election results in Venezuela, based on a graphic by Venezonala de Televisión. (Cairo, 2015)</ImageCaption>
+
+<CustomImage src="images/viz-distorting-value/fig6.webp" alt="fig6" />
+<ImageCaption>Fig 6. An alternative version: add a 0-baseline and remove the 3D effect (Cairo, 2015)</ImageCaption>
+
+## Reference
+
+* Cairo, A. (2013) The functional art: An introduction to information graphics and visualization. the USA: New Riders.
+* Cairo, A. (2015) ‘Graphics Lies, Misleading Visuals’, in Bihanic, D. (ed.) New challenges for data design. London: Springer, pp. 108–109
+* Szafir, D. (2018) The good, the bad, and the biased. Interactions. [Online] 25 (4), 26–33. Available from: doi:10.1145/3231772.

@@ -9,32 +9,19 @@ import rehypeKatex from "rehype-katex";
 import remarkMath from "remark-math";
 import CustomLink from "@/app/posts/[postId]/components/CustomLink";
 import CustomBlockQuote from "@/app/posts/[postId]/components/CustomBlockQuote";
+import path from "path";
+import fs from "fs";
 
-type Filetree = {
-  tree: [
-    {
-      path: string;
-    }
-  ];
-};
+const postsDirectory = path.join(process.cwd(), "posts");
 
-export async function getPostByName(
-  fileName: string
-): Promise<BlogPost | undefined> {
-  const res = await fetch(
-    `https://raw.githubusercontent.com/Crayon-ShinChan/blog-posts/main/${fileName}`
-  );
-
-  if (!res.ok) {
-    return undefined;
+export async function getPostByName(fileName: string): Promise<BlogPost> {
+  const id = fileName.replace(/\.mdx$/, "");
+  const fullPath = path.join(postsDirectory, fileName);
+  console.log("fullPath", fullPath);
+  if (fs.statSync(fullPath).isDirectory()) {
+    throw new Error(`Expected a file but "${fullPath}" is a directory.`);
   }
-
-  const rawMDX = await res.text();
-
-  if (rawMDX === "404: Not Found") {
-    return undefined;
-  }
-
+  const fileContents = fs.readFileSync(fullPath, "utf8");
   const { frontmatter, content } = await compileMDX<{
     title: string;
     publishedDate: string;
@@ -44,7 +31,7 @@ export async function getPostByName(
     project?: string;
     tool?: string;
   }>({
-    source: rawMDX,
+    source: fileContents,
     components: {
       Video,
       CustomImage,
@@ -71,9 +58,8 @@ export async function getPostByName(
     },
   });
 
-  const id = fileName.replace(/\.mdx$/, "");
-
-  const blogPostOjb: BlogPost = {
+  return {
+    content,
     meta: {
       id,
       title: frontmatter.title,
@@ -84,43 +70,126 @@ export async function getPostByName(
       ...(frontmatter.project && { project: frontmatter.project }),
       ...(frontmatter.tool && { tool: frontmatter.tool }),
     },
-    content,
-  };
-
-  return blogPostOjb;
+  } as BlogPost;
 }
 
-export async function getPostsMeta(): Promise<Meta[] | undefined> {
-  const res = await fetch(
-    "https://api.github.com/repos/Crayon-ShinChan/blog-posts/git/trees/main?recursive=1",
-    {
-      headers: {
-        Accept: "application/vnd.github+json",
-        Authorization: `Bearer ${process.env.GITHUB_BLOG_TOKEN}`,
-        "X-GitHub-Api-Version": "2022-11-28",
-      },
-    }
+export async function getPostsMeta(): Promise<Meta[]> {
+  const fileNames = fs
+    .readdirSync(postsDirectory)
+    .filter((name) => name.endsWith(".mdx"));
+
+  const allPostsMeta = await Promise.all(
+    fileNames.map(async (fileName: string) => {
+      const { meta } = await getPostByName(fileName);
+      return meta;
+    })
   );
-
-  if (!res.ok) {
-    return undefined;
-  }
-
-  const repoFiletree: Filetree = await res.json();
-
-  const filesArray = repoFiletree.tree
-    .map((obj) => obj.path)
-    .filter((path) => path.endsWith(".mdx"));
-
-  const posts: Meta[] = [];
-
-  for (const file of filesArray) {
-    const post = await getPostByName(file);
-    if (post) {
-      const { meta } = post;
-      posts.push(meta);
-    }
-  }
-
-  return posts.sort((a, b) => (a.updatedDate < b.updatedDate ? 1 : -1));
+  return allPostsMeta.sort((a, b) => (a.updatedDate < b.updatedDate ? 1 : -1));
 }
+
+// export async function getPostByName(
+//   fileName: string
+// ): Promise<BlogPost | undefined> {
+//   const res = await fetch(
+//     `https://raw.githubusercontent.com/Crayon-ShinChan/blog-posts/main/${fileName}`
+//   );
+
+//   if (!res.ok) {
+//     return undefined;
+//   }
+
+//   const rawMDX = await res.text();
+
+//   if (rawMDX === "404: Not Found") {
+//     return undefined;
+//   }
+
+//   const { frontmatter, content } = await compileMDX<{
+//     title: string;
+//     publishedDate: string;
+//     updatedDate: string;
+//     tags: string[];
+//     abstract: string;
+//     project?: string;
+//     tool?: string;
+//   }>({
+//     source: rawMDX,
+//     components: {
+//       Video,
+//       CustomImage,
+//       ImageCaption,
+//       CustomLink,
+//       CustomBlockQuote,
+//     },
+//     options: {
+//       parseFrontmatter: true,
+//       mdxOptions: {
+//         remarkPlugins: [remarkMath],
+//         rehypePlugins: [
+//           rehypeKatex,
+//           rehypeHighlight,
+//           rehypeSlug,
+//           [
+//             rehypeAutolinkHeadings,
+//             {
+//               behavior: "wrap",
+//             },
+//           ],
+//         ],
+//       },
+//     },
+//   });
+
+//   const id = fileName.replace(/\.mdx$/, "");
+
+//   const blogPostOjb: BlogPost = {
+//     meta: {
+//       id,
+//       title: frontmatter.title,
+//       publishedDate: frontmatter.publishedDate,
+//       updatedDate: frontmatter.updatedDate,
+//       tags: frontmatter.tags,
+//       abstract: frontmatter.abstract,
+//       ...(frontmatter.project && { project: frontmatter.project }),
+//       ...(frontmatter.tool && { tool: frontmatter.tool }),
+//     },
+//     content,
+//   };
+
+//   return blogPostOjb;
+// }
+
+// export async function getPostsMeta(): Promise<Meta[] | undefined> {
+//   const res = await fetch(
+//     "https://api.github.com/repos/Crayon-ShinChan/blog-posts/git/trees/main?recursive=1",
+//     {
+//       headers: {
+//         Accept: "application/vnd.github+json",
+//         Authorization: `Bearer ${process.env.GITHUB_BLOG_TOKEN}`,
+//         "X-GitHub-Api-Version": "2022-11-28",
+//       },
+//     }
+//   );
+
+//   if (!res.ok) {
+//     return undefined;
+//   }
+
+//   const repoFiletree: Filetree = await res.json();
+
+//   const filesArray = repoFiletree.tree
+//     .map((obj) => obj.path)
+//     .filter((path) => path.endsWith(".mdx"));
+
+//   const posts: Meta[] = [];
+
+//   for (const file of filesArray) {
+//     const post = await getPostByName(file);
+//     if (post) {
+//       const { meta } = post;
+//       posts.push(meta);
+//     }
+//   }
+
+//   return posts.sort((a, b) => (a.updatedDate < b.updatedDate ? 1 : -1));
+// }

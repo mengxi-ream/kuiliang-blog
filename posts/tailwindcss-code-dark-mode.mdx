@@ -1,0 +1,106 @@
+---
+title: "How to Apply Dark Mode for Code Blocks in Next.js with Highlight.js and Tailwind CSS"
+publishedDate: "2023-08-21"
+updatedDate: "2023-08-21"
+tags:
+  ["Computer Science", "Web Development", "Frontend", "Next.js", "Tailwind CSS"]
+abstract: "We can use highlight.js to highlight code blocks in Next.js. However, it doesn't support dark mode by default, i.e. the code blocks will not change style when we switch to dark mode. In this article, I will show you how to apply dark mode for code blocks in Next.js with Tailwind CSS."
+project: "Personal Website"
+---
+
+We can use highlight.js to highlight code blocks in Next.js. However, it doesn't support dark mode by default, i.e. the code blocks will not change style when we switch to dark mode. My friend <CustomLink href="https://github.com/Songkeys">Songkeys</CustomLink> provided a very elegant solution for this. In this article, I will show you how to apply dark mode for code blocks in Next.js with Tailwind CSS.
+
+## Install highlight.js and import code style
+
+First, we need to install highlight.js.
+
+```bash
+npm install highlight.js
+```
+
+After you install it, you can import any code style from `highlight.js/styles/` to your project. For example, if you want to use the `github-dark` style
+
+You can import it in some `tsx` file:
+
+```tsx
+import "highlight.js/styles/github-dark.css";
+```
+
+You can also import it in `global.css`, if you turn on `postcss-import` in your `postcss.config.js`:
+
+```js
+// postcss.config.js
+module.exports = {
+  plugins: {
+    "postcss-import": {},
+    tailwindcss: {},
+    autoprefixer: {},
+  },
+};
+```
+
+```css
+/* global.css */
+@import "highlight.js/styles/github-dark.css";
+```
+
+## What is the problem for dark mode?
+
+If you use `github-dark` style, you will find that the code blocks will not change style when you switch to differnt modes (light or dark). Because you only import the `github-dark` style.
+
+Let's say what you want is to import `github-dark.css` for dark mode and `github.css` for light mode. How can you do that?
+
+I used <CustomLink href="https://github.com/pacocoursey/next-themes">next-themes</CustomLink> with `attribute="class"` to switch between light and dark mode, which basically add a `dark` or `light` class to the `html` tag when you switch to dark or light mode.
+
+Therefore, to dynamically import css files for code blocks, you may considering about code like this:
+
+```css
+/* global.css */
+@import "highlight.js/styles/github.css";
+.dark {
+  @import "highlight.js/styles/github-dark.css";
+}
+```
+
+However, this is not valid CSS. You can't use `@import` inside a selector. From the <CustomLink href="https://developer.mozilla.org/en-US/docs/Web/CSS/@import">MDN</CustomLink>:
+
+<CustomBlockQuote>The `@import` CSS at-rule is used to import style rules from other valid stylesheets. An `@import` rule must be defined at the top of the stylesheet, before any other at-rule (except `@charset` and `@layer`) and style declarations, or it will be ignored.</CustomBlockQuote>
+
+## Solution
+
+### For websites only support auto mode
+
+If your website only support auto mode, which means the mode depends on the system preference, and visitors cannot switch between light and dark mode manually, you can use the following easy solution. (Notice to turn on `postcss-import` in your `postcss.config.js`)
+
+```css
+/* global.css */
+@import url("highlight.js/styles/github-dark.css") screen and
+  (prefers-color-scheme: dark);
+@import url("highlight.js/styles/github.css") screen and
+  (prefers-color-scheme: light);
+```
+
+This solution is not valid for website support light, dark and auto mode. For example, visitors want dark mode and manually switch to it when their systems are in light mode, i.e. `prefers-color-scheme: light`. Then the code block style will still be in light mode.
+
+### For websites support light, dark and auto mode
+
+We can use `SASS`/`SCSS` to solve this problem. First, we need to install `sass` in Next.js.
+
+```bash
+npm install sass
+```
+
+Then, we change the `global.css` to `global.scss` and use the following code:
+
+```scss
+@use "sass:meta";
+
+@import "highlight.js/styles/github.css";
+.dark {
+  @include meta.load-css("highlight.js/styles/github-dark");
+}
+```
+
+This code import `github.css` by default. When you switch to dark mode, it will import `github-dark.css` and override the style of `github.css`. This is valid because `SASS` support `@include` inside a selector to import a css file.
+
+Now, the code blocks will change style when you switch to dark mode. My website support light, dark and auto mode, it works very well.

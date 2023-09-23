@@ -1,0 +1,98 @@
+---
+title: "Brief Introduction to RSA Cryptosystem"
+publishedDate: "2023-08-21"
+updatedDate: "2023-08-21"
+tags: ["Math", "Number Theory"]
+abstract: "This is a note on the RSA cryptosystem which covered by the course MATH 312 at University of British Columbia."
+tool: "RSA Calculator"
+---
+
+This is a note on the RSA cryptosystem which covered by <CustomLink href="https://personal.math.ubc.ca/~johnm/">Prof. Lauchie MacDonald</CustomLink>'s course MATH 312 at University of British Columbia.
+
+## Public Key Cryptography
+
+In a "public key cryptosystem" there are two keys: a public key and a private key. The public key is used to encrypt messages, and the private key is used to decrypt messages. The public key is made public, and the private key is kept secret.
+
+We denote an encryption procedure $E$, a decryption procedure $D$. They has four properties:
+
+1. Deciphering a ciphertext yields the original plaintext $M$: $D(E(M)) = M$.
+2. Both $E$ and $D$ are efficiently computable.
+3. By publicly revealing $E$, it is not easy to compute $D$.
+4. If a message $M$ is first deciphered and then enciphered, $M$ is obtained: $E(D(M)) = M$.
+
+## Encryption and Decryption Methods
+
+### Notations and Definitions
+
+Let's denote:
+
+- $M$ as the message or plaintext
+- $C$ as the ciphertext
+- $E$ as the encryption procedure
+- $D$ as the decryption procedure
+- The pair of positive integers $(e, n)$ as the public key
+- The pair of positive integers $(d, n)$ as the private key
+
+The encryption and decryption algorithm $E$ and $D$ are defined as:
+
+$$
+\begin{aligned}
+C \equiv & E(M) \equiv M^e(\bmod n), \text { for a message } M \\
+& D(C) \equiv C^d(\bmod n), \text { for a ciphertext } C
+\end{aligned}
+$$
+
+### How to Choose the Keys
+
+The public key $(e, n)$ and the private key $(d, n)$ are chosen as follows:
+
+1. You first compute $n$ as the product of two large primes $p$ and $q$, i.e. $n = pq$.
+2. Pick a large integer $d$ that is relatively prime to $(p - 1)(q - 1)$, i.e. $\gcd(d, (p - 1)(q - 1)) = 1$.
+3. The integer $e$ is finally computed from $d$ and $(p - 1)(q - 1)$ by solving the equation $ed \equiv 1(\bmod (p - 1)(q - 1))$. Note there must be a solution for $e$ because $\gcd(d, (p - 1)(q - 1)) = 1$.
+
+## The Underlying Mathematics
+
+We demonstrate the correctness of the deciphering algorithm using an identity due to Euler and Fermat: for any integer (message) $M$ which is relatively prime to $n$,
+
+$$
+M^{\phi(n)} \equiv 1(\bmod n)
+$$
+
+where $\phi(n)$ is the Euler's totient function, which is the number of positive integers less than $n$ and relatively prime to $n$. For prime numbers $p$,
+
+$$
+\phi(p) = p - 1
+$$
+
+In our case, because the totinent function is multiplicative, we have
+
+$$
+\begin{aligned}
+\phi(n) &= \phi(pq) \\
+&= \phi(p)\phi(q) \\
+&= (p - 1)(q - 1)
+\end{aligned}
+$$
+
+Since $d$ is relatively prime to $\phi(n)$, there exists an multiplicative inverse $e$ of $d$ modulo $\phi(n)$, i.e.
+
+$$
+ed \equiv 1(\bmod \phi(n))
+$$
+
+Now, we want to prove that $D(E(M)) = M$ and $E(D(M)) = M$.
+
+$$
+\begin{aligned}
+D(E(M)) &= (E(M))^d(\bmod n) \\
+&= (M^e)^d(\bmod n) \\
+&= M^{ed}(\bmod n) \\
+&= M^{1 + k\phi(n)}(\bmod n) \\
+&= M(M^{\phi(n)})^k(\bmod n) \\
+&= M(\bmod n)
+\end{aligned}
+$$
+
+The proof of $E(D(M)) = M$ is similar.
+
+Now, we have proved that the encryption and decryption algorithm $E$ and $D$ are correct.

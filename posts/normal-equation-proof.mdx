@@ -1,0 +1,107 @@
+---
+title: 'The Normal Equation Proof'
+publishedDate: '2020-03-28'
+updatedDate: '2023-08-19'
+tags: ['Data Science', 'Machine Learning', 'Math']
+abstract: 'We have several approaches to get the global minimum of the cost function for linear regression, including normal equation and gradient descent. This article will give the proof of normal equation.'
+---
+We have several approaches to get the global minimum of the cost function for linear regression, including normal equation and gradient descent. This article will give the proof of normal equation.
+
+## Linear regression recap
+
+For example, we want to model the target value [global temperature anomalies](https://www.ncei.noaa.gov/access/monitoring/dyk/anomalies-vs-temperature) (𝑌) based on CO₂ level every year (𝑋).
+
+<CustomImage src="images/normal-equation-proof/fig1.webp" alt="fig1" />
+<ImageCaption>Fg1. Climate change data from 1959 to 2016</ImageCaption>
+
+We assume there is a linear relationship (Figure 1).
+
+$$
+h_\theta(x) = \theta_1 x_1 + \theta_0
+$$
+
+Normally, let 𝑚 be the number of training examples, 𝑛 be the number of features. Then the cost function should be:
+
+$$
+J(\theta) = \frac{1}{2m}\sum_{i=1}^{m}(h_\theta(x^{(i)}) - y^{(i)})^2
+$$
+
+Vectorized cost function:
+
+$$
+J(\theta) = \frac{1}{2m}(X\theta - y)^T(X\theta - y)
+$$
+
+## Normal equation
+
+We need to find 𝜃 to minimize the cost function, a convex function for 𝜃, which means we need to find 𝜃 to satisfy
+
+$$
+\nabla_\theta J(\theta)=0
+$$
+
+Then we solve for 𝜃, we get the normal equation
+
+$$
+\theta = (X^TX)^{-1}X^Ty
+$$
+
+## Proof
+
+### Basic knowledge for proof
+
+We deﬁne the derivative of 𝑓 with respect to matrix 𝐴 to be
+
+$$
+\nabla_A f(A)=\left[\begin{array}{ccc}
+\frac{\partial f}{\partial A_{11}} & \cdots & \frac{\partial f}{\partial A_{1 n}} \\
+\vdots & \ddots & \vdots \\
+\frac{\partial f}{\partial A_{m 1}} & \cdots & \frac{\partial f}{\partial A_{m n}}
+\end{array}\right]
+$$
+
+We also introduce the trace operator, written “tr”.
+
+$$
+\operatorname{tr}(A)=\sum_{i=1}^{n} A_{i i}
+$$
+
+Now, we need to know 10 properties. (The details are in my Youtube channel)
+
+$$
+\begin{aligned}
+\operatorname{tr} A B & =\operatorname{tr} B A \\
+\operatorname{tr} A B C & =\operatorname{tr} C A B=\operatorname{tr} B C A \\
+\operatorname{tr} A B C D & =\operatorname{tr} D A B C=\operatorname{tr} C D A B=\operatorname{tr} B C D A \\
+\operatorname{tr} A & =\operatorname{tr} A^T \\
+\operatorname{tr}(A+B) & =\operatorname{tr} A+\operatorname{tr} B \\
+\operatorname{tr} \alpha A & =\alpha \operatorname{tr} A \\
+\nabla_A \operatorname{tr} A B & =B^T \\
+\nabla_{A^T} f(A) & =\left(\nabla_A f(A)\right)^T \\
+\nabla_A \operatorname{tr} A B A^T C & =C A B+C^T A B^T \\
+\nabla_A|A| & =|A|\left(A^{-1}\right)^T
+\end{aligned}
+$$
+
+### Proof start
+
+$$
+\begin{aligned}
+\nabla_\theta J(\theta) & =\nabla_\theta \frac{1}{2 m}(X \theta-Y)^T(X \theta-Y) \\
+& =\frac{1}{2 m} \nabla_\theta\left(\theta^T X^T X \theta-\theta^T X^T Y-Y^T X \theta+Y^T Y\right) \\
+& =\frac{1}{2 m} \nabla_\theta \operatorname{tr}\left(\theta^T X^T X \theta-\theta^T X^T Y-Y^T X \theta+Y^T Y\right) \\
+& =\frac{1}{2 m} \nabla_\theta\left(\operatorname{tr} \theta^T X^T X \theta-2 \operatorname{tr} Y^T X \theta\right) \\
+& =\frac{1}{2 m}\left(X^T X \theta+X^T X \theta-2 X^T Y\right) \\
+& =\frac{1}{m}\left(X^T X \theta-X^T Y\right) \\
+& =0
+\end{aligned}
+$$
+
+So we get the normal equation
+
+$$
+\theta = (X^TX)^{-1}X^Ty
+$$
+
+## Reference
+* Ng, A., 2003. Supervised Learning. [online] CS229.stanford.edu. Available at: http://cs229.stanford.edu/notes/cs229-notes1.pdf [Accessed 18 March 2020].

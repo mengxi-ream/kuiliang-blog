@@ -1,0 +1,249 @@
+---
+title: "Light, Dark and System Modes in Next.js with TailwindCSS"
+publishedDate: "2020-08-19"
+updatedDate: "2023-08-19"
+tags: ["Computer Science", "Web Development", "Next.js", "Tailwind CSS"]
+abstract: "The complete pattern for dark mode is to allow users to choose between light, dark and system modes. System mode means that the website will automatically switch between light and dark mode based on the system settings."
+project: "Personal Website"
+---
+
+The complete pattern for dark mode is to allow users to choose between light, dark and system modes. System mode means that the website will automatically switch between light and dark mode based on the system settings. This article will show you how to implement this pattern in Next.js with TailwindCSS.
+
+## Set Up Next.js with TailwindCSS
+
+First, we need to set up Next.js with TailwindCSS. You can follow the official guide <CustomLink href="https://nextjs.org/docs/getting-started/installation">here</CustomLink>.
+
+Note when you have to choose "Would you like to use Tailwind CSS? No / Yes" in the guide, choose "Yes".
+
+Then you will get the document structure like this (App Route):
+
+```bash
+.
+├── app
+│   ├── layout.js
+│   ├── page.js
+│   └── global.css
+```
+
+## Integrate `next-themes` with TailwindCSS
+
+### Install `next-themes`
+
+We need to install `next-themes` to help us switch between light, dark and system modes. You can install it by running the following command:
+
+```bash
+npm install next-themes
+```
+
+### Chanage darkMode to `class`
+
+Go to `tailwind.config.js` and change darkMode to `class`:
+
+```js
+module.exports = {
+  darkMode: "class",
+};
+```
+
+This will allow us to use the `dark` class to switch between light and dark mode. Specifically, when `<html>` tag has the `dark` class, the website will be in dark mode and you can style it with the `dark:` prefix by TailwindCSS.
+
+### Wrap the App with `ThemeProvider`
+
+Create a file called `provider.tsx` in the `app` folder and add the following code:
+
+```tsx
+"use client";
+
+import { ThemeProvider } from "next-themes";
+
+export function Providers({ children }: { children: React.ReactNode }) {
+  return <ThemeProvider attribute="class">{children}</ThemeProvider>;
+}
+```
+
+Note you should let `attribute` be `class` so that we can use the `dark` class to switch between light and dark mode.
+
+Then, wrap the App with `Providers` in `app/layout.tsx`:
+
+```tsx
+import { Providers } from "./providers";
+
+function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="en" suppressHydrationWarning>
+      <body className="min-h-screen dark:bg-slate-900">
+        <Providers>
+          <main className="px-6 md:px-16 max-w-5xl mx-auto">{children}</main>
+        </Providers>
+      </body>
+    </html>
+  );
+}
+```
+
+## Add a Button to Switch Between Light, Dark and System Modes
+
+Create components folder inside the `app` folder and create a file called `ThemeMenu.tsx` inside the `components` folder.
+
+Use `setTheme()` from `next-themes` to switch between light, dark and system modes.
+
+```tsx
+const { theme, setTheme } = useTheme();
+```
+
+Then, add a button to switch between light, dark and system modes, for example:
+
+```tsx
+import { useTheme } from "next-themes";
+
+const ThemeChanger = () => {
+  const { theme, setTheme } = useTheme();
+
+  return (
+    <div>
+      The current theme is: {theme}
+      <button onClick={() => setTheme("light")}>Light Mode</button>
+      <button onClick={() => setTheme("dark")}>Dark Mode</button>
+    </div>
+  );
+};
+```
+
+The above code is hydration unsafe and will throw a hydration mismatch warning when rendering with SSG or SSR. This is because we cannot know the theme on the server, so it will always be `undefined` until mounted on the client.
+
+To fix this, check the document of `next-themes` <CustomLink href="https://github.com/pacocoursey/next-themes#avoid-hydration-mismatch">here</CustomLink>.
+
+I created the theme switch menu with Headless UI and TailwindCSS. Here is the code:
+
+```tsx
+import { Menu, Transition } from "@headlessui/react";
+import { Fragment, useEffect, useState } from "react";
+import { SunIcon, MoonIcon, CogIcon } from "@heroicons/react/24/solid";
+import { useTheme } from "next-themes";
+import { ReactElement } from "react";
+
+export default function ThemeMenu() {
+  const [mounted, setMounted] = useState(false);
+  const { theme, setTheme } = useTheme();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  return (
+    <Menu as="div" className="relative inline-block text-left">
+      <div className="flex items-center justify-center w-8 h-8 rounded-md hover:bg-gray-100 dark:hover:bg-slate-800">
+        <Menu.Button className="w-6 h-6">
+          {mounted ? (
+            <div>
+              <SunIcon id="header__light" />
+              <MoonIcon id="header__dark" className="p-0.5" />
+            </div>
+          ) : (
+            // when unmounted, render an empty div to occupy the space
+            <div />
+          )}
+        </Menu.Button>
+      </div>
+      <Transition
+        as={Fragment}
+        enter="transition ease-out duration-100"
+        enterFrom="transform opacity-0 scale-95"
+        enterTo="transform opacity-100 scale-100"
+        leave="transition ease-in duration-75"
+        leaveFrom="transform opacity-100 scale-100"
+        leaveTo="transform opacity-0 scale-95"
+      >
+        <Menu.Items className="absolute right-0 mt-2 w-28 origin-top-right rounded-md bg-white dark:bg-slate-700 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none z-50">
+          <div className="px-1 py-1 ">
+            <ThemeMenuItem
+              theme="light"
+              icon={<SunIcon className="h-5 w-5" />}
+              label="Light"
+              setTheme={setTheme}
+              selected={theme === "light"}
+            />
+            <ThemeMenuItem
+              theme="dark"
+              icon={<MoonIcon className="h-4 w-4" />}
+              label="Dark"
+              setTheme={setTheme}
+              selected={theme === "dark"}
+            />
+            <ThemeMenuItem
+              theme="system"
+              icon={<CogIcon className="h-5 w-5" />}
+              label="System"
+              setTheme={setTheme}
+              selected={theme === "system"}
+            />
+          </div>
+        </Menu.Items>
+      </Transition>
+    </Menu>
+  );
+}
+
+function ThemeMenuItem({
+  theme,
+  icon,
+  label,
+  setTheme,
+  selected,
+}: {
+  theme: string;
+  icon: ReactElement;
+  label: string;
+  setTheme: (theme: string) => void;
+  selected: boolean;
+}) {
+  return (
+    <Menu.Item>
+      {({ active }) => (
+        <button
+          className={generateClassName(active, selected)}
+          onClick={() => setTheme(theme)}
+        >
+          <div className="flex items-center justify-center h-5 w-5 mr-2">
+            {icon}
+          </div>
+          {label}
+        </button>
+      )}
+    </Menu.Item>
+  );
+}
+
+function generateClassName(active: boolean, selected: boolean) {
+  let baseClass =
+    "group flex w-full items-center rounded-md px-2 py-1.5 my-0.5";
+  if (active) {
+    baseClass = `${baseClass} bg-gray-100 dark:bg-slate-600`;
+  }
+  if (selected) {
+    baseClass = `${baseClass} ring-1 ring-orange-500 ring-opacity-60`;
+  }
+  return baseClass;
+}
+```
+
+With the CSS code in `global.css`:
+
+```css
+#header__light,
+#header__dark {
+  display: none;
+}
+
+html[class="dark"] #header__dark {
+  display: block;
+}
+
+html[class="light"] #header__light {
+  display: block;
+}
+```
+
+This piece of code is used to show the corresponding icon according to the current theme. When user choose the system mode, the icon will be his system theme on his device, which is determined by `prefers-color-scheme`.
+
+Now you can switch between light, dark and system modes by this menu button. You only need to add `dark:` prefix to the class name to make the dark mode style work.

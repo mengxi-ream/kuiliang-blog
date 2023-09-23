@@ -1,0 +1,84 @@
+---
+title: 'Dual-axis Line Charts And Connected Scatterplots, How To Choose?'
+publishedDate: '2020-02-28'
+updatedDate: '2023-08-18'
+tags: ['Data Science','Visualization']
+abstract: 'Both dual-axis line chart (DALC) and connected scatterplots (CS) can visualize two time series in one graph. This article will tell you which one to choose for your data and story.'
+---
+
+Both dual-axis line chart (DALC) and connected scatterplots (CS) can visualize two time series in one graph. This article will tell you which one to choose for your data and story.
+
+## What are DALC and CS
+
+The dual-axis line chart (DALC) maps the time dimension to the horizontal axis and visualizes two time series in two separate lines in one chart (Figure 1, left). The connected scatterplot (CS) visualizes two related time series in a scatterplot and connects the points with a line in a temporal sequence (Figure 1, right).
+
+<CustomImage src="images/dalc-or-cs/fig1.webp" alt="fig1" />
+<ImageCaption>Fig. 1. The relationship between the birth rate and life expectancy in Africa (DALC, left; CS, right)</ImageCaption>
+
+The dual-axis line chart (DALC) is a familiar viz form for most people whereas the connected scatterplot (CS) for time series data is novel for many people. One of the first uses of CS was Oil’s Roller Coaster Ride for The New York Times in 2008 (Figure 2).
+
+<CustomImage src="images/dalc-or-cs/fig2.gif" alt="fig2" />
+<ImageCaption>Fig. 2. Oil’s Roller Coaster Ride</ImageCaption>
+
+When we are reading a connected scatterplot, we should first make sure the direction of the temporal sequence. Sometimes there are arrows to remind you but sometimes there is just text of time.
+
+After finding the indication of the direction, we can often find two distinctive shapes, L-shapes and loops (Figure 2).
+
+L-shapes appear when the line changes the direction around 90°, like the shape of data around 1973 in Oil’s Roller Coaster Ride which indicates that the price of oil increased dramatically with stable world oil consumption.
+
+Loops often indicate a temporal shift between the series. For each local maximum and minimum pair (a peak and a valley), which occurs at different times in each series, a loop will appear. There is a loop from 1976 to 1986. The local maximum and minimum for world oil consumption appeared in 1979 and 1983 respectively whereas these for the price of oil appeared in 1980 and 1986.
+
+The lines in CS have the corresponding patterns in DALC. The detail is showed as the following.
+
+<CustomImage src="images/dalc-or-cs/fig3.webp" alt="fig3" />
+<ImageCaption>Fig. 3. Patterns in DALC and CS</ImageCaption>
+
+## Pros & Cons of DALC and CS
+
+### Value vs. Relationship
+
+Functionally, DALC is clear for absolute value and the value gap between two data series (if they have the same units and the same magnitude) and CS is good for finding the relationship between two data series.
+
+<CustomImage src="images/dalc-or-cs/fig4.webp" alt="fig4" />
+<ImageCaption>Fig. 4. A country’s export and import data</ImageCaption>
+
+If we are exploring the data in Figure 4, it’s easy to notice how much the balance of trade (the difference in export and import) this country has in DALC. In contrast, it’s hard to calculate it in CS but easier to notice there are three patterns in general with three slopes of the red line.
+
+### DCLA pitfalls
+
+If you don’t pay attention to your visualization method, it can be difficult for the audience to clear which data series belongs to which axis (Figure 5).
+
+<CustomImage src="images/dalc-or-cs/fig5.webp" alt="fig5" />
+<ImageCaption>Fig. 5. The unclear visualization</ImageCaption>
+
+Crossing lines can be misleading if we don’t synchronize axes (Figure 6).
+
+<CustomImage src="images/dalc-or-cs/fig6.webp" alt="fig6" />
+<ImageCaption>Fig. 6. Forget to synchronize axes</ImageCaption>
+
+There could be two different data series of the same units but different magnitude or different units altogether. DALC is not the best choice for them (Figure 7).
+
+<CustomImage src="images/dalc-or-cs/fig7.webp" alt="fig7" />
+<ImageCaption>Fig. 7. Different currency units and magnitude</ImageCaption>
+
+### CS pitfalls
+
+The pitfalls of connected scatterplots are basically come from the novelty of them.
+
+If your graph goes from right to left when plotting time, the audience may still read it from left to right by habit, which reversing the time (Figure 8).
+
+<CustomImage src="images/dalc-or-cs/fig8.webp" alt="fig8" />
+<ImageCaption>Fig. 8. Subdata of export and import</ImageCaption>
+
+Besides, the new audience often need time to understand what’s going on with the loops and what the slope of the line means because CS is not a conventional viz form. However, the novelty of CS also leaves a great impression on them.
+
+To solve the problems risen by the novelty, a certain level of redundancy is necessary, which means you should explain the same things several times, by different means. For example, adding some text to explain or adding arrows for emphasizing the direction.
+
+## Create DALC and CS in Tableau
+
+<Video id="UUyG6mVFeW8" />
+
+## Reference
+
+* Daydreaming Numbers. (2020). What to keep in mind when creating dual axis charts?. [online] Available at: http://daydreamingnumbers.com/blog/dual-axis-charts/ [Accessed 28 Feb. 2020].
+* Haroz, S., Kosara, R. and Franconeri, S. (2016). The Connected Scatterplot for Presenting Paired Time Series. IEEE Transactions on Visualization and Computer Graphics, 22(9), pp.2174–2186.
